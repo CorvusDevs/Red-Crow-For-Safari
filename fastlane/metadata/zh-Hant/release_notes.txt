@@ -1,0 +1,1 @@
+首次發佈，包含 50 多項 YouTube 增強功能，涵蓋播放控制、SponsorBlock、DeArrow、頻道設定檔、自訂佈景主題等。

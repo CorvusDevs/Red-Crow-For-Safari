@@ -1,0 +1,1 @@
+Initial release with 50+ YouTube enhancement features including playback controls, SponsorBlock, DeArrow, channel profiles, custom themes, and more.

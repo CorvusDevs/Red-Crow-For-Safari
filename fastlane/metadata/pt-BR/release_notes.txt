@@ -1,0 +1,1 @@
+Lançamento inicial com mais de 50 recursos de aprimoramento do YouTube, incluindo controles de reprodução, SponsorBlock, DeArrow, perfis de canal, temas personalizados e muito mais.

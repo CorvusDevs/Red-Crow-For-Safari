@@ -1,0 +1,1 @@
+Rilascio iniziale con oltre 50 funzionalità di miglioramento per YouTube, tra cui controlli di riproduzione, SponsorBlock, DeArrow, profili canale, temi personalizzati e molto altro.

@@ -1,0 +1,37 @@
+O Red Crow transforma sua experiência no YouTube no Safari com mais de 50 recursos personalizáveis. Ajuste a velocidade de reprodução, qualidade, volume e muito mais — tudo sem sair do navegador.
+
+COMO FUNCIONA
+Instale a extensão, abra o YouTube e tudo funciona automaticamente com configurações padrão sensatas. Abra a página de configurações para personalizar cada detalhe, ou use predefinições rápidas para aplicar configurações populares com um clique.
+
+PRINCIPAIS RECURSOS
+
+- Velocidade personalizada — Defina qualquer velocidade padrão de 0,25x a 16x, com memória por canal.
+- Controle de qualidade — Force uma qualidade padrão e uma qualidade separada para tela cheia.
+- Aumento de volume — Amplifique o áudio até 600% além do limite do YouTube.
+- Modo teatro e cinema — Entre automaticamente no modo teatro, escureça o fundo da página ou vá totalmente cinematográfico.
+- SponsorBlock — Pule automaticamente patrocinadores, intros, outros e outros segmentos sem conteúdo.
+- DeArrow — Substitua títulos e miniaturas sensacionalistas por alternativas da comunidade.
+- Ocultar distrações — Remova comentários, vídeos relacionados, Shorts, cards finais, notificações e mais.
+- Temas personalizados — Escolha entre Nord, Solarized Dark, Catppuccin Mocha ou force o tema claro/escuro do próprio YouTube.
+- Barra de ferramentas do player — Captura de tela, loop, loop A-B, picture-in-picture, reprodução reversa e mais — tudo na barra do player.
+- Filtros de vídeo — Ajuste brilho, contraste, saturação, desfoque, matiz e mais em tempo real.
+- Volume por scroll — Altere o volume rolando sobre o player.
+- Navegação por capítulos — Um painel deslizante mostrando todos os capítulos para busca rápida.
+- Perfis de canal — Salve configurações por canal para velocidade, qualidade, volume e modo cinema.
+- Temporizador de uso — Receba lembretes para fazer uma pausa após um tempo de exibição configurável.
+- Atalhos de teclado — Atalhos personalizáveis para loop, captura de tela, PiP, cinema e mais.
+- Mini-player — Um mini-player flutuante que acompanha você ao rolar a página.
+- Canais bloqueados — Filtre vídeos de canais que você não quer ver.
+- Filtro de duração — Oculte vídeos mais curtos ou mais longos que sua faixa preferida.
+- Predefinições — Configurações com um clique para modos Podcast, Apresentação, Música, Minimalista e Foco.
+- CSS personalizado — Injete seus próprios estilos para controle visual completo.
+
+CONFIGURAÇÕES E PERSONALIZAÇÃO
+A página completa de configurações é organizada em seções claras com barra de busca e descrições das configurações. Importe, exporte ou redefina sua configuração a qualquer momento.
+
+PRIVACIDADE EM PRIMEIRO LUGAR
+O Red Crow não coleta, armazena ou transmite nenhum dado pessoal. Funciona inteiramente no seu dispositivo sem análises, sem rastreamento e sem necessidade de contas. Sua navegação permanece privada.
+
+Disponível em 15 idiomas: inglês, espanhol, francês, alemão, italiano, português, holandês, russo, turco, árabe, japonês, coreano, tailandês, chinês simplificado e chinês tradicional.
+
+A extensão de aprimoramento do YouTube mais completa para o Safari.
