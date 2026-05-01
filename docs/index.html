@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Crow — YouTube Enhancement Extension for Safari</title>
+    <meta name="description" content="Enhance your YouTube experience in Safari with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ settings. A native Safari extension for macOS, iOS, and iPadOS.">
+    <link rel="canonical" href="https://corvusdevs.github.io/Red-Crow-For-Safari/">
+    <link rel="alternate" hreflang="en" href="https://corvusdevs.github.io/Red-Crow-For-Safari/">
+    <link rel="alternate" hreflang="da" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=da">
+    <link rel="alternate" hreflang="de" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=de">
+    <link rel="alternate" hreflang="es" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=es">
+    <link rel="alternate" hreflang="fi" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=fi">
+    <link rel="alternate" hreflang="fr" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=it">
+    <link rel="alternate" hreflang="ja" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=ja">
+    <link rel="alternate" hreflang="ko" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=ko">
+    <link rel="alternate" hreflang="nb" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=nb">
+    <link rel="alternate" hreflang="nl" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=nl">
+    <link rel="alternate" hreflang="pl" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=pl">
+    <link rel="alternate" hreflang="pt-BR" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=pt_BR">
+    <link rel="alternate" hreflang="ru" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=ru">
+    <link rel="alternate" hreflang="sv" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=sv">
+    <link rel="alternate" hreflang="tr" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=tr">
+    <link rel="alternate" hreflang="zh-Hans" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=zh_CN">
+    <link rel="alternate" hreflang="zh-Hant" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=zh_TW">
+    <link rel="alternate" hreflang="x-default" href="https://corvusdevs.github.io/Red-Crow-For-Safari/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://corvusdevs.github.io/Red-Crow-For-Safari/">
+    <meta property="og:title" content="Red Crow — YouTube Enhancement Extension for Safari">
+    <meta property="og:description" content="Speed controls, SponsorBlock, video filters, dislike counts, and 40+ settings. A native YouTube enhancement extension for Safari.">
+    <meta property="og:image" content="https://corvusdevs.github.io/Red-Crow-For-Safari/icon.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Red Crow — YouTube Enhancement Extension for Safari">
+    <meta name="twitter:description" content="Enhance YouTube in Safari with speed controls, SponsorBlock, video filters, and more.">
+    <meta name="twitter:image" content="https://corvusdevs.github.io/Red-Crow-For-Safari/icon.png">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="youtube enhancement, safari extension, sponsorblock, speed control, video filters, dislike count, dearrow, keyboard shortcuts, macos, ios, ipados, red crow">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Red Crow for Safari",
+        "description": "Enhance your YouTube experience in Safari with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ customizable settings.",
+        "operatingSystem": "macOS 15.0+, iOS 18.0+, iPadOS 18.0+",
+        "applicationCategory": "BrowserApplication",
+        "applicationSubCategory": "YouTube Enhancement",
+        "screenshot": "https://corvusdevs.github.io/Red-Crow-For-Safari/icon.png",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "CorvusDevs", "url": "https://corvusdevs.github.io" }
+    }
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+    <style>
+        :root {
+            --bg: #0a0a0c;
+            --surface: #111114;
+            --surface-2: #19191e;
+            --border: #252530;
+            --text: #e8e8ed;
+            --text-secondary: #7c7c84;
+            --accent: #FF3B30;
+            --accent-light: #FF6961;
+            --accent-dim: rgba(255, 59, 48, 0.1);
+            --accent-glow: rgba(255, 59, 48, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .nav-brand {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-brand img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .nav-brand span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        /* Language Picker */
+        .lang-wrap { position: relative; margin-left: 16px; flex-shrink: 0; }
+        .lang-btn {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+            padding: 6px 28px 6px 12px; color: var(--text); font-size: 13px; cursor: pointer;
+            white-space: nowrap;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%237c7c84' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 10px center;
+        }
+        .lang-menu {
+            display: none; position: absolute; top: calc(100% + 6px); right: 0; z-index: 300;
+            background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+            padding: 6px 0; min-width: 160px; max-height: 400px; overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+        .lang-menu.open { display: block; }
+        .lang-menu button {
+            display: block; width: 100%; padding: 8px 16px; background: none; border: none;
+            color: var(--text); font-size: 13px; cursor: pointer; text-align: left; white-space: nowrap;
+        }
+        .lang-menu button:hover { background: rgba(255,255,255,0.08); }
+        .lang-menu button.active { color: var(--accent); }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 140px 24px 80px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(255, 59, 48, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            margin-bottom: 28px;
+            position: relative;
+            border: 2px solid var(--border);
+            box-shadow: 0 0 60px 20px rgba(255, 59, 48, 0.2), 0 0 120px 50px rgba(255, 59, 48, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: 19px;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero-cta:hover {
+            filter: brightness(1.15);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 32px rgba(255, 59, 48, 0.3);
+        }
+
+        .hero-cta svg { width: 20px; height: 20px; }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-free {
+            display: block;
+            margin-top: 14px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Section Labels */
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 44px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: -1.5px;
+            margin-bottom: 56px;
+            line-height: 1.1;
+        }
+
+        /* GRADIENT TEXT utility */
+        .gradient-text {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6961 40%, #fff 100%);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* Features Grid */
+        .features {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 24px 100px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(255, 59, 48, 0.3);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            box-shadow: 0 0 20px rgba(255, 59, 48, 0.15);
+        }
+        .feature-icon svg { width: 24px; height: 24px; }
+
+        .feature-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 56px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            border: 1px solid rgba(255, 59, 48, 0.2);
+        }
+
+        .step h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Why Section */
+        .why {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .why-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .why-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Requirements */
+        .req {
+            text-align: center;
+            padding: 0 24px 60px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand .logo {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand .logo span { color: var(--accent); }
+
+        .footer-brand p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: var(--text);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-socials a {
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .footer-socials a:hover { color: var(--text); }
+
+        .footer-socials svg { width: 18px; height: 18px; }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .features-grid, .why-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 40px; letter-spacing: -2px; }
+            .hero .subtitle { font-size: 16px; }
+            .hero { padding-top: 120px; }
+            .section-title { font-size: 30px; }
+            .features-grid, .steps, .why-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; gap: 12px; }
+            nav { padding: 14px 16px; }
+            .nav-links { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <a href="https://corvusdevs.github.io" class="nav-brand">
+            <img src="icon.png" alt="Red Crow">
+            Red <span>Crow</span>
+        </a>
+        <div style="display:flex;align-items:center;">
+            <ul class="nav-links">
+                <li><a href="#features" data-i18n="nav_features">Features</a></li>
+                <li><a href="#how" data-i18n="nav_how">How it works</a></li>
+                <li><a href="mailto:corvusdevs@outlook.com" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+            <div class="lang-wrap" id="langWrap">
+                <button class="lang-btn" id="langBtn">English</button>
+                <div class="lang-menu" id="langMenu">
+                    <button data-lang="en">English</button>
+                    <button data-lang="da">Dansk</button>
+                    <button data-lang="de">Deutsch</button>
+                    <button data-lang="es">Espa&#xF1;ol</button>
+                    <button data-lang="es_419">Espa&#xF1;ol (Latinoam&#xe9;rica)</button>
+                    <button data-lang="fi">Suomi</button>
+                    <button data-lang="fr">Fran&#xE7;ais</button>
+                    <button data-lang="it">Italiano</button>
+                    <button data-lang="ja">&#x65E5;&#x672C;&#x8A9E;</button>
+                    <button data-lang="ko">&#xD55C;&#xAD6D;&#xC5B4;</button>
+                    <button data-lang="nb">Norsk bokm&#xe5;l</button>
+                    <button data-lang="nl">Nederlands</button>
+                    <button data-lang="pl">Polski</button>
+                    <button data-lang="pt_BR">Portugu&#xEA;s (Brasil)</button>
+                    <button data-lang="ru">&#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</button>
+                    <button data-lang="sv">Svenska</button>
+                    <button data-lang="tr">T&#xFC;rk&#xE7;e</button>
+                    <button data-lang="zh_CN">&#x7B80;&#x4F53;&#x4E2D;&#x6587;</button>
+                    <button data-lang="zh_TW">&#x7E41;&#x9AD4;&#x4E2D;&#x6587;</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <img src="icon.png" alt="Red Crow" class="hero-icon">
+        <h1 data-i18n-html="hero_title">Red Crow<br>for Safari</h1>
+        <p class="subtitle" data-i18n="hero_sub">Enhance your YouTube experience with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ customizable settings. A native Safari extension for macOS, iOS, and iPadOS.</p>
+        <div class="hero-buttons">
+            <a href="https://apps.apple.com/app/id6761481948" class="hero-cta" id="storeBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span data-i18n="hero_cta_ios">Download for iOS</span>
+            </a>
+            <a href="https://apps.apple.com/app/id6761481948" class="hero-cta" id="storeBtnMac">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span data-i18n="hero_cta_mac">Download for macOS</span>
+            </a>
+        </div>
+        <span class="hero-free" data-i18n="hero_req">iOS 18.0+ &middot; macOS 15.0+</span>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="section-label fade-in" data-i18n="sec_features">Features</div>
+        <h2 class="section-title gradient-text fade-in" data-i18n="sec_features_title">Everything you need for a better YouTube</h2>
+
+        <div class="features-grid">
+            <!-- Speed Control -->
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3 data-i18n="f1_t">Speed Control</h3>
+                <p data-i18n="f1_d">Set a default playback speed, create per-channel speed profiles, and remember your preferred speed across sessions.</p>
+            </div>
+            <!-- Player Toolbar -->
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="12" x2="6.01" y2="12"/><line x1="10" y1="12" x2="10.01" y2="12"/><line x1="14" y1="12" x2="14.01" y2="12"/><line x1="18" y1="12" x2="18.01" y2="12"/></svg>
+                </div>
+                <h3 data-i18n="f2_t">Player Toolbar</h3>
+                <p data-i18n="f2_d">19 toolbar buttons: screenshot, loop, Picture-in-Picture, cinema mode, pop-out player, rotate, flip, and more.</p>
+            </div>
+            <!-- SponsorBlock -->
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+                </div>
+                <h3 data-i18n="f3_t">SponsorBlock</h3>
+                <p data-i18n="f3_d">Automatically skip sponsors, intros, outros, self-promotion, and filler segments. Powered by the community SponsorBlock API.</p>
+            </div>
+            <!-- Hide Elements -->
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </div>
+                <h3 data-i18n="f4_t">Hide Elements</h3>
+                <p data-i18n="f4_d">Remove comments, Shorts, end cards, annotations, ads, and visual clutter. Focus on the video, not the noise.</p>
+            </div>
+            <!-- Dislikes -->
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                </div>
+                <h3 data-i18n="f5_t">Return of Dislikes</h3>
+                <p data-i18n="f5_d">Restore dislike counts and the like/dislike ratio bar. See the full picture before watching any video.</p>
+            </div>
+            <!-- DeArrow -->
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <h3 data-i18n="f6_t">DeArrow</h3>
+                <p data-i18n="f6_d">Replace clickbait titles and thumbnails with community-submitted alternatives. See what the video is actually about.</p>
+            </div>
+            <!-- Keyboard Shortcuts -->
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg>
+                </div>
+                <h3 data-i18n="f7_t">Keyboard Shortcuts</h3>
+                <p data-i18n="f7_d">Customizable keyboard shortcuts for every feature. Control speed, seek, screenshot, toggle cinema mode, and more without touching the mouse.</p>
+            </div>
+            <!-- Video Filters -->
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <h3 data-i18n="f8_t">Video Filters</h3>
+                <p data-i18n="f8_d">Adjust brightness, contrast, saturation, blur, warmth, sepia, and more in real time. Fine-tune every video to your liking.</p>
+            </div>
+            <!-- Usage Timer -->
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/></svg>
+                </div>
+                <h3 data-i18n="f9_t">Usage Timer</h3>
+                <p data-i18n="f9_d">Set time limits with customizable alerts to manage your screen time. Stay in control of how long you spend on YouTube.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works" id="how">
+        <div class="section-label fade-in" data-i18n="sec_how">How it works</div>
+        <h2 class="section-title gradient-text fade-in" data-i18n="sec_how_title">Up and running in seconds</h2>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3 data-i18n="s1_t">Install from the App Store</h3>
+                <p data-i18n="s1_d">Download Red Crow from the App Store. Available on Mac, iPhone, and iPad.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3 data-i18n="s2_t">Enable in Safari</h3>
+                <p data-i18n="s2_d">Open Safari Settings, go to Extensions, and enable Red Crow. Grant permission for youtube.com.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3 data-i18n="s3_t">Visit YouTube</h3>
+                <p data-i18n="s3_d">Open YouTube in Safari and enjoy an enhanced experience. Configure settings from the extension popup.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why -->
+    <section class="why">
+        <div class="section-label fade-in" data-i18n="sec_why">Why Red Crow</div>
+        <h2 class="section-title gradient-text fade-in" data-i18n="sec_why_title">Built for Safari users</h2>
+
+        <div class="why-grid">
+            <div class="why-card">
+                <h3 data-i18n="w1_t">40+ customizable settings</h3>
+                <p data-i18n="w1_d">Every feature is configurable. Enable only what you need, adjust thresholds, pick your preferred behavior. Your YouTube, your rules.</p>
+            </div>
+            <div class="why-card">
+                <h3 data-i18n="w2_t">Privacy first</h3>
+                <p data-i18n="w2_d">No accounts, no tracking, no data collection. Your settings stay on your device. Red Crow never phones home.</p>
+            </div>
+            <div class="why-card">
+                <h3 data-i18n="w3_t">Native Safari extension</h3>
+                <p data-i18n="w3_d">Not a Chrome extension ported to Safari. Red Crow is built specifically for Safari with native performance and zero background processes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements -->
+    <p class="req" data-i18n="req">Requires macOS 15.0 (Sequoia) or later, or iOS/iPadOS 18.0 or later. Works with Safari 18+.</p>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo"><img src="icon.png" alt="" style="width:22px;height:22px;border-radius:5px;vertical-align:middle;margin-right:6px;">Red <span>Crow</span></div>
+                <p data-i18n="f_brand">Indie software studio.<br>Building focused, privacy-first tools for Apple platforms.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="f_legal">Legal</h4>
+                <a href="privacy" data-i18n="f_privacy">Privacy Policy</a>
+                <a href="terms" data-i18n="f_terms">Terms of Service</a>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="f_connect">Connect</h4>
+                <a href="mailto:corvusdevs@outlook.com">corvusdevs@outlook.com</a>
+                <a href="https://github.com/CorvusDevs">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CorvusDevs. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/CorvusDevs" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    /* ---- Scroll fade-in animations ---- */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    /* ---- Translations ---- */
+    const T = {
+        en: {
+            nav_features:"Features", nav_how:"How it works", nav_contact:"Contact",
+            hero_title:"Red Crow<br>for Safari", hero_sub:"Enhance your YouTube experience with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ customizable settings. A native Safari extension for macOS, iOS, and iPadOS.", hero_cta_ios:"Download for iOS", hero_cta_mac:"Download for macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Features", sec_features_title:"Everything you need for a better YouTube",
+            f1_t:"Speed Control", f1_d:"Set a default playback speed, create per-channel speed profiles, and remember your preferred speed across sessions.",
+            f2_t:"Player Toolbar", f2_d:"19 toolbar buttons: screenshot, loop, Picture-in-Picture, cinema mode, pop-out player, rotate, flip, and more.",
+            f3_t:"SponsorBlock", f3_d:"Automatically skip sponsors, intros, outros, self-promotion, and filler segments. Powered by the community SponsorBlock API.",
+            f4_t:"Hide Elements", f4_d:"Remove comments, Shorts, end cards, annotations, ads, and visual clutter. Focus on the video, not the noise.",
+            f5_t:"Return of Dislikes", f5_d:"Restore dislike counts and the like/dislike ratio bar. See the full picture before watching any video.",
+            f6_t:"DeArrow", f6_d:"Replace clickbait titles and thumbnails with community-submitted alternatives. See what the video is actually about.",
+            f7_t:"Keyboard Shortcuts", f7_d:"Customizable keyboard shortcuts for every feature. Control speed, seek, screenshot, toggle cinema mode, and more without touching the mouse.",
+            f8_t:"Video Filters", f8_d:"Adjust brightness, contrast, saturation, blur, warmth, sepia, and more in real time. Fine-tune every video to your liking.",
+            f9_t:"Usage Timer", f9_d:"Set time limits with customizable alerts to manage your screen time. Stay in control of how long you spend on YouTube.",
+            sec_how:"How it works", sec_how_title:"Up and running in seconds",
+            s1_t:"Install from the App Store", s1_d:"Download Red Crow from the App Store. Available on Mac, iPhone, and iPad.",
+            s2_t:"Enable in Safari", s2_d:"Open Safari Settings, go to Extensions, and enable Red Crow. Grant permission for youtube.com.",
+            s3_t:"Visit YouTube", s3_d:"Open YouTube in Safari and enjoy an enhanced experience. Configure settings from the extension popup.",
+            sec_why:"Why Red Crow", sec_why_title:"Built for Safari users",
+            w1_t:"40+ customizable settings", w1_d:"Every feature is configurable. Enable only what you need, adjust thresholds, pick your preferred behavior. Your YouTube, your rules.",
+            w2_t:"Privacy first", w2_d:"No accounts, no tracking, no data collection. Your settings stay on your device. Red Crow never phones home.",
+            w3_t:"Native Safari extension", w3_d:"Not a Chrome extension ported to Safari. Red Crow is built specifically for Safari with native performance and zero background processes.",
+            req:"Requires macOS 15.0 (Sequoia) or later, or iOS/iPadOS 18.0 or later. Works with Safari 18+.",
+            f_brand:"Indie software studio.<br>Building focused, privacy-first tools for Apple platforms.",
+            f_legal:"Legal", f_privacy:"Privacy Policy", f_terms:"Terms of Service", f_connect:"Connect",
+        },
+        da: {
+            nav_features:"Funktioner", nav_how:"Sådan virker det", nav_contact:"Kontakt",
+            hero_title:"Red Crow<br>til Safari", hero_sub:"Forbedr din YouTube-oplevelse med hastighedskontrol, SponsorBlock, videofiltre, tastaturgenveje og 40+ indstillinger. En Safari-udvidelse til macOS, iOS og iPadOS.", hero_cta_ios:"Download til iOS", hero_cta_mac:"Download til macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Funktioner", sec_features_title:"Alt hvad du behøver til en bedre YouTube",
+            f1_t:"Hastighedskontrol", f1_d:"Indstil en standardhastighed, opret kanalprofiler og husk din foretrukne hastighed på tværs af sessioner.",
+            f2_t:"Afspiller-værktøjslinje", f2_d:"19 knapper: skærmbillede, loop, billed-i-billede, biograftilstand, pop-ud-afspiller, roter, vend og mere.",
+            f3_t:"SponsorBlock", f3_d:"Spring automatisk sponsorer, introer, outroer, selvpromovering og fyldstof over.",
+            f4_t:"Skjul elementer", f4_d:"Fjern kommentarer, Shorts, slutkort, annoncer og visuel rod. Fokusér på videoen.",
+            f5_t:"Dislikes er tilbage", f5_d:"Gendan dislike-antal og like/dislike-bjælken. Se det fulde billede før du ser en video.",
+            f6_t:"DeArrow", f6_d:"Erstat clickbait-titler og miniaturebilleder med fællesskabsalternativer. Se hvad videoen virkelig handler om.",
+            f7_t:"Tastaturgenveje", f7_d:"Tilpasselige genveje til alle funktioner. Styr hastighed, søg, skærmbillede og mere uden musen.",
+            f8_t:"Videofiltre", f8_d:"Juster lysstyrke, kontrast, mætning, sløring, varme og sepia i realtid.",
+            f9_t:"Brugstimer", f9_d:"Indstil tidsgrænser med advarsler for at styre din skærmtid.",
+            sec_how:"Sådan virker det", sec_how_title:"Klar på få sekunder",
+            s1_t:"Installér fra App Store", s1_d:"Download Red Crow fra App Store. Tilgængelig til Mac, iPhone og iPad.",
+            s2_t:"Aktivér i Safari", s2_d:"Åbn Safari-indstillinger, gå til Udvidelser og aktivér Red Crow. Giv tilladelse til youtube.com.",
+            s3_t:"Besøg YouTube", s3_d:"Åbn YouTube i Safari og nyd den forbedrede oplevelse. Konfigurér indstillinger fra popup-menuen.",
+            sec_why:"Hvorfor Red Crow", sec_why_title:"Bygget til Safari-brugere",
+            w1_t:"40+ indstillinger", w1_d:"Alle funktioner kan tilpasses. Aktivér kun det du har brug for. Dit YouTube, dine regler.",
+            w2_t:"Privatliv først", w2_d:"Ingen konti, ingen sporing, ingen dataindsamling. Dine indstillinger forbliver på din enhed.",
+            w3_t:"Safari-udvidelse", w3_d:"Ikke en Chrome-udvidelse porteret til Safari. Red Crow er bygget specifikt til Safari med native ydelse.",
+            req:"Kræver macOS 15.0 (Sequoia) eller nyere, eller iOS/iPadOS 18.0 eller nyere.",
+            f_brand:"Indie-softwarestudie.<br>Fokuserede, privatlivsvenlige værktøjer til Apple-platforme.",
+            f_legal:"Juridisk", f_privacy:"Privatlivspolitik", f_terms:"Servicevilkår", f_connect:"Kontakt",
+        },
+        de: {
+            nav_features:"Funktionen", nav_how:"So funktioniert’s", nav_contact:"Kontakt",
+            hero_title:"Red Crow<br>für Safari", hero_sub:"Verbessere dein YouTube-Erlebnis mit Geschwindigkeitssteuerung, SponsorBlock, Videofiltern, Tastenkombinationen und 40+ Einstellungen. Eine native Safari-Erweiterung für macOS, iOS und iPadOS.", hero_cta_ios:"Für iOS laden", hero_cta_mac:"Für macOS laden", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Funktionen", sec_features_title:"Alles für ein besseres YouTube",
+            f1_t:"Geschwindigkeitssteuerung", f1_d:"Lege eine Standard-Wiedergabegeschwindigkeit fest, erstelle kanalspezifische Profile und speichere deine bevorzugte Geschwindigkeit.",
+            f2_t:"Player-Werkzeugleiste", f2_d:"19 Schaltflächen: Screenshot, Schleife, Bild-in-Bild, Kino-Modus, Pop-out-Player, Drehen, Spiegeln und mehr.",
+            f3_t:"SponsorBlock", f3_d:"Überspringe automatisch Sponsoren, Intros, Outros, Eigenwerbung und Füllsegmente.",
+            f4_t:"Elemente ausblenden", f4_d:"Entferne Kommentare, Shorts, Endkarten, Anzeigen und visuelles Durcheinander. Fokus auf das Video.",
+            f5_t:"Dislikes zurück", f5_d:"Stelle die Dislike-Anzahl und den Like/Dislike-Balken wieder her. Sieh das vollständige Bild vor jedem Video.",
+            f6_t:"DeArrow", f6_d:"Ersetze Clickbait-Titel und Thumbnails durch Community-Alternativen. Sieh, worum es im Video wirklich geht.",
+            f7_t:"Tastenkombinationen", f7_d:"Anpassbare Tastenkombinationen für jede Funktion. Steuere Geschwindigkeit, Suche, Screenshot und mehr ohne Maus.",
+            f8_t:"Videofilter", f8_d:"Passe Helligkeit, Kontrast, Sättigung, Unschärfe, Wärme und Sepia in Echtzeit an.",
+            f9_t:"Nutzungstimer", f9_d:"Setze Zeitlimits mit Benachrichtigungen, um deine Bildschirmzeit zu verwalten.",
+            sec_how:"So funktioniert’s", sec_how_title:"In Sekunden einsatzbereit",
+            s1_t:"Aus dem App Store installieren", s1_d:"Lade Red Crow aus dem App Store herunter. Verfügbar für Mac, iPhone und iPad.",
+            s2_t:"In Safari aktivieren", s2_d:"Öffne die Safari-Einstellungen, gehe zu Erweiterungen und aktiviere Red Crow. Erteile die Berechtigung für youtube.com.",
+            s3_t:"YouTube besuchen", s3_d:"Öffne YouTube in Safari und genieße das verbesserte Erlebnis. Einstellungen über das Popup konfigurieren.",
+            sec_why:"Warum Red Crow", sec_why_title:"Für Safari-Nutzer gebaut",
+            w1_t:"40+ Einstellungen", w1_d:"Jede Funktion ist konfigurierbar. Aktiviere nur, was du brauchst. Dein YouTube, deine Regeln.",
+            w2_t:"Privatsphäre zuerst", w2_d:"Keine Konten, kein Tracking, keine Datenerfassung. Deine Einstellungen bleiben auf deinem Gerät.",
+            w3_t:"Native Safari-Erweiterung", w3_d:"Kein Chrome-Port. Red Crow wurde speziell für Safari mit nativer Performance entwickelt.",
+            req:"Erfordert macOS 15.0 (Sequoia) oder neuer, oder iOS/iPadOS 18.0 oder neuer.",
+            f_brand:"Indie-Softwarestudio.<br>Fokussierte, datenschutzfreundliche Tools für Apple-Plattformen.",
+            f_legal:"Rechtliches", f_privacy:"Datenschutz", f_terms:"Nutzungsbedingungen", f_connect:"Kontakt",
+        },
+        es: {
+            nav_features:"Funciones", nav_how:"Cómo funciona", nav_contact:"Contacto",
+            hero_title:"Red Crow<br>para Safari", hero_sub:"Mejora tu experiencia en YouTube con controles de velocidad, SponsorBlock, filtros de video, atajos de teclado y más de 40 ajustes. Una extensión nativa de Safari para macOS, iOS e iPadOS.", hero_cta_ios:"Descargar para iOS", hero_cta_mac:"Descargar para macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Funciones", sec_features_title:"Todo lo que necesitas para un YouTube mejor",
+            f1_t:"Control de Velocidad", f1_d:"Establece una velocidad predeterminada, crea perfiles por canal y recuerda tu velocidad preferida entre sesiones.",
+            f2_t:"Barra del Reproductor", f2_d:"19 botones: captura, bucle, imagen en imagen, modo cine, reproductor emergente, rotar, voltear y más.",
+            f3_t:"SponsorBlock", f3_d:"Salta automáticamente patrocinadores, intros, outros, autopromoción y segmentos de relleno.",
+            f4_t:"Ocultar Elementos", f4_d:"Elimina comentarios, Shorts, tarjetas finales, anuncios y desorden visual. Concéntrate en el video.",
+            f5_t:"Dislikes de Vuelta", f5_d:"Restaura los contadores de dislikes y la barra de proporción like/dislike.",
+            f6_t:"DeArrow", f6_d:"Reemplaza títulos y miniaturas clickbait con alternativas de la comunidad. Descubre de qué trata realmente el video.",
+            f7_t:"Atajos de Teclado", f7_d:"Atajos personalizables para cada función. Controla velocidad, búsqueda, captura y más sin usar el ratón.",
+            f8_t:"Filtros de Video", f8_d:"Ajusta brillo, contraste, saturación, desenfoque, calidez y sepia en tiempo real.",
+            f9_t:"Temporizador de Uso", f9_d:"Establece límites de tiempo con alertas para gestionar tu tiempo de pantalla.",
+            sec_how:"Cómo funciona", sec_how_title:"Listo en segundos",
+            s1_t:"Instala desde la App Store", s1_d:"Descarga Red Crow desde la App Store. Disponible para Mac, iPhone e iPad.",
+            s2_t:"Activa en Safari", s2_d:"Abre Ajustes de Safari, ve a Extensiones y activa Red Crow. Concede permiso para youtube.com.",
+            s3_t:"Visita YouTube", s3_d:"Abre YouTube en Safari y disfruta de la experiencia mejorada. Configura los ajustes desde el popup.",
+            sec_why:"Por qué Red Crow", sec_why_title:"Hecho para usuarios de Safari",
+            w1_t:"40+ ajustes", w1_d:"Cada función es configurable. Activa solo lo que necesites. Tu YouTube, tus reglas.",
+            w2_t:"Privacidad primero", w2_d:"Sin cuentas, sin rastreo, sin recolección de datos. Tus ajustes permanecen en tu dispositivo.",
+            w3_t:"Extensión nativa de Safari", w3_d:"No es una extensión de Chrome portada. Red Crow está diseñado específicamente para Safari con rendimiento nativo.",
+            req:"Requiere macOS 15.0 (Sequoia) o posterior, o iOS/iPadOS 18.0 o posterior.",
+            f_brand:"Estudio indie de software.<br>Herramientas enfocadas y privadas para plataformas Apple.",
+            f_legal:"Legal", f_privacy:"Política de Privacidad", f_terms:"Términos de Servicio", f_connect:"Contacto",
+        },
+        es_419: {
+            nav_features:"Funciones", nav_how:"Cómo funciona", nav_contact:"Contacto",
+            hero_title:"Red Crow<br>para Safari", hero_sub:"Mejora tu experiencia en YouTube con controles de velocidad, SponsorBlock, filtros de video, atajos de teclado y más de 40 ajustes. Una extensión nativa de Safari para macOS, iOS e iPadOS.", hero_cta_ios:"Descargar para iOS", hero_cta_mac:"Descargar para macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Funciones", sec_features_title:"Todo lo que necesitas para un YouTube mejor",
+            f1_t:"Control de Velocidad", f1_d:"Establece una velocidad predeterminada, crea perfiles por canal y recuerda tu velocidad preferida entre sesiones.",
+            f2_t:"Barra del Reproductor", f2_d:"19 botones: captura, bucle, imagen en imagen, modo cine, reproductor emergente, rotar, voltear y más.",
+            f3_t:"SponsorBlock", f3_d:"Salta automáticamente patrocinadores, intros, outros, autopromoción y segmentos de relleno.",
+            f4_t:"Ocultar Elementos", f4_d:"Elimina comentarios, Shorts, tarjetas finales, anuncios y desorden visual. Concéntrate en el video.",
+            f5_t:"Dislikes de Vuelta", f5_d:"Restaura los contadores de dislikes y la barra de proporción like/dislike.",
+            f6_t:"DeArrow", f6_d:"Reemplaza títulos y miniaturas clickbait con alternativas de la comunidad. Descubre de qué trata realmente el video.",
+            f7_t:"Atajos de Teclado", f7_d:"Atajos personalizables para cada función. Controla velocidad, búsqueda, captura y más sin usar el mouse.",
+            f8_t:"Filtros de Video", f8_d:"Ajusta brillo, contraste, saturación, desenfoque, calidez y sepia en tiempo real.",
+            f9_t:"Temporizador de Uso", f9_d:"Establece límites de tiempo con alertas para administrar tu tiempo de pantalla.",
+            sec_how:"Cómo funciona", sec_how_title:"Listo en segundos",
+            s1_t:"Instala desde la App Store", s1_d:"Descarga Red Crow desde la App Store. Disponible para Mac, iPhone e iPad.",
+            s2_t:"Activa en Safari", s2_d:"Abre Ajustes de Safari, ve a Extensiones y activa Red Crow. Otorga permiso para youtube.com.",
+            s3_t:"Visita YouTube", s3_d:"Abre YouTube en Safari y disfruta de la experiencia mejorada. Configura los ajustes desde el popup.",
+            sec_why:"Por qué Red Crow", sec_why_title:"Hecho para usuarios de Safari",
+            w1_t:"40+ ajustes", w1_d:"Cada función es configurable. Activa solo lo que necesites. Tu YouTube, tus reglas.",
+            w2_t:"Privacidad primero", w2_d:"Sin cuentas, sin rastreo, sin recolección de datos. Tus ajustes permanecen en tu dispositivo.",
+            w3_t:"Extensión nativa de Safari", w3_d:"No es una extensión de Chrome portada. Red Crow está diseñado específicamente para Safari con rendimiento nativo.",
+            req:"Requiere macOS 15.0 (Sequoia) o posterior, o iOS/iPadOS 18.0 o posterior.",
+            f_brand:"Estudio indie de software.<br>Herramientas enfocadas y privadas para plataformas Apple.",
+            f_legal:"Legal", f_privacy:"Política de Privacidad", f_terms:"Términos de Servicio", f_connect:"Contacto",
+        },
+        fi: {
+            nav_features:"Ominaisuudet", nav_how:"Näin se toimii", nav_contact:"Yhteystiedot",
+            hero_title:"Red Crow<br>Safarille", hero_sub:"Paranna YouTube-kokemustasi nopeussäätimellä, SponsorBlockilla, videosuodattimilla, pikanäppäimillä ja yli 40 asetuksella. Safari-laajennus macOS:lle, iOS:lle ja iPadOS:lle.", hero_cta_ios:"Lataa iOS:lle", hero_cta_mac:"Lataa macOS:lle", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Ominaisuudet", sec_features_title:"Kaikki mitä tarvitset parempaan YouTubeen",
+            f1_t:"Nopeuden säätö", f1_d:"Aseta oletusnopeus, luo kanavakohtaisia profiileja ja muista nopeutesi istuntojen välillä.",
+            f2_t:"Soittimen työkalupalkki", f2_d:"19 painiketta: kuvakaappaus, silmukka, kuva kuvassa, elokuvatila, ponnahdussoitin ja muuta.",
+            f3_t:"SponsorBlock", f3_d:"Ohita automaattisesti sponsorit, introt, outrot, itsemainonta ja täytesegmentit.",
+            f4_t:"Piilota elementit", f4_d:"Poista kommentit, Shorts, loppukortit, mainokset ja visuaalinen sotku. Keskity videoon.",
+            f5_t:"Epätykkeet takaisin", f5_d:"Palauta epätykkäysmäärät ja tykkäys/epätykkäyspalkki.",
+            f6_t:"DeArrow", f6_d:"Korvaa klikkiotsikot ja pienoiskuvat yhteisön vaihtoehdoilla. Näe mistä videossa oikeasti on kyse.",
+            f7_t:"Pikanäppäimet", f7_d:"Mukautettavat pikanäppäimet jokaiselle ominaisuudelle. Säädä nopeutta, hae ja muuta ilman hiirtä.",
+            f8_t:"Videosuodattimet", f8_d:"Säädä kirkkautta, kontrastia, kylläisyyttä, sumennusta ja lämpöä reaaliajassa.",
+            f9_t:"Käyttöajastin", f9_d:"Aseta aikarajat hälytyksillä hallitaksesi ruutuaikaasi.",
+            sec_how:"Näin se toimii", sec_how_title:"Valmis sekunneissa",
+            s1_t:"Asenna App Storesta", s1_d:"Lataa Red Crow App Storesta. Saatavilla Macille, iPhonelle ja iPadille.",
+            s2_t:"Ota käyttöön Safarissa", s2_d:"Avaa Safarin asetukset, siirry Laajennuksiin ja ota Red Crow käyttöön. Anna lupa youtube.comille.",
+            s3_t:"Käy YouTubessa", s3_d:"Avaa YouTube Safarissa ja nauti parannetusta kokemuksesta.",
+            sec_why:"Miksi Red Crow", sec_why_title:"Tehty Safari-käyttäjille",
+            w1_t:"40+ asetusta", w1_d:"Jokainen ominaisuus on säädettävissä. Ota käyttöön vain tarvitsemasi. Sinun YouTubesi, sinun sääntösi.",
+            w2_t:"Yksityisyys ensin", w2_d:"Ei tilinvaatimuksia, ei seurantaa, ei tiedonkeruuta. Asetuksesi pysyvät laitteellasi.",
+            w3_t:"Natiivi Safari-laajennus", w3_d:"Ei Chrome-porttaus. Red Crow on rakennettu nimenomaan Safarille natiivilla suorituskyvyllä.",
+            req:"Vaatii macOS 15.0 (Sequoia) tai uudemman, tai iOS/iPadOS 18.0 tai uudemman.",
+            f_brand:"Indie-ohjelmistostudio.<br>Keskittynyitä, yksityisyyttä kunnioittavia työkaluja Apple-alustoille.",
+            f_legal:"Lakiasiat", f_privacy:"Tietosuojakäytäntö", f_terms:"Käyttöehdot", f_connect:"Yhteystiedot",
+        },
+        fr: {
+            nav_features:"Fonctions", nav_how:"Comment ça marche", nav_contact:"Contact",
+            hero_title:"Red Crow<br>pour Safari", hero_sub:"Améliorez votre expérience YouTube avec le contrôle de vitesse, SponsorBlock, des filtres vidéo, des raccourcis clavier et plus de 40 réglages. Une extension Safari native pour macOS, iOS et iPadOS.", hero_cta_ios:"Télécharger pour iOS", hero_cta_mac:"Télécharger pour macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Fonctions", sec_features_title:"Tout pour un meilleur YouTube",
+            f1_t:"Contrôle de Vitesse", f1_d:"Définissez une vitesse par défaut, créez des profils par chaîne et mémorisez votre vitesse préférée.",
+            f2_t:"Barre du Lecteur", f2_d:"19 boutons : capture d’écran, boucle, image dans l’image, mode cinéma, lecteur détaché, rotation et plus.",
+            f3_t:"SponsorBlock", f3_d:"Passez automatiquement les sponsors, intros, outros, autopromotion et segments de remplissage.",
+            f4_t:"Masquer les Éléments", f4_d:"Supprimez commentaires, Shorts, cartes de fin, publicités et encombrement visuel. Concentrez-vous sur la vidéo.",
+            f5_t:"Retour des Dislikes", f5_d:"Restaurez le compteur de dislikes et la barre de ratio like/dislike.",
+            f6_t:"DeArrow", f6_d:"Remplacez les titres et miniatures piège à clics par des alternatives communautaires.",
+            f7_t:"Raccourcis Clavier", f7_d:"Raccourcis personnalisables pour chaque fonction. Contrôlez vitesse, recherche, capture et plus sans souris.",
+            f8_t:"Filtres Vidéo", f8_d:"Ajustez luminosité, contraste, saturation, flou, chaleur et sépia en temps réel.",
+            f9_t:"Minuteur d’Utilisation", f9_d:"Définissez des limites de temps avec des alertes pour gérer votre temps d’écran.",
+            sec_how:"Comment ça marche", sec_how_title:"Prêt en quelques secondes",
+            s1_t:"Installez depuis l’App Store", s1_d:"Téléchargez Red Crow depuis l’App Store. Disponible sur Mac, iPhone et iPad.",
+            s2_t:"Activez dans Safari", s2_d:"Ouvrez les Réglages Safari, allez dans Extensions et activez Red Crow. Accordez la permission pour youtube.com.",
+            s3_t:"Visitez YouTube", s3_d:"Ouvrez YouTube dans Safari et profitez de l’expérience améliorée. Configurez les réglages depuis le popup.",
+            sec_why:"Pourquoi Red Crow", sec_why_title:"Conçu pour les utilisateurs Safari",
+            w1_t:"40+ réglages", w1_d:"Chaque fonction est configurable. Activez uniquement ce dont vous avez besoin. Votre YouTube, vos règles.",
+            w2_t:"Vie privée d’abord", w2_d:"Pas de comptes, pas de suivi, pas de collecte de données. Vos réglages restent sur votre appareil.",
+            w3_t:"Extension Safari native", w3_d:"Pas un port de Chrome. Red Crow est conçu spécifiquement pour Safari avec des performances natives.",
+            req:"Nécessite macOS 15.0 (Sequoia) ou ultérieur, ou iOS/iPadOS 18.0 ou ultérieur.",
+            f_brand:"Studio indie de logiciels.<br>Outils ciblés et respectueux de la vie privée pour les plateformes Apple.",
+            f_legal:"Légal", f_privacy:"Politique de Confidentialité", f_terms:"Conditions d’Utilisation", f_connect:"Contact",
+        },
+        it: {
+            nav_features:"Funzionalità", nav_how:"Come funziona", nav_contact:"Contatto",
+            hero_title:"Red Crow<br>per Safari", hero_sub:"Migliora la tua esperienza YouTube con controllo velocità, SponsorBlock, filtri video, scorciatoie da tastiera e oltre 40 impostazioni. Un’estensione Safari nativa per macOS, iOS e iPadOS.", hero_cta_ios:"Scarica per iOS", hero_cta_mac:"Scarica per macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Funzionalità", sec_features_title:"Tutto ciò che serve per un YouTube migliore",
+            f1_t:"Controllo Velocità", f1_d:"Imposta una velocità predefinita, crea profili per canale e ricorda la tua velocità preferita tra le sessioni.",
+            f2_t:"Barra del Player", f2_d:"19 pulsanti: screenshot, loop, Picture-in-Picture, modalità cinema, player pop-out, ruota, capovolgi e altro.",
+            f3_t:"SponsorBlock", f3_d:"Salta automaticamente sponsor, intro, outro, autopromozione e segmenti di riempimento.",
+            f4_t:"Nascondi Elementi", f4_d:"Rimuovi commenti, Shorts, schede finali, annunci e disordine visivo. Concentrati sul video.",
+            f5_t:"Dislike Ripristinati", f5_d:"Ripristina il conteggio dei dislike e la barra del rapporto like/dislike.",
+            f6_t:"DeArrow", f6_d:"Sostituisci titoli e miniature clickbait con alternative della comunità. Scopri di cosa tratta davvero il video.",
+            f7_t:"Scorciatoie da Tastiera", f7_d:"Scorciatoie personalizzabili per ogni funzione. Controlla velocità, ricerca, screenshot e altro senza mouse.",
+            f8_t:"Filtri Video", f8_d:"Regola luminosità, contrasto, saturazione, sfocatura, calore e seppia in tempo reale.",
+            f9_t:"Timer di Utilizzo", f9_d:"Imposta limiti di tempo con avvisi per gestire il tuo tempo sullo schermo.",
+            sec_how:"Come funziona", sec_how_title:"Pronto in pochi secondi",
+            s1_t:"Installa dall’App Store", s1_d:"Scarica Red Crow dall’App Store. Disponibile per Mac, iPhone e iPad.",
+            s2_t:"Attiva in Safari", s2_d:"Apri le Impostazioni di Safari, vai su Estensioni e attiva Red Crow. Concedi l’autorizzazione per youtube.com.",
+            s3_t:"Visita YouTube", s3_d:"Apri YouTube in Safari e goditi l’esperienza migliorata. Configura le impostazioni dal popup.",
+            sec_why:"Perché Red Crow", sec_why_title:"Progettato per gli utenti Safari",
+            w1_t:"40+ impostazioni", w1_d:"Ogni funzione è configurabile. Attiva solo ciò che ti serve. Il tuo YouTube, le tue regole.",
+            w2_t:"Privacy prima di tutto", w2_d:"Nessun account, nessun tracciamento, nessuna raccolta dati. Le tue impostazioni restano sul tuo dispositivo.",
+            w3_t:"Estensione Safari nativa", w3_d:"Non è un’estensione Chrome portata su Safari. Red Crow è progettato specificamente per Safari.",
+            req:"Richiede macOS 15.0 (Sequoia) o successivo, o iOS/iPadOS 18.0 o successivo.",
+            f_brand:"Studio software indipendente.<br>Strumenti mirati e rispettosi della privacy per piattaforme Apple.",
+            f_legal:"Legale", f_privacy:"Informativa sulla Privacy", f_terms:"Termini di Servizio", f_connect:"Contatto",
+        },
+        ja: {
+            nav_features:"機能", nav_how:"使い方", nav_contact:"お問い合わせ",
+            hero_title:"Red Crow<br>for Safari", hero_sub:"速度制御、SponsorBlock、動画フィルター、キーボードショートカット、そで40以上の設定でYouTube体験を強化。macOS、iOS、iPadOS対応のネイティブSafari拡張機能。", hero_cta_ios:"iOS版をダウンロード", hero_cta_mac:"macOS版をダウンロード", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"機能", sec_features_title:"より良いYouTubeに必要なすべて",
+            f1_t:"速度制御", f1_d:"デフォルトの再生速度を設定、チャンネルごとのプロフィールを作成、セッション間で速度を記憶。",
+            f2_t:"プレーヤーツールバー", f2_d:"19個のボタン：スクリーンショット、ループ、PiP、シネマモード、ポップアウト、回転、反転など。",
+            f3_t:"SponsorBlock", f3_d:"スポンサー、イントロ、アウトロ、自己宣伝、フィラーセグメントを自動スキップ。",
+            f4_t:"要素を非表示", f4_d:"コメント、ショート、終了カード、広告、視覚的な乱雑さを削除。動画に集中。",
+            f5_t:"低評価の復活", f5_d:"低評価数と高評価/低評価の比率バーを復元。",
+            f6_t:"DeArrow", f6_d:"クリックベイトのタイトルとサムネイルをコミュニティの代替案に置き換え。",
+            f7_t:"キーボードショートカット", f7_d:"すべての機能にカスタマイズ可能なショートカット。マウスなしで操作。",
+            f8_t:"動画フィルター", f8_d:"明るさ、コントラスト、彩度、ぼかし、暖かさ、セピアをリアルタイムで調整。",
+            f9_t:"使用タイマー", f9_d:"アラート付きの時間制限でスクリーンタイムを管理。",
+            sec_how:"使い方", sec_how_title:"数秒で準備完了",
+            s1_t:"App Storeからインストール", s1_d:"App StoreからRed Crowをダウンロード。Mac、iPhone、iPad対応。",
+            s2_t:"Safariで有効化", s2_d:"Safariの設定を開き、拡張機能でRed Crowを有効に。youtube.comへの許可を与えてください。",
+            s3_t:"YouTubeを開く", s3_d:"SafariでYouTubeを開き、強化された体験をお楽しみください。",
+            sec_why:"なぜRed Crow", sec_why_title:"Safariユーザーのために",
+            w1_t:"40以上の設定", w1_d:"すべての機能が設定可能。必要なものだけ有効に。あなたのYouTube、あなたのルール。",
+            w2_t:"プライバシー優先", w2_d:"アカウント不要、トラッキングなし、データ収集なし。設定はデバイス上に保存。",
+            w3_t:"ネイティブSafari拡張機能", w3_d:"Chromeの移植ではありません。Red CrowはSafari専用に設計。",
+            req:"macOS 15.0 (Sequoia)以降、またはiOS/iPadOS 18.0以降が必要です。",
+            f_brand:"インディーソフトウェアスタジオ。<br>Appleプラットフォーム向けのプライバシー重視ツール。",
+            f_legal:"法的情報", f_privacy:"プライバシーポリシー", f_terms:"利用規約", f_connect:"お問い合わせ",
+        },
+        ko: {
+            nav_features:"기능", nav_how:"사용 방법", nav_contact:"연락처",
+            hero_title:"Red Crow<br>for Safari", hero_sub:"속도 조절, SponsorBlock, 동영상 필터, 키보드 단축키, 40개 이상의 설정으로 YouTube 경험을 향상시키세요. macOS, iOS, iPadOS용 네이티브 Safari 확장.", hero_cta_ios:"iOS용 다운로드", hero_cta_mac:"macOS용 다운로드", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"기능", sec_features_title:"더 나은 YouTube를 위한 모든 것",
+            f1_t:"속도 조절", f1_d:"기본 재생 속도 설정, 채널별 프로필 생성, 세션 간 속도 기억.",
+            f2_t:"플레이어 툴바", f2_d:"19개 버튼: 스크린샷, 루프, PiP, 시네마 모드, 팝아웃 플레이어, 회전, 반전 등.",
+            f3_t:"SponsorBlock", f3_d:"스폰서, 인트로, 아웃트로, 자기 홍보, 필러 세그먼트를 자동 건너뛰기.",
+            f4_t:"요소 숨기기", f4_d:"댓글, 쇼츠, 끝 카드, 광고, 시각적 잡동사니 제거. 동영상에 집중.",
+            f5_t:"싫어요 복원", f5_d:"싫어요 수와 좋아요/싫어요 비율 바를 복원합니다.",
+            f6_t:"DeArrow", f6_d:"낚시성 제목과 썸네일을 커뮤니티 대안으로 교체합니다.",
+            f7_t:"키보드 단축키", f7_d:"모든 기능에 대한 사용자 정의 단축키. 마우스 없이 조작.",
+            f8_t:"동영상 필터", f8_d:"밝기, 대비, 채도, 흐림, 따뜻함, 세피아를 실시간으로 조정.",
+            f9_t:"사용 타이머", f9_d:"알림과 함께 시간 제한을 설정하여 화면 시간을 관리하세요.",
+            sec_how:"사용 방법", sec_how_title:"몇 초 만에 준비 완료",
+            s1_t:"App Store에서 설치", s1_d:"App Store에서 Red Crow를 다운로드하세요. Mac, iPhone, iPad 지원.",
+            s2_t:"Safari에서 활성화", s2_d:"Safari 설정을 열고 확장에서 Red Crow를 활성화하세요. youtube.com 권한을 부여하세요.",
+            s3_t:"YouTube 방문", s3_d:"Safari에서 YouTube를 열고 향상된 경험을 즐기세요.",
+            sec_why:"왜 Red Crow인가", sec_why_title:"Safari 사용자를 위해",
+            w1_t:"40개 이상의 설정", w1_d:"모든 기능을 설정할 수 있습니다. 필요한 것만 활성화하세요. 당신의 YouTube, 당신의 규칙.",
+            w2_t:"프라이버시 우선", w2_d:"계정 불필요, 추적 없음, 데이터 수집 없음. 설정은 기기에 저장됩니다.",
+            w3_t:"네이티브 Safari 확장", w3_d:"Chrome 이식이 아닙니다. Red Crow는 Safari 전용으로 설계되었습니다.",
+            req:"macOS 15.0 (Sequoia) 이상 또는 iOS/iPadOS 18.0 이상 필요.",
+            f_brand:"인디 소프트웨어 스튜디오.<br>Apple 플랫폼을 위한 프라이버시 중심 도구.",
+            f_legal:"법적 정보", f_privacy:"개인정보 처리방침", f_terms:"이용약관", f_connect:"연락처",
+        },
+        nb: {
+            nav_features:"Funksjoner", nav_how:"Slik fungerer det", nav_contact:"Kontakt",
+            hero_title:"Red Crow<br>for Safari", hero_sub:"Forbedre YouTube-opplevelsen din med hastighetskontroll, SponsorBlock, videofiltre, tastatursnarveier og over 40 innstillinger. En Safari-utvidelse for macOS, iOS og iPadOS.", hero_cta_ios:"Last ned for iOS", hero_cta_mac:"Last ned for macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Funksjoner", sec_features_title:"Alt du trenger for en bedre YouTube",
+            f1_t:"Hastighetskontroll", f1_d:"Sett en standardhastighet, opprett kanalprofiler og husk foretrukket hastighet mellom økter.",
+            f2_t:"Spillerverktøylinje", f2_d:"19 knapper: skjermbilde, løkke, bilde-i-bilde, kinomodus, pop-ut-spiller, roter, vend og mer.",
+            f3_t:"SponsorBlock", f3_d:"Hopp automatisk over sponsorer, introer, outroer, egenreklame og fyllsegmenter.",
+            f4_t:"Skjul elementer", f4_d:"Fjern kommentarer, Shorts, sluttkort, annonser og visuell rot. Fokuser på videoen.",
+            f5_t:"Dislikes er tilbake", f5_d:"Gjenopprett antall dislikes og like/dislike-bjelken.",
+            f6_t:"DeArrow", f6_d:"Erstatt klikkagn-titler og miniatyrbilder med fellesskapsalternativer.",
+            f7_t:"Tastatursnarveier", f7_d:"Tilpassbare snarveier for alle funksjoner. Kontroller hastighet, søk, skjermbilde og mer uten mus.",
+            f8_t:"Videofiltre", f8_d:"Juster lysstyrke, kontrast, metning, uskarphet, varme og sepia i sanntid.",
+            f9_t:"Brukstimer", f9_d:"Sett tidsgrenser med varsler for å styre skjermtiden din.",
+            sec_how:"Slik fungerer det", sec_how_title:"Klar på sekunder",
+            s1_t:"Installer fra App Store", s1_d:"Last ned Red Crow fra App Store. Tilgjengelig for Mac, iPhone og iPad.",
+            s2_t:"Aktiver i Safari", s2_d:"Åpne Safari-innstillinger, gå til Utvidelser og aktiver Red Crow. Gi tillatelse for youtube.com.",
+            s3_t:"Besøk YouTube", s3_d:"Åpne YouTube i Safari og nyt den forbedrede opplevelsen.",
+            sec_why:"Hvorfor Red Crow", sec_why_title:"Bygget for Safari-brukere",
+            w1_t:"40+ innstillinger", w1_d:"Alle funksjoner kan tilpasses. Aktiver bare det du trenger. Din YouTube, dine regler.",
+            w2_t:"Personvern først", w2_d:"Ingen kontoer, ingen sporing, ingen datainnsamling. Innstillingene dine forblir på enheten din.",
+            w3_t:"Safari-utvidelse", w3_d:"Ikke en Chrome-utvidelse portert til Safari. Red Crow er bygget spesifikt for Safari.",
+            req:"Krever macOS 15.0 (Sequoia) eller nyere, eller iOS/iPadOS 18.0 eller nyere.",
+            f_brand:"Indie-programvarestudio.<br>Fokuserte, personvernvennlige verktøy for Apple-plattformer.",
+            f_legal:"Juridisk", f_privacy:"Personvern", f_terms:"Vilkår for bruk", f_connect:"Kontakt",
+        },
+        nl: {
+            nav_features:"Functies", nav_how:"Hoe het werkt", nav_contact:"Contact",
+            hero_title:"Red Crow<br>voor Safari", hero_sub:"Verbeter je YouTube-ervaring met snelheidsregeling, SponsorBlock, videofilters, sneltoetsen en meer dan 40 instellingen. Een Safari-extensie voor macOS, iOS en iPadOS.", hero_cta_ios:"Download voor iOS", hero_cta_mac:"Download voor macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Functies", sec_features_title:"Alles voor een betere YouTube",
+            f1_t:"Snelheidsregeling", f1_d:"Stel een standaardsnelheid in, maak kanaalprofielen aan en onthoud je voorkeursnelheid tussen sessies.",
+            f2_t:"Spelerwerkbalk", f2_d:"19 knoppen: schermafbeelding, herhalen, beeld-in-beeld, bioscoopstand, pop-outspeler, draaien, spiegelen en meer.",
+            f3_t:"SponsorBlock", f3_d:"Sla automatisch sponsors, intro’s, outro’s, zelfpromotie en opvulsegmenten over.",
+            f4_t:"Elementen verbergen", f4_d:"Verwijder reacties, Shorts, eindschermen, advertenties en visuele rommel. Focus op de video.",
+            f5_t:"Dislikes terug", f5_d:"Herstel het aantal dislikes en de like/dislike-balk.",
+            f6_t:"DeArrow", f6_d:"Vervang clickbait-titels en thumbnails door community-alternatieven.",
+            f7_t:"Sneltoetsen", f7_d:"Aanpasbare sneltoetsen voor elke functie. Bedien snelheid, zoeken, schermafbeelding en meer zonder muis.",
+            f8_t:"Videofilters", f8_d:"Pas helderheid, contrast, verzadiging, vervaging, warmte en sepia aan in realtime.",
+            f9_t:"Gebruikstimer", f9_d:"Stel tijdslimieten in met waarschuwingen om je schermtijd te beheren.",
+            sec_how:"Hoe het werkt", sec_how_title:"Klaar in seconden",
+            s1_t:"Installeer vanuit de App Store", s1_d:"Download Red Crow uit de App Store. Beschikbaar voor Mac, iPhone en iPad.",
+            s2_t:"Activeer in Safari", s2_d:"Open Safari-instellingen, ga naar Extensies en activeer Red Crow. Geef toestemming voor youtube.com.",
+            s3_t:"Bezoek YouTube", s3_d:"Open YouTube in Safari en geniet van de verbeterde ervaring.",
+            sec_why:"Waarom Red Crow", sec_why_title:"Gebouwd voor Safari-gebruikers",
+            w1_t:"40+ instellingen", w1_d:"Elke functie is configureerbaar. Schakel alleen in wat je nodig hebt. Jouw YouTube, jouw regels.",
+            w2_t:"Privacy eerst", w2_d:"Geen accounts, geen tracking, geen gegevensverzameling. Je instellingen blijven op je apparaat.",
+            w3_t:"Eigen Safari-extensie", w3_d:"Geen geporteerde Chrome-extensie. Red Crow is specifiek voor Safari gebouwd met native prestaties.",
+            req:"Vereist macOS 15.0 (Sequoia) of nieuwer, of iOS/iPadOS 18.0 of nieuwer.",
+            f_brand:"Indie-softwarestudio.<br>Gerichte, privacyvriendelijke tools voor Apple-platforms.",
+            f_legal:"Juridisch", f_privacy:"Privacybeleid", f_terms:"Servicevoorwaarden", f_connect:"Contact",
+        },
+        pl: {
+            nav_features:"Funkcje", nav_how:"Jak to działa", nav_contact:"Kontakt",
+            hero_title:"Red Crow<br>dla Safari", hero_sub:"Ulepsz swoje YouTube dzięki kontroli prędkości, SponsorBlock, filtrom wideo, skrótom klawiaturowym i ponad 40 ustawieniom. Natywne rozszerzenie Safari dla macOS, iOS i iPadOS.", hero_cta_ios:"Pobierz na iOS", hero_cta_mac:"Pobierz na macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Funkcje", sec_features_title:"Wszystko dla lepszego YouTube",
+            f1_t:"Kontrola prędkości", f1_d:"Ustaw domyślną prędkość odtwarzania, twórz profile dla kanałów i zapamiętuj preferowaną prędkość.",
+            f2_t:"Pasek odtwarzacza", f2_d:"19 przycisków: zrzut ekranu, pętla, obraz w obrazie, tryb kina, odtwarzacz wyskakujący, obracanie i więcej.",
+            f3_t:"SponsorBlock", f3_d:"Automatycznie pomijaj sponsorów, intra, outra, autopromocję i segmenty wypełniające.",
+            f4_t:"Ukryj elementy", f4_d:"Usuń komentarze, Shorts, karty końcowe, reklamy i wizualny bałagan. Skup się na filmie.",
+            f5_t:"Powrot dislike’ów", f5_d:"Przywróć licznik dislike’ów i pasek proporcji like/dislike.",
+            f6_t:"DeArrow", f6_d:"Zastąp tytuły i miniatury clickbait alternatywami społeczności.",
+            f7_t:"Skróty klawiszowe", f7_d:"Konfigurowalne skróty dla każdej funkcji. Steruj prędkością, wyszukiwaniem i innymi bez myszy.",
+            f8_t:"Filtry wideo", f8_d:"Dostosuj jasność, kontrast, nasycenie, rozmycie, ciepło i sepię w czasie rzeczywistym.",
+            f9_t:"Timer użytkowania", f9_d:"Ustaw limity czasu z alertami, aby zarządzać czasem ekranowym.",
+            sec_how:"Jak to działa", sec_how_title:"Gotowe w kilka sekund",
+            s1_t:"Zainstaluj z App Store", s1_d:"Pobierz Red Crow z App Store. Dostępne na Mac, iPhone i iPad.",
+            s2_t:"Włącz w Safari", s2_d:"Otwórz ustawienia Safari, przejdź do Rozszerzeń i włącz Red Crow. Przyznaj uprawnienia dla youtube.com.",
+            s3_t:"Odwiedź YouTube", s3_d:"Otwórz YouTube w Safari i ciesz się ulepszoną obsługą.",
+            sec_why:"Dlaczego Red Crow", sec_why_title:"Stworzony dla użytkowników Safari",
+            w1_t:"40+ ustawień", w1_d:"Każda funkcja jest konfigurowalna. Włącz tylko to, czego potrzebujesz. Twój YouTube, twoje zasady.",
+            w2_t:"Prywatność przede wszystkim", w2_d:"Bez kont, bez śledzenia, bez zbierania danych. Twoje ustawienia pozostają na twoim urządzeniu.",
+            w3_t:"Natywne rozszerzenie Safari", w3_d:"To nie jest port z Chrome. Red Crow został stworzony specjalnie dla Safari z natywną wydajnością.",
+            req:"Wymaga macOS 15.0 (Sequoia) lub nowszego, lub iOS/iPadOS 18.0 lub nowszego.",
+            f_brand:"Niezależne studio oprogramowania.<br>Narzędzia skupione na prywatności dla platform Apple.",
+            f_legal:"Prawne", f_privacy:"Polityka prywatności", f_terms:"Warunki użytkowania", f_connect:"Kontakt",
+        },
+        pt_BR: {
+            nav_features:"Recursos", nav_how:"Como funciona", nav_contact:"Contato",
+            hero_title:"Red Crow<br>para Safari", hero_sub:"Melhore sua experiência no YouTube com controles de velocidade, SponsorBlock, filtros de vídeo, atalhos de teclado e mais de 40 configurações. Uma extensão nativa do Safari para macOS, iOS e iPadOS.", hero_cta_ios:"Baixar para iOS", hero_cta_mac:"Baixar para macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Recursos", sec_features_title:"Tudo para um YouTube melhor",
+            f1_t:"Controle de Velocidade", f1_d:"Defina uma velocidade padrão, crie perfis por canal e lembre sua velocidade preferida entre sessões.",
+            f2_t:"Barra do Player", f2_d:"19 botões: captura de tela, loop, Picture-in-Picture, modo cinema, player pop-out, rotacionar, espelhar e mais.",
+            f3_t:"SponsorBlock", f3_d:"Pule automaticamente patrocinadores, intros, outros, autopromocao e segmentos de preenchimento.",
+            f4_t:"Ocultar Elementos", f4_d:"Remova comentários, Shorts, cards finais, anúncios e desordem visual. Foque no vídeo.",
+            f5_t:"Dislikes de Volta", f5_d:"Restaure a contagem de dislikes e a barra de proporção like/dislike.",
+            f6_t:"DeArrow", f6_d:"Substitua títulos e miniaturas clickbait por alternativas da comunidade.",
+            f7_t:"Atalhos de Teclado", f7_d:"Atalhos personalizáveis para cada recurso. Controle velocidade, busca, captura e mais sem o mouse.",
+            f8_t:"Filtros de Vídeo", f8_d:"Ajuste brilho, contraste, saturação, desfoque, calor e sépia em tempo real.",
+            f9_t:"Timer de Uso", f9_d:"Defina limites de tempo com alertas para gerenciar seu tempo de tela.",
+            sec_how:"Como funciona", sec_how_title:"Pronto em segundos",
+            s1_t:"Instale pela App Store", s1_d:"Baixe o Red Crow na App Store. Disponível para Mac, iPhone e iPad.",
+            s2_t:"Ative no Safari", s2_d:"Abra os Ajustes do Safari, vá em Extensões e ative o Red Crow. Conceda permissão para youtube.com.",
+            s3_t:"Visite o YouTube", s3_d:"Abra o YouTube no Safari e aproveite a experiência aprimorada.",
+            sec_why:"Por que Red Crow", sec_why_title:"Feito para usuários do Safari",
+            w1_t:"40+ configurações", w1_d:"Cada recurso é configurável. Ative apenas o que precisar. Seu YouTube, suas regras.",
+            w2_t:"Privacidade em primeiro lugar", w2_d:"Sem contas, sem rastreamento, sem coleta de dados. Suas configurações ficam no seu dispositivo.",
+            w3_t:"Extensão nativa do Safari", w3_d:"Não é uma extensão do Chrome portada. Red Crow foi feito especificamente para o Safari.",
+            req:"Requer macOS 15.0 (Sequoia) ou posterior, ou iOS/iPadOS 18.0 ou posterior.",
+            f_brand:"Estúdio indie de software.<br>Ferramentas focadas e privadas para plataformas Apple.",
+            f_legal:"Legal", f_privacy:"Política de Privacidade", f_terms:"Termos de Serviço", f_connect:"Contato",
+        },
+        ru: {
+            nav_features:"Функции", nav_how:"Как это работает", nav_contact:"Контакты",
+            hero_title:"Red Crow<br>для Safari", hero_sub:"Улучшите YouTube с управлением скоростью, SponsorBlock, видеофильтрами, горячими клавишами и 40+ настройками. Нативное расширение Safari для macOS, iOS и iPadOS.", hero_cta_ios:"Скачать для iOS", hero_cta_mac:"Скачать для macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Функции", sec_features_title:"Всё для лучшего YouTube",
+            f1_t:"Управление скоростью", f1_d:"Установите скорость по умолчанию, создайте профили по каналам и сохраняйте скорость между сессиями.",
+            f2_t:"Панель плеера", f2_d:"19 кнопок: скриншот, повтор, картинка в картинке, кинорежим, всплывающий плеер, поворот и др.",
+            f3_t:"SponsorBlock", f3_d:"Автоматически пропускайте спонсоров, интро, аутро, саморекламу и филлеры.",
+            f4_t:"Скрытие элементов", f4_d:"Уберите комментарии, Shorts, конечные карточки, рекламу и визуальный мусор. Сосредоточьтесь на видео.",
+            f5_t:"Возврат дизлайков", f5_d:"Верните счётчик дизлайков и полосу соотношения лайков/дизлайков.",
+            f6_t:"DeArrow", f6_d:"Замените кликбейт-заголовки и миниатюры альтернативами сообщества.",
+            f7_t:"Горячие клавиши", f7_d:"Настраиваемые комбинации для каждой функции. Управляйте без мыши.",
+            f8_t:"Видеофильтры", f8_d:"Настройте яркость, контраст, насыщенность, размытие, теплоту и сепию в реальном времени.",
+            f9_t:"Таймер использования", f9_d:"Установите ограничения с оповещениями для контроля экранного времени.",
+            sec_how:"Как это работает", sec_how_title:"Готово за секунды",
+            s1_t:"Установите из App Store", s1_d:"Скачайте Red Crow из App Store. Доступно для Mac, iPhone и iPad.",
+            s2_t:"Включите в Safari", s2_d:"Откройте настройки Safari, перейдите в Расширения и включите Red Crow. Дайте разрешение для youtube.com.",
+            s3_t:"Откройте YouTube", s3_d:"Откройте YouTube в Safari и наслаждайтесь улучшенным опытом.",
+            sec_why:"Почему Red Crow", sec_why_title:"Создан для Safari",
+            w1_t:"40+ настроек", w1_d:"Каждая функция настраивается. Включайте только нужное. Ваш YouTube, ваши правила.",
+            w2_t:"Приватность прежде всего", w2_d:"Без аккаунтов, без отслеживания, без сбора данных. Настройки остаются на вашем устройстве.",
+            w3_t:"Нативное расширение Safari", w3_d:"Не порт Chrome. Red Crow создан специально для Safari с нативной производительностью.",
+            req:"Требуется macOS 15.0 (Sequoia) или новее, или iOS/iPadOS 18.0 или новее.",
+            f_brand:"Инди-студия программного обеспечения.<br>Инструменты для Apple с фокусом на конфиденциальности.",
+            f_legal:"Правовая информация", f_privacy:"Политика конфиденциальности", f_terms:"Условия использования", f_connect:"Контакты",
+        },
+        sv: {
+            nav_features:"Funktioner", nav_how:"Så fungerar det", nav_contact:"Kontakt",
+            hero_title:"Red Crow<br>för Safari", hero_sub:"Förbättra din YouTube-upplevelse med hastighetskontroll, SponsorBlock, videofilter, kortkommandon och över 40 inställningar. Ett Safari-tillägg för macOS, iOS och iPadOS.", hero_cta_ios:"Ladda ner för iOS", hero_cta_mac:"Ladda ner för macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Funktioner", sec_features_title:"Allt du behöver för ett bättre YouTube",
+            f1_t:"Hastighetskontroll", f1_d:"Ställ in en standardhastighet, skapa kanalprofiler och kom ihåg din föredragna hastighet mellan sessioner.",
+            f2_t:"Spelarverktygslinje", f2_d:"19 knappar: skärmdump, loop, bild-i-bild, bioläge, pop-ut-spelare, rotera, vänd och mer.",
+            f3_t:"SponsorBlock", f3_d:"Hoppa automatiskt över sponsorer, intron, outron, självpromotion och fyllsegment.",
+            f4_t:"Dölj element", f4_d:"Ta bort kommentarer, Shorts, slutkort, annonser och visuellt stök. Fokusera på videon.",
+            f5_t:"Dislikes är tillbaka", f5_d:"Återställ dislike-räknaren och like/dislike-fältet.",
+            f6_t:"DeArrow", f6_d:"Ersätt klickbete-titlar och miniatyrer med gemenskapsalternativ.",
+            f7_t:"Kortkommandon", f7_d:"Anpassningsbara kortkommandon för varje funktion. Styr hastighet, sök, skärmdump och mer utan mus.",
+            f8_t:"Videofilter", f8_d:"Justera ljusstyrka, kontrast, mättnad, oskärpa, värme och sepia i realtid.",
+            f9_t:"Användningstimer", f9_d:"Ställ in tidsgränser med varningar för att hantera din skärmtid.",
+            sec_how:"Så fungerar det", sec_how_title:"Redo på sekunder",
+            s1_t:"Installera från App Store", s1_d:"Ladda ner Red Crow från App Store. Tillgänglig för Mac, iPhone och iPad.",
+            s2_t:"Aktivera i Safari", s2_d:"Öppna Safari-inställningar, gå till Tillägg och aktivera Red Crow. Ge behörighet för youtube.com.",
+            s3_t:"Besök YouTube", s3_d:"Öppna YouTube i Safari och njut av den förbättrade upplevelsen.",
+            sec_why:"Varför Red Crow", sec_why_title:"Byggt för Safari-användare",
+            w1_t:"Över 40 inställningar", w1_d:"Varje funktion är konfigurerbar. Aktivera bara det du behöver. Ditt YouTube, dina regler.",
+            w2_t:"Integritet först", w2_d:"Inga konton, ingen spårning, ingen datainsamling. Dina inställningar stannar på din enhet.",
+            w3_t:"Inbyggt Safari-tillägg", w3_d:"Ingen Chrome-port. Red Crow är byggt specifikt för Safari med inbyggd prestanda.",
+            req:"Kräver macOS 15.0 (Sequoia) eller nyare, eller iOS/iPadOS 18.0 eller nyare.",
+            f_brand:"Indie-mjukvarustudio.<br>Fokuserade, integritetsfokuserade verktyg för Apple-plattformar.",
+            f_legal:"Juridiskt", f_privacy:"Integritetspolicy", f_terms:"Användarvillkor", f_connect:"Kontakt",
+        },
+        tr: {
+            nav_features:"Özellikler", nav_how:"Nasıl çalışır", nav_contact:"İletişim",
+            hero_title:"Red Crow<br>Safari için", hero_sub:"Hız kontrolü, SponsorBlock, video filtreleri, klavye kısayolları ve 40’tan fazla ayarla YouTube deneyiminizi geliştirin. macOS, iOS ve iPadOS için Safari eklentisi.", hero_cta_ios:"iOS için indir", hero_cta_mac:"macOS için indir", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"Özellikler", sec_features_title:"Daha iyi bir YouTube için ihtiyacınız olan her şey",
+            f1_t:"Hız Kontrolü", f1_d:"Varsayılan oynatma hızı ayarlayın, kanal profilleri oluşturun ve oturumlar arasında hızınızı hatırlayın.",
+            f2_t:"Oynatıcı Araç Çubuğu", f2_d:"19 düğme: ekran görüntüsü, döngü, resim içinde resim, sinema modu, açılır oynatıcı, döndürme ve daha fazlası.",
+            f3_t:"SponsorBlock", f3_d:"Sponsorları, girisleri, çıkışları, öz tanıtım ve dolgu bölümlerini otomatik atlayın.",
+            f4_t:"Öğeleri Gizle", f4_d:"Yorumları, Shorts’u, bitiş kartlarını, reklamları ve görsel karmayı kaldırın. Videoya odaklanın.",
+            f5_t:"Dislike’lar Geri Döndü", f5_d:"Dislike sayısını ve beğeni/beğenmeme oranı çubuğunu geri yükleyin.",
+            f6_t:"DeArrow", f6_d:"Clickbait başlıkları ve küçük resimleri topluluk alternatifleriyle değiştirin.",
+            f7_t:"Klavye Kısayolları", f7_d:"Her özellik için özelleştirilebilir kısayollar. Fare olmadan hız, arama, ekran görüntüsü ve daha fazlasını kontrol edin.",
+            f8_t:"Video Filtreleri", f8_d:"Parlaklık, kontrast, doygunluk, bulanıklık, sıcaklık ve sepya’yı gerçek zamanlı ayarlayın.",
+            f9_t:"Kullanım Zamanlayıcısı", f9_d:"Ekran sürenizi yönetmek için uyarılı zaman sınırları belirleyin.",
+            sec_how:"Nasıl çalışır", sec_how_title:"Saniyeler içinde hazır",
+            s1_t:"App Store’dan yükleyin", s1_d:"Red Crow’u App Store’dan indirin. Mac, iPhone ve iPad için mevcut.",
+            s2_t:"Safari’de etkinleştirin", s2_d:"Safari Ayarları’nı açın, Eklentiler’e gidin ve Red Crow’u etkinleştirin. youtube.com için izin verin.",
+            s3_t:"YouTube’u ziyaret edin", s3_d:"Safari’de YouTube’u açın ve geliştirilmiş deneyimin tadını çıkarın.",
+            sec_why:"Neden Red Crow", sec_why_title:"Safari kullanıcıları için yapıldı",
+            w1_t:"40+ ayar", w1_d:"Her özellik yapılandırılabilir. Sadece ihtiyacınız olanı etkinleştirin. Sizin YouTube’unuz, sizin kurallarınız.",
+            w2_t:"Gizlilik önce", w2_d:"Hesap yok, izleme yok, veri toplama yok. Ayarlarınız cihazınızda kalır.",
+            w3_t:"Safari eklentisi", w3_d:"Chrome portu değil. Red Crow özel olarak Safari için yerel performansla yapıldı.",
+            req:"macOS 15.0 (Sequoia) veya üstü, veya iOS/iPadOS 18.0 veya üstü gerektirir.",
+            f_brand:"Bağımsız yazılım stüdyosu.<br>Apple platformları için gizlilik odaklı araçlar.",
+            f_legal:"Yasal", f_privacy:"Gizlilik Politikası", f_terms:"Kullanım Koşulları", f_connect:"İletişim",
+        },
+        zh_CN: {
+            nav_features:"功能", nav_how:"如何使用", nav_contact:"联系",
+            hero_title:"Red Crow<br>Safari 版", hero_sub:"通过速度控制、SponsorBlock、视频滤镜、键盘快捷键和 40 多项设置提升您的 YouTube 体验。macOS、iOS 和 iPadOS 的原生 Safari 扩展。", hero_cta_ios:"下载 iOS 版", hero_cta_mac:"下载 macOS 版", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"功能", sec_features_title:"打造更好的 YouTube 所需的一切",
+            f1_t:"速度控制", f1_d:"设置默认播放速度，创建频道配置文件，并在会话间记住首选速度。",
+            f2_t:"播放器工具栏", f2_d:"19 个按钮：截图、循环、画中画、影院模式、弹出播放器、旋转、翻转等。",
+            f3_t:"SponsorBlock", f3_d:"自动跳过赞助商、片头、片尾、自我推广和填充片段。",
+            f4_t:"隐藏元素", f4_d:"移除评论、Shorts、结束卡片、广告和视觉杂乱。专注于视频。",
+            f5_t:"不喜欢回归", f5_d:"恢复不喜欢计数和喜欢/不喜欢比例条。",
+            f6_t:"DeArrow", f6_d:"用社区替代方案替换标题党标题和缩略图。",
+            f7_t:"键盘快捷键", f7_d:"每个功能都有可自定义的快捷键。无需鼠标即可操控。",
+            f8_t:"视频滤镜", f8_d:"实时调整亮度、对比度、饱和度、模糊、暖色和复古色。",
+            f9_t:"使用计时器", f9_d:"设置带提醒的时间限制来管理屏幕时间。",
+            sec_how:"如何使用", sec_how_title:"几秒钟即可就绪",
+            s1_t:"从 App Store 安装", s1_d:"从 App Store 下载 Red Crow。支持 Mac、iPhone 和 iPad。",
+            s2_t:"在 Safari 中启用", s2_d:"打开 Safari 设置，转到扩展并启用 Red Crow。授予 youtube.com 权限。",
+            s3_t:"访问 YouTube", s3_d:"在 Safari 中打开 YouTube，享受增强体验。",
+            sec_why:"为什么选 Red Crow", sec_why_title:"为 Safari 用户打造",
+            w1_t:"40+ 设置", w1_d:"每个功能都可配置。只启用你需要的。你的 YouTube，你的规则。",
+            w2_t:"隐私优先", w2_d:"无账户、无跟踪、无数据收集。设置保存在你的设备上。",
+            w3_t:"原生 Safari 扩展", w3_d:"不是 Chrome 移植。Red Crow 专为 Safari 设计，原生性能。",
+            req:"需要 macOS 15.0 (Sequoia) 或更高版本，或 iOS/iPadOS 18.0 或更高版本。",
+            f_brand:"独立软件工作室。<br>为 Apple 平台打造注重隐私的工具。",
+            f_legal:"法律信息", f_privacy:"隐私政策", f_terms:"服务条款", f_connect:"联系",
+        },
+        zh_TW: {
+            nav_features:"功能", nav_how:"如何使用", nav_contact:"聯絡",
+            hero_title:"Red Crow<br>Safari 版", hero_sub:"透過速度控制、SponsorBlock、影片濾鏡、鍵盤快捷鍵和 40 多項設定提升您的 YouTube 體驗。macOS、iOS 和 iPadOS 的原生 Safari 擴充功能。", hero_cta_ios:"下載 iOS 版", hero_cta_mac:"下載 macOS 版", hero_req:"iOS 18.0+ · macOS 15.0+",
+            sec_features:"功能", sec_features_title:"打造更好的 YouTube 所需的一切",
+            f1_t:"速度控制", f1_d:"設定預設播放速度，建立頻道設定檔，並在工作階段間記住首選速度。",
+            f2_t:"播放器工具列", f2_d:"19 個按鈕：擷取畫面、循環、子母畫面、電影模式、彈出播放器、旋轉、翻轉等。",
+            f3_t:"SponsorBlock", f3_d:"自動跳過贊助商、片頭、片尾、自我推廣和填充片段。",
+            f4_t:"隱藏元素", f4_d:"移除留言、Shorts、結束卡片、廣告和視覺雜亂。專注於影片。",
+            f5_t:"不喜歡回歸", f5_d:"恢復不喜歡計數和喜歡/不喜歡比例條。",
+            f6_t:"DeArrow", f6_d:"用社群替代方案取代標題黨標題和縮圖。",
+            f7_t:"鍵盤快捷鍵", f7_d:"每個功能都有可自訂的快捷鍵。無需滑鼠即可操控。",
+            f8_t:"影片濾鏡", f8_d:"即時調整亮度、對比度、飽和度、模糊、暖色和復古色。",
+            f9_t:"使用計時器", f9_d:"設定帶提醒的時間限制來管理螢幕時間。",
+            sec_how:"如何使用", sec_how_title:"幾秒鐘即可就緒",
+            s1_t:"從 App Store 安裝", s1_d:"從 App Store 下載 Red Crow。支援 Mac、iPhone 和 iPad。",
+            s2_t:"在 Safari 中啟用", s2_d:"開啟 Safari 設定，前往擴充功能並啟用 Red Crow。授予 youtube.com 權限。",
+            s3_t:"造訪 YouTube", s3_d:"在 Safari 中開啟 YouTube，享受增強體驗。",
+            sec_why:"為什麼選 Red Crow", sec_why_title:"為 Safari 用戶打造",
+            w1_t:"40+ 設定", w1_d:"每個功能都可設定。只啟用你需要的。你的 YouTube，你的規則。",
+            w2_t:"隱私優先", w2_d:"無帳號、無追蹤、無資料收集。設定保存在你的裝置上。",
+            w3_t:"原生 Safari 擴充功能", w3_d:"不是 Chrome 移植。Red Crow 專為 Safari 設計，原生效能。",
+            req:"需要 macOS 15.0 (Sequoia) 或更高版本，或 iOS/iPadOS 18.0 或更高版本。",
+            f_brand:"獨立軟體工作室。<br>為 Apple 平台打造注重隱私的工具。",
+            f_legal:"法律資訊", f_privacy:"隱私政策", f_terms:"服務條款", f_connect:"聯絡",
+        },
+    };
+
+    /* ---- Language switching ---- */
+    const langNames = {
+        en:"English", da:"Dansk", de:"Deutsch", es:"Español", es_419:"Español (LA)",
+        fi:"Suomi", fr:"Français", it:"Italiano", ja:"日本語", ko:"한국어",
+        nb:"Norsk bokmål", nl:"Nederlands", pl:"Polski", pt_BR:"Português (BR)",
+        ru:"Русский", sv:"Svenska", tr:"Türkçe",
+        zh_CN:"简体中文", zh_TW:"繁體中文"
+    };
+
+    function applyLang(lang) {
+        const t = T[lang] || T.en;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) el.textContent = t[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const key = el.getAttribute('data-i18n-html');
+            if (t[key]) el.innerHTML = t[key];
+        });
+        document.getElementById('langBtn').textContent = langNames[lang] || 'English';
+        document.querySelectorAll('#langMenu button').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+        document.documentElement.lang = lang.replace('_', '-');
+        localStorage.setItem('rc-lang', lang);
+    }
+
+    const langBtn = document.getElementById('langBtn');
+    const langMenu = document.getElementById('langMenu');
+
+    langBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        langMenu.classList.toggle('open');
+    });
+
+    langMenu.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            applyLang(btn.dataset.lang);
+            langMenu.classList.remove('open');
+        });
+    });
+
+    document.addEventListener('click', () => langMenu.classList.remove('open'));
+
+    /* ---- Smooth scroll ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    /* ---- Init language ---- */
+    const params = new URLSearchParams(location.search);
+    const initLang = params.get('lang') || localStorage.getItem('rc-lang') || 'en';
+    if (initLang !== 'en') applyLang(initLang);
+    else {
+        document.querySelectorAll('#langMenu button').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === 'en');
+        });
+    }
+    </script>
+
+</body>
+</html>
