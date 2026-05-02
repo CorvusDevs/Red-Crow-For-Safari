@@ -1,0 +1,16 @@
+# App source code (private)
+Red Crow For Safari/
+Red Crow For Safari Extension/
+Red Crow For Safari iOS/
+Red Crow For Safari.xcodeproj/
+
+# Research docs (private)
+Safari-WebExtension-API-Audit.md
+YOUTUBE_EXTENSIONS_DEEP_RESEARCH.md
+YOUTUBE_EXTENSION_REFERENCE.md
+ios-setup-instructions.md
+research-userscripts-safari-injection.md
+safari-extension-reference.md
+
+# Fastlane screenshots (large)
+fastlane/screenshots/
