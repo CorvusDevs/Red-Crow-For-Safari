@@ -51,7 +51,7 @@
         "applicationCategory": "BrowserApplication",
         "applicationSubCategory": "YouTube Enhancement",
         "screenshot": "https://corvusdevs.github.io/Red-Crow-For-Safari/icon.png",
-        "downloadUrl": "https://apps.apple.com/app/id6765793100",
+        "downloadUrl": "https://apps.apple.com/app/id6766324724",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "author": { "@type": "Organization", "name": "CorvusDevs", "url": "https://corvusdevs.github.io" }
     }
@@ -232,6 +232,19 @@
         }
 
         .hero-cta svg { width: 20px; height: 20px; }
+
+        .hero-cta.disabled {
+            background: var(--surface-2);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            cursor: not-allowed;
+        }
+
+        .hero-cta.disabled:hover {
+            filter: none;
+            transform: none;
+            box-shadow: none;
+        }
 
         .hero-buttons {
             display: flex;
@@ -562,14 +575,14 @@
         <h1 data-i18n-html="hero_title">Red Crow<br>for Safari</h1>
         <p class="subtitle" data-i18n="hero_sub">Enhance your YouTube experience with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ customizable settings. A native Safari extension for macOS, iOS, and iPadOS.</p>
         <div class="hero-buttons">
-            <a href="https://apps.apple.com/app/id6761481948" class="hero-cta" id="storeBtn">
+            <a href="https://apps.apple.com/app/id6766324724" class="hero-cta" id="storeBtn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 <span data-i18n="hero_cta_ios">Download for iOS</span>
             </a>
-            <a href="https://apps.apple.com/app/id6761481948" class="hero-cta" id="storeBtnMac">
+            <span class="hero-cta disabled" id="storeBtnMac" aria-disabled="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                <span data-i18n="hero_cta_mac">Download for macOS</span>
-            </a>
+                <span data-i18n="hero_cta_mac">macOS — Coming Soon</span>
+            </span>
         </div>
         <span class="hero-free" data-i18n="hero_req">iOS 18.0+ &middot; macOS 15.0+</span>
     </section>
@@ -748,7 +761,7 @@
     const T = {
         en: {
             nav_features:"Features", nav_how:"How it works", nav_contact:"Contact",
-            hero_title:"Red Crow<br>for Safari", hero_sub:"Enhance your YouTube experience with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ customizable settings. A native Safari extension for macOS, iOS, and iPadOS.", hero_cta_ios:"Download for iOS", hero_cta_mac:"Download for macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>for Safari", hero_sub:"Enhance your YouTube experience with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ customizable settings. A native Safari extension for macOS, iOS, and iPadOS.", hero_cta_ios:"Download for iOS", hero_cta_mac:"macOS — Coming Soon", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Features", sec_features_title:"Everything you need for a better YouTube",
             f1_t:"Speed Control", f1_d:"Set a default playback speed, create per-channel speed profiles, and remember your preferred speed across sessions.",
             f2_t:"Player Toolbar", f2_d:"19 toolbar buttons: screenshot, loop, Picture-in-Picture, cinema mode, pop-out player, rotate, flip, and more.",
@@ -773,7 +786,7 @@
         },
         da: {
             nav_features:"Funktioner", nav_how:"Sådan virker det", nav_contact:"Kontakt",
-            hero_title:"Red Crow<br>til Safari", hero_sub:"Forbedr din YouTube-oplevelse med hastighedskontrol, SponsorBlock, videofiltre, tastaturgenveje og 40+ indstillinger. En Safari-udvidelse til macOS, iOS og iPadOS.", hero_cta_ios:"Download til iOS", hero_cta_mac:"Download til macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>til Safari", hero_sub:"Forbedr din YouTube-oplevelse med hastighedskontrol, SponsorBlock, videofiltre, tastaturgenveje og 40+ indstillinger. En Safari-udvidelse til macOS, iOS og iPadOS.", hero_cta_ios:"Download til iOS", hero_cta_mac:"macOS — Kommer snart", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Funktioner", sec_features_title:"Alt hvad du behøver til en bedre YouTube",
             f1_t:"Hastighedskontrol", f1_d:"Indstil en standardhastighed, opret kanalprofiler og husk din foretrukne hastighed på tværs af sessioner.",
             f2_t:"Afspiller-værktøjslinje", f2_d:"19 knapper: skærmbillede, loop, billed-i-billede, biograftilstand, pop-ud-afspiller, roter, vend og mere.",
@@ -798,7 +811,7 @@
         },
         de: {
             nav_features:"Funktionen", nav_how:"So funktioniert’s", nav_contact:"Kontakt",
-            hero_title:"Red Crow<br>für Safari", hero_sub:"Verbessere dein YouTube-Erlebnis mit Geschwindigkeitssteuerung, SponsorBlock, Videofiltern, Tastenkombinationen und 40+ Einstellungen. Eine native Safari-Erweiterung für macOS, iOS und iPadOS.", hero_cta_ios:"Für iOS laden", hero_cta_mac:"Für macOS laden", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>für Safari", hero_sub:"Verbessere dein YouTube-Erlebnis mit Geschwindigkeitssteuerung, SponsorBlock, Videofiltern, Tastenkombinationen und 40+ Einstellungen. Eine native Safari-Erweiterung für macOS, iOS und iPadOS.", hero_cta_ios:"Für iOS laden", hero_cta_mac:"macOS — Demnächst", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Funktionen", sec_features_title:"Alles für ein besseres YouTube",
             f1_t:"Geschwindigkeitssteuerung", f1_d:"Lege eine Standard-Wiedergabegeschwindigkeit fest, erstelle kanalspezifische Profile und speichere deine bevorzugte Geschwindigkeit.",
             f2_t:"Player-Werkzeugleiste", f2_d:"19 Schaltflächen: Screenshot, Schleife, Bild-in-Bild, Kino-Modus, Pop-out-Player, Drehen, Spiegeln und mehr.",
@@ -823,7 +836,7 @@
         },
         es: {
             nav_features:"Funciones", nav_how:"Cómo funciona", nav_contact:"Contacto",
-            hero_title:"Red Crow<br>para Safari", hero_sub:"Mejora tu experiencia en YouTube con controles de velocidad, SponsorBlock, filtros de video, atajos de teclado y más de 40 ajustes. Una extensión nativa de Safari para macOS, iOS e iPadOS.", hero_cta_ios:"Descargar para iOS", hero_cta_mac:"Descargar para macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>para Safari", hero_sub:"Mejora tu experiencia en YouTube con controles de velocidad, SponsorBlock, filtros de video, atajos de teclado y más de 40 ajustes. Una extensión nativa de Safari para macOS, iOS e iPadOS.", hero_cta_ios:"Descargar para iOS", hero_cta_mac:"macOS — Próximamente", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Funciones", sec_features_title:"Todo lo que necesitas para un YouTube mejor",
             f1_t:"Control de Velocidad", f1_d:"Establece una velocidad predeterminada, crea perfiles por canal y recuerda tu velocidad preferida entre sesiones.",
             f2_t:"Barra del Reproductor", f2_d:"19 botones: captura, bucle, imagen en imagen, modo cine, reproductor emergente, rotar, voltear y más.",
@@ -848,7 +861,7 @@
         },
         es_419: {
             nav_features:"Funciones", nav_how:"Cómo funciona", nav_contact:"Contacto",
-            hero_title:"Red Crow<br>para Safari", hero_sub:"Mejora tu experiencia en YouTube con controles de velocidad, SponsorBlock, filtros de video, atajos de teclado y más de 40 ajustes. Una extensión nativa de Safari para macOS, iOS e iPadOS.", hero_cta_ios:"Descargar para iOS", hero_cta_mac:"Descargar para macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>para Safari", hero_sub:"Mejora tu experiencia en YouTube con controles de velocidad, SponsorBlock, filtros de video, atajos de teclado y más de 40 ajustes. Una extensión nativa de Safari para macOS, iOS e iPadOS.", hero_cta_ios:"Descargar para iOS", hero_cta_mac:"macOS — Próximamente", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Funciones", sec_features_title:"Todo lo que necesitas para un YouTube mejor",
             f1_t:"Control de Velocidad", f1_d:"Establece una velocidad predeterminada, crea perfiles por canal y recuerda tu velocidad preferida entre sesiones.",
             f2_t:"Barra del Reproductor", f2_d:"19 botones: captura, bucle, imagen en imagen, modo cine, reproductor emergente, rotar, voltear y más.",
@@ -873,7 +886,7 @@
         },
         fi: {
             nav_features:"Ominaisuudet", nav_how:"Näin se toimii", nav_contact:"Yhteystiedot",
-            hero_title:"Red Crow<br>Safarille", hero_sub:"Paranna YouTube-kokemustasi nopeussäätimellä, SponsorBlockilla, videosuodattimilla, pikanäppäimillä ja yli 40 asetuksella. Safari-laajennus macOS:lle, iOS:lle ja iPadOS:lle.", hero_cta_ios:"Lataa iOS:lle", hero_cta_mac:"Lataa macOS:lle", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>Safarille", hero_sub:"Paranna YouTube-kokemustasi nopeussäätimellä, SponsorBlockilla, videosuodattimilla, pikanäppäimillä ja yli 40 asetuksella. Safari-laajennus macOS:lle, iOS:lle ja iPadOS:lle.", hero_cta_ios:"Lataa iOS:lle", hero_cta_mac:"macOS — Tulossa pian", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Ominaisuudet", sec_features_title:"Kaikki mitä tarvitset parempaan YouTubeen",
             f1_t:"Nopeuden säätö", f1_d:"Aseta oletusnopeus, luo kanavakohtaisia profiileja ja muista nopeutesi istuntojen välillä.",
             f2_t:"Soittimen työkalupalkki", f2_d:"19 painiketta: kuvakaappaus, silmukka, kuva kuvassa, elokuvatila, ponnahdussoitin ja muuta.",
@@ -898,7 +911,7 @@
         },
         fr: {
             nav_features:"Fonctions", nav_how:"Comment ça marche", nav_contact:"Contact",
-            hero_title:"Red Crow<br>pour Safari", hero_sub:"Améliorez votre expérience YouTube avec le contrôle de vitesse, SponsorBlock, des filtres vidéo, des raccourcis clavier et plus de 40 réglages. Une extension Safari native pour macOS, iOS et iPadOS.", hero_cta_ios:"Télécharger pour iOS", hero_cta_mac:"Télécharger pour macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>pour Safari", hero_sub:"Améliorez votre expérience YouTube avec le contrôle de vitesse, SponsorBlock, des filtres vidéo, des raccourcis clavier et plus de 40 réglages. Une extension Safari native pour macOS, iOS et iPadOS.", hero_cta_ios:"Télécharger pour iOS", hero_cta_mac:"macOS — Bientôt disponible", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Fonctions", sec_features_title:"Tout pour un meilleur YouTube",
             f1_t:"Contrôle de Vitesse", f1_d:"Définissez une vitesse par défaut, créez des profils par chaîne et mémorisez votre vitesse préférée.",
             f2_t:"Barre du Lecteur", f2_d:"19 boutons : capture d’écran, boucle, image dans l’image, mode cinéma, lecteur détaché, rotation et plus.",
@@ -923,7 +936,7 @@
         },
         it: {
             nav_features:"Funzionalità", nav_how:"Come funziona", nav_contact:"Contatto",
-            hero_title:"Red Crow<br>per Safari", hero_sub:"Migliora la tua esperienza YouTube con controllo velocità, SponsorBlock, filtri video, scorciatoie da tastiera e oltre 40 impostazioni. Un’estensione Safari nativa per macOS, iOS e iPadOS.", hero_cta_ios:"Scarica per iOS", hero_cta_mac:"Scarica per macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>per Safari", hero_sub:"Migliora la tua esperienza YouTube con controllo velocità, SponsorBlock, filtri video, scorciatoie da tastiera e oltre 40 impostazioni. Un’estensione Safari nativa per macOS, iOS e iPadOS.", hero_cta_ios:"Scarica per iOS", hero_cta_mac:"macOS — Prossimamente", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Funzionalità", sec_features_title:"Tutto ciò che serve per un YouTube migliore",
             f1_t:"Controllo Velocità", f1_d:"Imposta una velocità predefinita, crea profili per canale e ricorda la tua velocità preferita tra le sessioni.",
             f2_t:"Barra del Player", f2_d:"19 pulsanti: screenshot, loop, Picture-in-Picture, modalità cinema, player pop-out, ruota, capovolgi e altro.",
@@ -948,7 +961,7 @@
         },
         ja: {
             nav_features:"機能", nav_how:"使い方", nav_contact:"お問い合わせ",
-            hero_title:"Red Crow<br>for Safari", hero_sub:"速度制御、SponsorBlock、動画フィルター、キーボードショートカット、そで40以上の設定でYouTube体験を強化。macOS、iOS、iPadOS対応のネイティブSafari拡張機能。", hero_cta_ios:"iOS版をダウンロード", hero_cta_mac:"macOS版をダウンロード", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>for Safari", hero_sub:"速度制御、SponsorBlock、動画フィルター、キーボードショートカット、そで40以上の設定でYouTube体験を強化。macOS、iOS、iPadOS対応のネイティブSafari拡張機能。", hero_cta_ios:"iOS版をダウンロード", hero_cta_mac:"macOS — 近日公開", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"機能", sec_features_title:"より良いYouTubeに必要なすべて",
             f1_t:"速度制御", f1_d:"デフォルトの再生速度を設定、チャンネルごとのプロフィールを作成、セッション間で速度を記憶。",
             f2_t:"プレーヤーツールバー", f2_d:"19個のボタン：スクリーンショット、ループ、PiP、シネマモード、ポップアウト、回転、反転など。",
@@ -973,7 +986,7 @@
         },
         ko: {
             nav_features:"기능", nav_how:"사용 방법", nav_contact:"연락처",
-            hero_title:"Red Crow<br>for Safari", hero_sub:"속도 조절, SponsorBlock, 동영상 필터, 키보드 단축키, 40개 이상의 설정으로 YouTube 경험을 향상시키세요. macOS, iOS, iPadOS용 네이티브 Safari 확장.", hero_cta_ios:"iOS용 다운로드", hero_cta_mac:"macOS용 다운로드", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>for Safari", hero_sub:"속도 조절, SponsorBlock, 동영상 필터, 키보드 단축키, 40개 이상의 설정으로 YouTube 경험을 향상시키세요. macOS, iOS, iPadOS용 네이티브 Safari 확장.", hero_cta_ios:"iOS용 다운로드", hero_cta_mac:"macOS — 출시 예정", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"기능", sec_features_title:"더 나은 YouTube를 위한 모든 것",
             f1_t:"속도 조절", f1_d:"기본 재생 속도 설정, 채널별 프로필 생성, 세션 간 속도 기억.",
             f2_t:"플레이어 툴바", f2_d:"19개 버튼: 스크린샷, 루프, PiP, 시네마 모드, 팝아웃 플레이어, 회전, 반전 등.",
@@ -998,7 +1011,7 @@
         },
         nb: {
             nav_features:"Funksjoner", nav_how:"Slik fungerer det", nav_contact:"Kontakt",
-            hero_title:"Red Crow<br>for Safari", hero_sub:"Forbedre YouTube-opplevelsen din med hastighetskontroll, SponsorBlock, videofiltre, tastatursnarveier og over 40 innstillinger. En Safari-utvidelse for macOS, iOS og iPadOS.", hero_cta_ios:"Last ned for iOS", hero_cta_mac:"Last ned for macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>for Safari", hero_sub:"Forbedre YouTube-opplevelsen din med hastighetskontroll, SponsorBlock, videofiltre, tastatursnarveier og over 40 innstillinger. En Safari-utvidelse for macOS, iOS og iPadOS.", hero_cta_ios:"Last ned for iOS", hero_cta_mac:"macOS — Kommer snart", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Funksjoner", sec_features_title:"Alt du trenger for en bedre YouTube",
             f1_t:"Hastighetskontroll", f1_d:"Sett en standardhastighet, opprett kanalprofiler og husk foretrukket hastighet mellom økter.",
             f2_t:"Spillerverktøylinje", f2_d:"19 knapper: skjermbilde, løkke, bilde-i-bilde, kinomodus, pop-ut-spiller, roter, vend og mer.",
@@ -1023,7 +1036,7 @@
         },
         nl: {
             nav_features:"Functies", nav_how:"Hoe het werkt", nav_contact:"Contact",
-            hero_title:"Red Crow<br>voor Safari", hero_sub:"Verbeter je YouTube-ervaring met snelheidsregeling, SponsorBlock, videofilters, sneltoetsen en meer dan 40 instellingen. Een Safari-extensie voor macOS, iOS en iPadOS.", hero_cta_ios:"Download voor iOS", hero_cta_mac:"Download voor macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>voor Safari", hero_sub:"Verbeter je YouTube-ervaring met snelheidsregeling, SponsorBlock, videofilters, sneltoetsen en meer dan 40 instellingen. Een Safari-extensie voor macOS, iOS en iPadOS.", hero_cta_ios:"Download voor iOS", hero_cta_mac:"macOS — Binnenkort", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Functies", sec_features_title:"Alles voor een betere YouTube",
             f1_t:"Snelheidsregeling", f1_d:"Stel een standaardsnelheid in, maak kanaalprofielen aan en onthoud je voorkeursnelheid tussen sessies.",
             f2_t:"Spelerwerkbalk", f2_d:"19 knoppen: schermafbeelding, herhalen, beeld-in-beeld, bioscoopstand, pop-outspeler, draaien, spiegelen en meer.",
@@ -1048,7 +1061,7 @@
         },
         pl: {
             nav_features:"Funkcje", nav_how:"Jak to działa", nav_contact:"Kontakt",
-            hero_title:"Red Crow<br>dla Safari", hero_sub:"Ulepsz swoje YouTube dzięki kontroli prędkości, SponsorBlock, filtrom wideo, skrótom klawiaturowym i ponad 40 ustawieniom. Natywne rozszerzenie Safari dla macOS, iOS i iPadOS.", hero_cta_ios:"Pobierz na iOS", hero_cta_mac:"Pobierz na macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>dla Safari", hero_sub:"Ulepsz swoje YouTube dzięki kontroli prędkości, SponsorBlock, filtrom wideo, skrótom klawiaturowym i ponad 40 ustawieniom. Natywne rozszerzenie Safari dla macOS, iOS i iPadOS.", hero_cta_ios:"Pobierz na iOS", hero_cta_mac:"macOS — Wkrótce", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Funkcje", sec_features_title:"Wszystko dla lepszego YouTube",
             f1_t:"Kontrola prędkości", f1_d:"Ustaw domyślną prędkość odtwarzania, twórz profile dla kanałów i zapamiętuj preferowaną prędkość.",
             f2_t:"Pasek odtwarzacza", f2_d:"19 przycisków: zrzut ekranu, pętla, obraz w obrazie, tryb kina, odtwarzacz wyskakujący, obracanie i więcej.",
@@ -1073,7 +1086,7 @@
         },
         pt_BR: {
             nav_features:"Recursos", nav_how:"Como funciona", nav_contact:"Contato",
-            hero_title:"Red Crow<br>para Safari", hero_sub:"Melhore sua experiência no YouTube com controles de velocidade, SponsorBlock, filtros de vídeo, atalhos de teclado e mais de 40 configurações. Uma extensão nativa do Safari para macOS, iOS e iPadOS.", hero_cta_ios:"Baixar para iOS", hero_cta_mac:"Baixar para macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>para Safari", hero_sub:"Melhore sua experiência no YouTube com controles de velocidade, SponsorBlock, filtros de vídeo, atalhos de teclado e mais de 40 configurações. Uma extensão nativa do Safari para macOS, iOS e iPadOS.", hero_cta_ios:"Baixar para iOS", hero_cta_mac:"macOS — Em breve", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Recursos", sec_features_title:"Tudo para um YouTube melhor",
             f1_t:"Controle de Velocidade", f1_d:"Defina uma velocidade padrão, crie perfis por canal e lembre sua velocidade preferida entre sessões.",
             f2_t:"Barra do Player", f2_d:"19 botões: captura de tela, loop, Picture-in-Picture, modo cinema, player pop-out, rotacionar, espelhar e mais.",
@@ -1098,7 +1111,7 @@
         },
         ru: {
             nav_features:"Функции", nav_how:"Как это работает", nav_contact:"Контакты",
-            hero_title:"Red Crow<br>для Safari", hero_sub:"Улучшите YouTube с управлением скоростью, SponsorBlock, видеофильтрами, горячими клавишами и 40+ настройками. Нативное расширение Safari для macOS, iOS и iPadOS.", hero_cta_ios:"Скачать для iOS", hero_cta_mac:"Скачать для macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>для Safari", hero_sub:"Улучшите YouTube с управлением скоростью, SponsorBlock, видеофильтрами, горячими клавишами и 40+ настройками. Нативное расширение Safari для macOS, iOS и iPadOS.", hero_cta_ios:"Скачать для iOS", hero_cta_mac:"macOS — Скоро", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Функции", sec_features_title:"Всё для лучшего YouTube",
             f1_t:"Управление скоростью", f1_d:"Установите скорость по умолчанию, создайте профили по каналам и сохраняйте скорость между сессиями.",
             f2_t:"Панель плеера", f2_d:"19 кнопок: скриншот, повтор, картинка в картинке, кинорежим, всплывающий плеер, поворот и др.",
@@ -1123,7 +1136,7 @@
         },
         sv: {
             nav_features:"Funktioner", nav_how:"Så fungerar det", nav_contact:"Kontakt",
-            hero_title:"Red Crow<br>för Safari", hero_sub:"Förbättra din YouTube-upplevelse med hastighetskontroll, SponsorBlock, videofilter, kortkommandon och över 40 inställningar. Ett Safari-tillägg för macOS, iOS och iPadOS.", hero_cta_ios:"Ladda ner för iOS", hero_cta_mac:"Ladda ner för macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>för Safari", hero_sub:"Förbättra din YouTube-upplevelse med hastighetskontroll, SponsorBlock, videofilter, kortkommandon och över 40 inställningar. Ett Safari-tillägg för macOS, iOS och iPadOS.", hero_cta_ios:"Ladda ner för iOS", hero_cta_mac:"macOS — Kommer snart", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Funktioner", sec_features_title:"Allt du behöver för ett bättre YouTube",
             f1_t:"Hastighetskontroll", f1_d:"Ställ in en standardhastighet, skapa kanalprofiler och kom ihåg din föredragna hastighet mellan sessioner.",
             f2_t:"Spelarverktygslinje", f2_d:"19 knappar: skärmdump, loop, bild-i-bild, bioläge, pop-ut-spelare, rotera, vänd och mer.",
@@ -1148,7 +1161,7 @@
         },
         tr: {
             nav_features:"Özellikler", nav_how:"Nasıl çalışır", nav_contact:"İletişim",
-            hero_title:"Red Crow<br>Safari için", hero_sub:"Hız kontrolü, SponsorBlock, video filtreleri, klavye kısayolları ve 40’tan fazla ayarla YouTube deneyiminizi geliştirin. macOS, iOS ve iPadOS için Safari eklentisi.", hero_cta_ios:"iOS için indir", hero_cta_mac:"macOS için indir", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>Safari için", hero_sub:"Hız kontrolü, SponsorBlock, video filtreleri, klavye kısayolları ve 40’tan fazla ayarla YouTube deneyiminizi geliştirin. macOS, iOS ve iPadOS için Safari eklentisi.", hero_cta_ios:"iOS için indir", hero_cta_mac:"macOS — Yakında", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Özellikler", sec_features_title:"Daha iyi bir YouTube için ihtiyacınız olan her şey",
             f1_t:"Hız Kontrolü", f1_d:"Varsayılan oynatma hızı ayarlayın, kanal profilleri oluşturun ve oturumlar arasında hızınızı hatırlayın.",
             f2_t:"Oynatıcı Araç Çubuğu", f2_d:"19 düğme: ekran görüntüsü, döngü, resim içinde resim, sinema modu, açılır oynatıcı, döndürme ve daha fazlası.",
@@ -1173,7 +1186,7 @@
         },
         zh_CN: {
             nav_features:"功能", nav_how:"如何使用", nav_contact:"联系",
-            hero_title:"Red Crow<br>Safari 版", hero_sub:"通过速度控制、SponsorBlock、视频滤镜、键盘快捷键和 40 多项设置提升您的 YouTube 体验。macOS、iOS 和 iPadOS 的原生 Safari 扩展。", hero_cta_ios:"下载 iOS 版", hero_cta_mac:"下载 macOS 版", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>Safari 版", hero_sub:"通过速度控制、SponsorBlock、视频滤镜、键盘快捷键和 40 多项设置提升您的 YouTube 体验。macOS、iOS 和 iPadOS 的原生 Safari 扩展。", hero_cta_ios:"下载 iOS 版", hero_cta_mac:"macOS — 即将推出", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"功能", sec_features_title:"打造更好的 YouTube 所需的一切",
             f1_t:"速度控制", f1_d:"设置默认播放速度，创建频道配置文件，并在会话间记住首选速度。",
             f2_t:"播放器工具栏", f2_d:"19 个按钮：截图、循环、画中画、影院模式、弹出播放器、旋转、翻转等。",
@@ -1198,7 +1211,7 @@
         },
         zh_TW: {
             nav_features:"功能", nav_how:"如何使用", nav_contact:"聯絡",
-            hero_title:"Red Crow<br>Safari 版", hero_sub:"透過速度控制、SponsorBlock、影片濾鏡、鍵盤快捷鍵和 40 多項設定提升您的 YouTube 體驗。macOS、iOS 和 iPadOS 的原生 Safari 擴充功能。", hero_cta_ios:"下載 iOS 版", hero_cta_mac:"下載 macOS 版", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>Safari 版", hero_sub:"透過速度控制、SponsorBlock、影片濾鏡、鍵盤快捷鍵和 40 多項設定提升您的 YouTube 體驗。macOS、iOS 和 iPadOS 的原生 Safari 擴充功能。", hero_cta_ios:"下載 iOS 版", hero_cta_mac:"macOS — 即將推出", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"功能", sec_features_title:"打造更好的 YouTube 所需的一切",
             f1_t:"速度控制", f1_d:"設定預設播放速度，建立頻道設定檔，並在工作階段間記住首選速度。",
             f2_t:"播放器工具列", f2_d:"19 個按鈕：擷取畫面、循環、子母畫面、電影模式、彈出播放器、旋轉、翻轉等。",
