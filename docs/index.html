@@ -526,6 +526,15 @@
             nav { padding: 14px 16px; }
             .nav-links { gap: 16px; }
         }
+    
+        /* 文A language glyph (replaces globe) */
+        .lang-glyph {
+            display: inline-flex; align-items: center; justify-content: center;
+            margin-right: 6px; color: var(--text-secondary, #999);
+            vertical-align: middle; pointer-events: none;
+        }
+        .lang-glyph svg { display: block; }
+
     </style>
 </head>
 <body>
@@ -543,7 +552,7 @@
                 <li><a href="mailto:corvusdevs@outlook.com" data-i18n="nav_contact">Contact</a></li>
             </ul>
             <div class="lang-wrap" id="langWrap">
-                <button class="lang-btn" id="langBtn">English</button>
+                <span class="lang-glyph" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Language" style="vertical-align:middle;"><text x="7" y="17" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="600" fill="currentColor" text-anchor="middle">文</text><text x="17" y="17" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="currentColor" text-anchor="middle">A</text></svg></span><button class="lang-btn" id="langBtn">English</button>
                 <div class="lang-menu" id="langMenu">
                     <button data-lang="en">English</button>
                     <button data-lang="da">Dansk</button>
