@@ -610,7 +610,7 @@
             Corvus<span>Devs</span>
         </a>
         <div style="display:flex;align-items:center;">
-            <!-- ac-nav-hamburger v1 --><button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('nav-open');this.setAttribute('aria-expanded',o);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button><ul class="nav-links">
+            <!-- ac-nav-hamburger v2 --><button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('nav-open');this.setAttribute('aria-expanded',o);event.stopPropagation();"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button><script>(function(){document.addEventListener("click",function(e){if(!document.body.classList.contains("nav-open"))return;var n=document.querySelector("nav");if(n&&!n.contains(e.target)){document.body.classList.remove("nav-open");var b=document.querySelector(".nav-toggle");if(b)b.setAttribute("aria-expanded","false");}});})();</script><ul class="nav-links">
                 <li><a href="#features" data-i18n="nav_features">Features</a></li>
                 <li><a href="#how" data-i18n="nav_how">How it works</a></li>
                 <li><a href="mailto:corvusdevs@outlook.com" data-i18n="nav_contact">Contact</a></li>
