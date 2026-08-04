@@ -29,9 +29,9 @@
     <meta property="og:url" content="https://corvusdevs.github.io/Red-Crow-For-Safari/">
     <meta property="og:title" content="Red Crow: YouTube Enhancement Extension for Safari">
     <meta property="og:description" content="Speed controls, SponsorBlock, video filters, dislike counts, and 40+ settings. A native YouTube enhancement extension for Safari.">
-    <meta property="og:image" content="https://corvusdevs.github.io/Red-Crow-For-Safari/icon.png">
-    <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="512">
+    <meta property="og:image" content="https://corvusdevs.github.io/Red-Crow-For-Safari/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="CorvusDevs">
     <meta name="twitter:card" content="summary">
@@ -56,8 +56,9 @@
         "author": { "@type": "Organization", "name": "CorvusDevs", "url": "https://corvusdevs.github.io" }
     }
     </script>
-    <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <style>
         /* ac-no-horizontal-scroll v1 */
         html, body {
@@ -599,6 +600,36 @@
             body { min-height: 0; }
             footer { padding-bottom: 24px; padding-top: 24px; }
         }
+
+        /* ---- Screenshots + lightbox ---- */
+        .shots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; align-items: start; max-width: 1080px; margin: 0 auto; }
+        .shots-grid figure { margin: 0; transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+        .shots-grid img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--border);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 24px 50px rgba(0,0,0,0.45); cursor: zoom-in;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+        .shots-grid figure:hover { transform: translateY(-6px); }
+        .shots-grid figure:hover img { border-color: var(--accent-dim); box-shadow: 0 4px 10px rgba(0,0,0,0.4), 0 34px 70px rgba(0,0,0,0.55); }
+        .shots-grid figcaption { color: var(--text-secondary); margin-top: 14px; font-size: 14px; line-height: 1.6; }
+        .shot-phone img { max-width: 300px; margin: 0 auto; }
+        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+            display: none; align-items: center; justify-content: center; z-index: 2000; cursor: zoom-out; padding: 32px; opacity: 0; transition: opacity 0.2s ease; }
+        .lightbox.open { display: flex; opacity: 1; }
+        .lightbox img { max-width: 94vw; max-height: 92vh; width: auto; height: auto; border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 40px 100px rgba(0,0,0,0.7); }
+
+        /* ---- Changelog ---- */
+        .changelog-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 8px 28px 4px; max-width: 760px; margin: 0 auto; }
+        .changelog-summary { cursor: pointer; font-weight: 600; padding: 18px 0; list-style: none; color: var(--text); }
+        .changelog-summary::-webkit-details-marker { display: none; }
+        .changelog-summary::after { content: "+"; float: right; color: var(--accent); font-weight: 400; font-size: 20px; line-height: 1; }
+        .changelog-box[open] .changelog-summary::after { content: "\2212"; }
+        .release { padding: 4px 0 20px; border-top: 1px solid var(--border); }
+        .release-ver { display: inline-block; font-weight: 700; color: var(--accent); margin: 16px 0 8px; font-size: 15px; }
+        .changelog-list { list-style: none; padding: 0; margin: 0; }
+        .changelog-list li { color: var(--text-secondary); font-size: 14px; line-height: 1.7; padding-left: 18px; position: relative; }
+        .changelog-list li::before { content: ""; position: absolute; left: 0; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: 0.75; }
+        @media (max-width: 760px) { .shots-grid { grid-template-columns: 1fr; } }
+        @media (prefers-reduced-motion: reduce) { .shots-grid figure, .shots-grid img { transition: none; } .shots-grid figure:hover { transform: none; } }
 </style>
 </head>
 <body>
@@ -613,6 +644,7 @@
             <!-- ac-nav-hamburger v2 --><button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('nav-open');this.setAttribute('aria-expanded',o);event.stopPropagation();"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button><script>(function(){document.addEventListener("click",function(e){if(!document.body.classList.contains("nav-open"))return;var n=document.querySelector("nav");if(n&&!n.contains(e.target)){document.body.classList.remove("nav-open");var b=document.querySelector(".nav-toggle");if(b)b.setAttribute("aria-expanded","false");}});})();</script><ul class="nav-links">
                 <li><a href="#features" data-i18n="nav_features">Features</a></li>
                 <li><a href="#how" data-i18n="nav_how">How it works</a></li>
+                <li><a href="#changelog" data-i18n="nav_changelog">Changelog</a></li>
                 <li><a href="mailto:corvusdevs@outlook.com" data-i18n="nav_contact">Contact</a></li>
             </ul>
             <div class="lang-wrap" id="langWrap">
@@ -646,7 +678,7 @@
     <section class="hero">
         <img src="icon.png" alt="Red Crow" class="hero-icon">
         <h1 data-i18n-html="hero_title">Red Crow<br>for Safari</h1>
-        <p class="subtitle" data-i18n="hero_sub">Enhance your YouTube experience with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ customizable settings. A native Safari extension for macOS, iOS, and iPadOS.</p>
+        <p class="subtitle" data-i18n="hero_sub">Hide Shorts completely, skip sponsors, and take control of playback with more than 150 settings. A native Safari extension for macOS, iOS, and iPadOS.</p>
         <div class="hero-buttons">
             <a href="https://apps.apple.com/app/id6766324724" class="hero-cta" id="storeBtn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -695,8 +727,8 @@
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
                 </div>
-                <h3 data-i18n="f4_t">Hide Elements</h3>
-                <p data-i18n="f4_d">Remove comments, Shorts, end cards, annotations, ads, and visual clutter. Focus on the video, not the noise.</p>
+                <h3 data-i18n="f4_t">Hide Shorts</h3>
+                <p data-i18n="f4_d">Remove Shorts from the sidebar, the Shorts tab, home shelves and search, or open them in the normal player instead. Comments, end cards, ads and other clutter too.</p>
             </div>
             <!-- Dislikes -->
             <div class="feature-card fade-in">
@@ -742,6 +774,30 @@
     </section>
 
     <!-- How it works -->
+
+    <section class="screenshots" id="screenshots">
+        <div class="section-label fade-in" data-i18n="sec_shots">A look inside</div>
+        <h2 class="section-title gradient-text fade-in" data-i18n="sec_shots_title">See it on your screen</h2>
+        <div class="shots-grid fade-in">
+            <figure>
+                <img src="shots/settings.png" alt="Red Crow settings panel open over YouTube, showing playback options" loading="lazy" width="1600" height="1005">
+                <figcaption data-i18n="shot1">Every setting, in a panel that opens right on the page.</figcaption>
+            </figure>
+            <figure>
+                <img src="shots/declutter.png" alt="A YouTube search page with Shorts, ads and clutter removed" loading="lazy" width="1600" height="1005">
+                <figcaption data-i18n="shot2">Hide Shorts, ads and clutter for a calmer feed.</figcaption>
+            </figure>
+            <figure>
+                <img src="shots/shortcuts.png" alt="The Red Crow keyboard shortcut cheat sheet over a video" loading="lazy" width="1600" height="1005">
+                <figcaption data-i18n="shot3">Keyboard shortcuts for everything, and you can rebind them.</figcaption>
+            </figure>
+            <figure class="shot-phone">
+                <img src="shots/mobile.png" alt="Red Crow video filter controls on iPhone" loading="lazy" width="560" height="1216">
+                <figcaption data-i18n="shot4">The same extension on iPhone and iPad.</figcaption>
+            </figure>
+        </div>
+    </section>
+
     <section class="how-it-works" id="how">
         <div class="section-label fade-in" data-i18n="sec_how">How it works</div>
         <h2 class="section-title gradient-text fade-in" data-i18n="sec_how_title">Up and running in seconds</h2>
@@ -790,6 +846,43 @@
     <p class="req" data-i18n="req">Requires macOS 15.0 (Sequoia) or later, or iOS/iPadOS 18.0 or later. Works with Safari 18+.</p>
 
     <!-- Footer -->
+
+    <section class="changelog" id="changelog">
+        <div class="section-label fade-in" data-i18n="sec_changelog">Changelog</div>
+        <h2 class="section-title gradient-text fade-in" data-i18n="sec_changelog_title">What has changed</h2>
+        <details class="changelog-box fade-in" open>
+            <summary class="changelog-summary" data-i18n="cl_summary">Release history</summary>
+            <div class="release">
+                <span class="release-ver">v1.5</span>
+                <ul class="changelog-list">
+                    <li data-i18n="cl_15_1">Channel blocking, keyword blocking, watched dimming and the duration filter now work in the related videos sidebar and playlist queues</li>
+                    <li data-i18n="cl_15_2">Hide Mixes works again in search results</li>
+                    <li data-i18n="cl_15_3">Expand Player and Wide Player now resize the player properly</li>
+                    <li data-i18n="cl_15_4">Hiding the Share button works again, and hiding Shorts now works in every language</li>
+                    <li data-i18n="cl_15_5">New: hide upcoming videos and premieres</li>
+                    <li data-i18n="cl_15_6">Live streams get the full set of features</li>
+                    <li data-i18n="cl_15_7">SponsorBlock lookups no longer reveal which video you are watching</li>
+                </ul>
+            </div>
+            <div class="release">
+                <span class="release-ver">v1.4</span>
+                <ul class="changelog-list">
+                    <li data-i18n="cl_14_1">Cleaner speed controls with proper left and right arrows in the player toolbar</li>
+                    <li data-i18n="cl_14_2">Player toolbar layout refinements</li>
+                    <li data-i18n="cl_14_3">Bug fixes and stability improvements</li>
+                </ul>
+            </div>
+            <div class="release">
+                <span class="release-ver">v1.3</span>
+                <ul class="changelog-list">
+                    <li data-i18n="cl_13_1">New red cardinal app icon across iOS and macOS</li>
+                    <li data-i18n="cl_13_2">Welcome window is now resizable and fits any screen</li>
+                    <li data-i18n="cl_13_3">Now localized in 36 languages</li>
+                </ul>
+            </div>
+        </details>
+    </section>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
@@ -834,12 +927,12 @@
     const T = {
         en: {
             nav_features:"Features", nav_how:"How it works", nav_contact:"Contact",
-            hero_title:"Red Crow<br>for Safari", hero_sub:"Enhance your YouTube experience with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ customizable settings. A native Safari extension for macOS, iOS, and iPadOS.", hero_cta_ios:"Download for iOS", hero_cta_mac:"Download for macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
+            hero_title:"Red Crow<br>for Safari", hero_sub:"Hide Shorts completely, skip sponsors, and take control of playback with more than 150 settings. A native Safari extension for macOS, iOS, and iPadOS.", hero_cta_ios:"Download for iOS", hero_cta_mac:"Download for macOS", hero_req:"iOS 18.0+ · macOS 15.0+",
             sec_features:"Features", sec_features_title:"Everything you need for a better YouTube",
             f1_t:"Speed Control", f1_d:"Set a default playback speed, create per-channel speed profiles, and remember your preferred speed across sessions.",
             f2_t:"Player Toolbar", f2_d:"19 toolbar buttons: screenshot, loop, Picture-in-Picture, cinema mode, pop-out player, rotate, flip, and more.",
             f3_t:"SponsorBlock", f3_d:"Automatically skip sponsors, intros, outros, self-promotion, and filler segments. Powered by the community SponsorBlock API.",
-            f4_t:"Hide Elements", f4_d:"Remove comments, Shorts, end cards, annotations, ads, and visual clutter. Focus on the video, not the noise.",
+            f4_t:"Hide Shorts", f4_d:"Remove Shorts from the sidebar, the Shorts tab, home shelves and search, or open them in the normal player instead. Comments, end cards, ads and other clutter too.",
             f5_t:"Return of Dislikes", f5_d:"Restore dislike counts and the like/dislike ratio bar. See the full picture before watching any video.",
             f6_t:"DeArrow", f6_d:"Replace clickbait titles and thumbnails with community-submitted alternatives. See what the video is actually about.",
             f7_t:"Keyboard Shortcuts", f7_d:"Customizable keyboard shortcuts for every feature. Control speed, seek, screenshot, toggle cinema mode, and more without touching the mouse.",
@@ -856,6 +949,29 @@
             req:"Requires macOS 15.0 (Sequoia) or later, or iOS/iPadOS 18.0 or later. Works with Safari 18+.",
             f_brand:"Indie software studio.<br>Building focused, privacy-first tools for Apple platforms.",
             f_legal:"Legal", f_privacy:"Privacy Policy", f_terms:"Terms of Service", f_connect:"Connect",
+            nav_changelog:"Changelog",
+            sec_shots:"A look inside",
+            sec_shots_title:"See it on your screen",
+            shot1:"Every setting, in a panel that opens right on the page.",
+            shot2:"Hide Shorts, ads and clutter for a calmer feed.",
+            shot3:"Keyboard shortcuts for everything, and you can rebind them.",
+            shot4:"The same extension on iPhone and iPad.",
+            sec_changelog:"Changelog",
+            sec_changelog_title:"What has changed",
+            cl_summary:"Release history",
+            cl_15_1:"Channel blocking, keyword blocking, watched dimming and the duration filter now work in the related videos sidebar and playlist queues",
+            cl_15_2:"Hide Mixes works again in search results",
+            cl_15_3:"Expand Player and Wide Player now resize the player properly",
+            cl_15_4:"Hiding the Share button works again, and hiding Shorts now works in every language",
+            cl_15_5:"New: hide upcoming videos and premieres",
+            cl_15_6:"Live streams get the full set of features",
+            cl_15_7:"SponsorBlock lookups no longer reveal which video you are watching",
+            cl_14_1:"Cleaner speed controls with proper left and right arrows in the player toolbar",
+            cl_14_2:"Player toolbar layout refinements",
+            cl_14_3:"Bug fixes and stability improvements",
+            cl_13_1:"New red cardinal app icon across iOS and macOS",
+            cl_13_2:"Welcome window is now resizable and fits any screen",
+            cl_13_3:"Now localized in 36 languages",
         },
         da: {
             nav_features:"Funktioner", nav_how:"Sådan virker det", nav_contact:"Kontakt",
@@ -1374,5 +1490,10 @@
     </script>
 
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "36ef79985b2045c4b271333fe4e427ab"}'></script><!-- End Cloudflare Web Analytics -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview"><img alt=""></div>
+    <script>(function(){var lb=document.getElementById("lightbox");if(!lb)return;var im=lb.querySelector("img");
+    document.querySelectorAll(".shots-grid img").forEach(function(s){s.addEventListener("click",function(){im.src=s.currentSrc||s.src;im.alt=s.alt||"";lb.classList.add("open");});});
+    function c(){lb.classList.remove("open");im.src="";}lb.addEventListener("click",c);
+    document.addEventListener("keydown",function(e){if(e.key==="Escape")c();});})();</script>
 </body>
 </html>
