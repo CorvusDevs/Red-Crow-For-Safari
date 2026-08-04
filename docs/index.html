@@ -601,22 +601,33 @@
             footer { padding-bottom: 24px; padding-top: 24px; }
         }
 
-        /* ---- Screenshots + lightbox ---- */
-        .shots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; align-items: start; max-width: 1080px; margin: 0 auto; }
-        .shots-grid figure { margin: 0; transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
-        .shots-grid img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--border);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 24px 50px rgba(0,0,0,0.45); cursor: zoom-in;
+        /* ---- Screenshots: one hero + clickable thumbnails ---- */
+        .shot-main { margin: 0 auto; max-width: 1000px; }
+        .shot-main img { width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 34px 70px rgba(0,0,0,0.5); cursor: zoom-in;
             transition: box-shadow 0.3s ease, border-color 0.3s ease; }
-        .shots-grid figure:hover { transform: translateY(-6px); }
-        .shots-grid figure:hover img { border-color: var(--accent-dim); box-shadow: 0 4px 10px rgba(0,0,0,0.4), 0 34px 70px rgba(0,0,0,0.55); }
-        .shots-grid figcaption { color: var(--text-secondary); margin-top: 14px; font-size: 14px; line-height: 1.6; }
-        .shot-phone img { max-width: 300px; margin: 0 auto; }
+        .shot-main img:hover { border-color: var(--accent-dim); box-shadow: 0 6px 16px rgba(0,0,0,0.45), 0 44px 90px rgba(0,0,0,0.6); }
+        .shot-main figcaption { color: var(--text-secondary); margin-top: 16px; font-size: 15px; line-height: 1.6; text-align: center; }
+        .shot-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1000px; margin: 40px auto 0; }
+        .shot-thumbs figure { margin: 0; transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+        /* Uniform tiles despite mixed aspect ratios: the phone shot is portrait,
+           so it gets `contain` to stay whole while the desktop shots fill. */
+        .shot-thumbs img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top center;
+            display: block; border-radius: 12px; border: 1px solid var(--border); background: #0b0b0c;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 16px 34px rgba(0,0,0,0.4); cursor: zoom-in;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+        .shot-thumbs .thumb-phone img { object-fit: contain; padding: 8px 0; }
+        .shot-thumbs figure:hover { transform: translateY(-5px); }
+        .shot-thumbs figure:hover img { border-color: var(--accent-dim); box-shadow: 0 4px 10px rgba(0,0,0,0.4), 0 24px 48px rgba(0,0,0,0.5); }
+        .shot-thumbs figcaption { color: var(--text-secondary); margin-top: 12px; font-size: 13px; line-height: 1.55; }
         .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
             display: none; align-items: center; justify-content: center; z-index: 2000; cursor: zoom-out; padding: 32px; opacity: 0; transition: opacity 0.2s ease; }
         .lightbox.open { display: flex; opacity: 1; }
         .lightbox img { max-width: 94vw; max-height: 92vh; width: auto; height: auto; border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 40px 100px rgba(0,0,0,0.7); }
-
+        @media (max-width: 760px) { .shot-thumbs { grid-template-columns: 1fr 1fr; gap: 16px; } }
+        @media (prefers-reduced-motion: reduce) { .shot-thumbs figure, .shot-thumbs img, .shot-main img { transition: none; }
+            .shot-thumbs figure:hover { transform: none; } }
         /* ---- Changelog ---- */
         .changelog-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 8px 28px 4px; max-width: 760px; margin: 0 auto; }
         .changelog-summary { cursor: pointer; font-weight: 600; padding: 18px 0; list-style: none; color: var(--text); }
@@ -693,6 +704,29 @@
     </section>
 
     <!-- Features -->
+    <section class="screenshots" id="screenshots">
+        <div class="section-label fade-in" data-i18n="sec_shots">A look inside</div>
+        <h2 class="section-title gradient-text fade-in" data-i18n="sec_shots_title">See it on your screen</h2>
+        <figure class="shot-main fade-in">
+            <img src="shots/settings.png" alt="Red Crow settings panel open over YouTube, showing playback options" width="1600" height="1005">
+            <figcaption data-i18n="shot1">Every setting, in a panel that opens right on the page.</figcaption>
+        </figure>
+        <div class="shot-thumbs fade-in">
+            <figure>
+                <img src="shots/declutter.png" alt="A YouTube search page with Shorts, ads and clutter removed" loading="lazy" width="1600" height="1005">
+                <figcaption data-i18n="shot2">Hide Shorts, ads and clutter for a calmer feed.</figcaption>
+            </figure>
+            <figure>
+                <img src="shots/shortcuts.png" alt="The Red Crow keyboard shortcut cheat sheet over a video" loading="lazy" width="1600" height="1005">
+                <figcaption data-i18n="shot3">Keyboard shortcuts for everything, and you can rebind them.</figcaption>
+            </figure>
+            <figure class="thumb-phone">
+                <img src="shots/mobile.png" alt="Red Crow video filter controls on iPhone" loading="lazy" width="560" height="1216">
+                <figcaption data-i18n="shot4">The same extension on iPhone and iPad.</figcaption>
+            </figure>
+        </div>
+    </section>
+
     <section class="features" id="features">
         <div class="section-label fade-in" data-i18n="sec_features">Features</div>
         <h2 class="section-title gradient-text fade-in" data-i18n="sec_features_title">Everything you need for a better YouTube</h2>
@@ -774,29 +808,6 @@
     </section>
 
     <!-- How it works -->
-
-    <section class="screenshots" id="screenshots">
-        <div class="section-label fade-in" data-i18n="sec_shots">A look inside</div>
-        <h2 class="section-title gradient-text fade-in" data-i18n="sec_shots_title">See it on your screen</h2>
-        <div class="shots-grid fade-in">
-            <figure>
-                <img src="shots/settings.png" alt="Red Crow settings panel open over YouTube, showing playback options" loading="lazy" width="1600" height="1005">
-                <figcaption data-i18n="shot1">Every setting, in a panel that opens right on the page.</figcaption>
-            </figure>
-            <figure>
-                <img src="shots/declutter.png" alt="A YouTube search page with Shorts, ads and clutter removed" loading="lazy" width="1600" height="1005">
-                <figcaption data-i18n="shot2">Hide Shorts, ads and clutter for a calmer feed.</figcaption>
-            </figure>
-            <figure>
-                <img src="shots/shortcuts.png" alt="The Red Crow keyboard shortcut cheat sheet over a video" loading="lazy" width="1600" height="1005">
-                <figcaption data-i18n="shot3">Keyboard shortcuts for everything, and you can rebind them.</figcaption>
-            </figure>
-            <figure class="shot-phone">
-                <img src="shots/mobile.png" alt="Red Crow video filter controls on iPhone" loading="lazy" width="560" height="1216">
-                <figcaption data-i18n="shot4">The same extension on iPhone and iPad.</figcaption>
-            </figure>
-        </div>
-    </section>
 
     <section class="how-it-works" id="how">
         <div class="section-label fade-in" data-i18n="sec_how">How it works</div>
@@ -1492,7 +1503,7 @@
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "36ef79985b2045c4b271333fe4e427ab"}'></script><!-- End Cloudflare Web Analytics -->
     <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview"><img alt=""></div>
     <script>(function(){var lb=document.getElementById("lightbox");if(!lb)return;var im=lb.querySelector("img");
-    document.querySelectorAll(".shots-grid img").forEach(function(s){s.addEventListener("click",function(){im.src=s.currentSrc||s.src;im.alt=s.alt||"";lb.classList.add("open");});});
+    document.querySelectorAll(".shot-main img, .shot-thumbs img").forEach(function(s){s.addEventListener("click",function(){im.src=s.currentSrc||s.src;im.alt=s.alt||"";lb.classList.add("open");});});
     function c(){lb.classList.remove("open");im.src="";}lb.addEventListener("click",c);
     document.addEventListener("keydown",function(e){if(e.key==="Escape")c();});})();</script>
 </body>
