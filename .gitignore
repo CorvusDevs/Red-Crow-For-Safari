@@ -1,0 +1,9 @@
+*.swift
+*.xcodeproj/
+*.entitlements
+*.plist
+*.xcstrings
+*.icns
+*.p8
+.env
+.*-env

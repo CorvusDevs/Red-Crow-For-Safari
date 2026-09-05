@@ -1,0 +1,9 @@
+.push-allowed
+.gitignore
+README.md
+LICENSE
+LICENSE.*
+CHANGELOG.md
+SUPPORT.md
+SECURITY.md
+docs/**
