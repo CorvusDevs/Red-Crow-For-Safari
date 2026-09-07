@@ -10,8 +10,8 @@
   <p>
     <img src="https://img.shields.io/badge/iOS-18.0+-000000?style=flat-square&logo=apple&logoColor=white" alt="iOS 18.0+">
     <img src="https://img.shields.io/badge/iPadOS-18.0+-000000?style=flat-square&logo=apple&logoColor=white" alt="iPadOS 18.0+">
-    <img src="https://img.shields.io/badge/macOS-Coming_Soon-7c7c84?style=flat-square&logo=apple&logoColor=white" alt="macOS Coming Soon">
-    <img src="https://img.shields.io/badge/Languages-19-4CAF50?style=flat-square" alt="19 Languages">
+    <img src="https://img.shields.io/badge/macOS-15.0+-000000?style=flat-square&logo=apple&logoColor=white" alt="macOS 15.0+">
+    <img src="https://img.shields.io/badge/Languages-36-4CAF50?style=flat-square" alt="36 Languages">
   </p>
   <p>
     <a href="https://corvusdevs.github.io/Red-Crow-For-Safari/">Website</a>
@@ -24,6 +24,7 @@ Red Crow transforms your YouTube experience in Safari. Hide Shorts completely, s
 
 ## Features
 
+- **Headphone controls for YouTube Music on Mac**, Play, pause, and skip tracks with compatible headphones in Safari. Coming in 1.8, subject to App Store approval. Hardware compatibility varies; iPhone and iPad headphone support is not verified. [Compatibility details](https://corvusdevs.github.io/Red-Crow-For-Safari/music/en/).
 - **Hide Shorts**, Remove them from the sidebar, the Shorts tab, home shelves and search results, or open them in the normal video player instead.
 - **Speed Control**, Set any default speed from 0.25x to 16x, with per-channel memory.
 - **Player Toolbar**, 19 in-player buttons: screenshot, loop, A-B loop, Picture-in-Picture, cinema mode, pop-out, rotate, flip, and more.
