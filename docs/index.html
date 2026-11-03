@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Red Crow: YouTube Enhancement Extension for Safari</title>
-    <meta name="description" content="Enhance your YouTube experience in Safari with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ settings. A native Safari extension for macOS, iOS, and iPadOS.">
+    <meta name="description" content="Enhance your YouTube experience in Safari with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 150+ settings. A native Safari extension for macOS, iOS, and iPadOS.">
     <link rel="canonical" href="https://corvusdevs.github.io/Red-Crow-For-Safari/">
     <link rel="alternate" hreflang="en" href="https://corvusdevs.github.io/Red-Crow-For-Safari/">
     <link rel="alternate" hreflang="da" href="https://corvusdevs.github.io/Red-Crow-For-Safari/?lang=da">
@@ -28,7 +28,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://corvusdevs.github.io/Red-Crow-For-Safari/">
     <meta property="og:title" content="Red Crow: YouTube Enhancement Extension for Safari">
-    <meta property="og:description" content="Speed controls, SponsorBlock, video filters, dislike counts, and 40+ settings. A native YouTube enhancement extension for Safari.">
+    <meta property="og:description" content="Speed controls, SponsorBlock, video filters, dislike counts, and 150+ settings. A native YouTube enhancement extension for Safari.">
     <meta property="og:image" content="https://corvusdevs.github.io/Red-Crow-For-Safari/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -41,21 +41,28 @@
     <meta name="twitter:image:alt" content="Red Crow for Safari app icon">
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="youtube enhancement, safari extension, sponsorblock, speed control, video filters, dislike count, dearrow, keyboard shortcuts, macos, ios, ipados, red crow">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Red Crow for Safari",
-        "description": "Enhance your YouTube experience in Safari with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 40+ customizable settings.",
-        "operatingSystem": "macOS 15.0+, iOS 18.0+, iPadOS 18.0+",
-        "applicationCategory": "BrowserApplication",
-        "applicationSubCategory": "YouTube Enhancement",
-        "screenshot": "https://corvusdevs.github.io/Red-Crow-For-Safari/icon.png",
-        "downloadUrl": "https://apps.apple.com/app/id6766324724",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "author": { "@type": "Organization", "name": "CorvusDevs", "url": "https://corvusdevs.github.io" }
-    }
-    </script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Red Crow for Safari",
+  "description": "Enhance your YouTube experience in Safari with speed controls, SponsorBlock, video filters, keyboard shortcuts, and 150+ customizable settings.",
+  "operatingSystem": "macOS 15.0+, iOS 18.0+, iPadOS 18.0+",
+  "applicationCategory": "BrowserApplication",
+  "applicationSubCategory": "YouTube Enhancement",
+  "screenshot": "https://corvusdevs.github.io/Red-Crow-For-Safari/icon.png",
+  "downloadUrl": "https://apps.apple.com/app/id6766324724",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "CorvusDevs",
+    "url": "https://corvusdevs.github.io"
+  },
+  "softwareVersion": "1.8"
+}</script>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -641,7 +648,9 @@
         .changelog-list li::before { content: ""; position: absolute; left: 0; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: 0.75; }
         @media (max-width: 760px) { .shots-grid { grid-template-columns: 1fr; } }
         @media (prefers-reduced-motion: reduce) { .shots-grid figure, .shots-grid img { transition: none; } .shots-grid figure:hover { transform: none; } }
-</style>
+
+        #music-details { color: #ff8e87; text-underline-offset: 4px; }
+    </style>
   <script src="/Red-Crow-For-Safari/language-router.js"></script>
 </head>
 <body>
@@ -692,16 +701,16 @@
         <h1 data-i18n-html="hero_title">Red Crow<br>for Safari</h1>
         <p class="subtitle" data-i18n="hero_sub">Hide Shorts completely, skip sponsors, and take control of playback with more than 150 settings. A native Safari extension for macOS, iOS, and iPadOS.</p>
         <div class="hero-buttons">
-            <a href="https://apps.apple.com/app/id6766324724" class="hero-cta" id="storeBtn">
+            <a data-product-store href="https://apps.apple.com/app/id6766324724" class="hero-cta" id="storeBtn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 <span data-i18n="hero_cta_ios">Download for iOS</span>
             </a>
-            <a href="https://apps.apple.com/app/id6766324724" class="hero-cta" id="storeBtnMac">
+            <a data-product-store href="https://apps.apple.com/app/id6766324724" class="hero-cta" id="storeBtnMac">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 <span data-i18n="hero_cta_mac">Download for macOS</span>
             </a>
         </div>
-        <span class="hero-free" data-i18n="hero_req">iOS 18.0+ &middot; macOS 15.0+</span>
+        <span class="hero-free" data-i18n="hero_req">iOS 17.0+ &middot; macOS 14.0+</span>
     </section>
 
     <!-- Features -->
@@ -808,7 +817,7 @@
         </div>
     </section>
 
-<section class="section" id="music-controls"><div class="container"><div class="section-label">YouTube Music · Mac Safari</div><h2 class="section-title" data-i18n="music_title">Headphone controls</h2><p data-i18n="music_body">Play, pause, and skip tracks in YouTube Music using compatible headphones in Safari on Mac.</p><p data-i18n="music_status">Coming in 1.8, subject to App Store approval. Headphone compatibility varies. iPhone and iPad support is not verified.</p><p><a id="music-details" href="music/en/" data-i18n="music_title">Headphone controls</a></p></div></section>
+<section class="section" id="music-controls"><div class="container"><div class="section-label">YouTube Music · Mac Safari</div><h2 class="section-title" data-i18n="music_title">Headphone controls</h2><p data-i18n="music_body">Play, pause, and skip tracks in YouTube Music using compatible headphones in Safari on Mac.</p><p data-i18n="music_status">Headphone compatibility varies. iPhone and iPad support is not verified.</p><p><a id="music-details" href="music/en/" data-i18n="music_title">Headphone controls</a></p></div></section>
     <!-- How it works -->
 
     <section class="how-it-works" id="how">
@@ -841,7 +850,7 @@
 
         <div class="why-grid">
             <div class="why-card">
-                <h3 data-i18n="w1_t">40+ customizable settings</h3>
+                <h3 data-i18n="w1_t">150+ customizable settings</h3>
                 <p data-i18n="w1_d">Every feature is configurable. Enable only what you need, adjust thresholds, pick your preferred behavior. Your YouTube, your rules.</p>
             </div>
             <div class="why-card">
@@ -856,7 +865,7 @@
     </section>
 
     <!-- Requirements -->
-    <p class="req" data-i18n="req">Requires macOS 15.0 (Sequoia) or later, or iOS/iPadOS 18.0 or later. Works with Safari 18+.</p>
+    <p class="req" data-i18n="req">Requires macOS 14.0 (Sonoma) or later, or iOS/iPadOS 17.0 or later.</p>
 
     <!-- Footer -->
 
@@ -864,7 +873,7 @@
         <div class="section-label fade-in" data-i18n="sec_changelog">Changelog</div>
         <h2 class="section-title gradient-text fade-in" data-i18n="sec_changelog_title">What has changed</h2>
         <details class="changelog-box fade-in" open>
-            <summary class="changelog-summary" data-i18n="cl_summary">Release history</summary><div class="release"><span class="release-ver">v1.8</span><ul class="changelog-list"><li data-i18n="cl_18_1">New Essentials and Advanced settings</li><li data-i18n="cl_18_2">Polished layouts on iPhone, iPad, and Mac</li><li data-i18n="cl_18_3">Fixed YouTube Music queue navigation</li><li data-i18n="cl_18_4">More reliable YouTube page changes</li><li data-i18n="cl_18_5">YouTube Music headphone controls on Mac</li></ul></div>
+            <summary class="changelog-summary" data-i18n="cl_summary">Release history</summary><div class="release"><span class="release-ver">v<span data-product-field="version">1.8</span></span><ul class="changelog-list"><li data-i18n="cl_18_1">New Essentials and Advanced settings</li><li data-i18n="cl_18_2">Polished layouts on iPhone, iPad, and Mac</li><li data-i18n="cl_18_3">Fixed YouTube Music queue navigation</li><li data-i18n="cl_18_4">More reliable YouTube page changes</li><li data-i18n="cl_18_5">YouTube Music headphone controls on Mac</li></ul></div>
             <div class="release">
                 <span class="release-ver">v1.7</span>
                 <ul class="changelog-list">
@@ -914,7 +923,7 @@
             <div class="footer-col">
                 <h4 data-i18n="f_legal">Legal</h4>
                 <a href="privacy" data-i18n="f_privacy">Privacy Policy</a>
-                <a href="terms" data-i18n="f_terms">Terms of Service</a>
+                <a href="https://corvusdevs.github.io/terms.html" data-i18n="f_terms">Terms of Service</a>
             </div>
             <div class="footer-col">
                 <h4 data-i18n="f_connect">Connect</h4>
@@ -959,7 +968,7 @@
         "hero_sub": "Hide Shorts completely, skip sponsors, and take control of playback with more than 150 settings. A native Safari extension for macOS, iOS, and iPadOS.",
         "hero_cta_ios": "Download for iOS",
         "hero_cta_mac": "Download for macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Features",
         "sec_features_title": "Everything you need for a better YouTube",
         "f1_t": "Speed Control",
@@ -990,13 +999,13 @@
         "s3_d": "Open YouTube in Safari and enjoy an enhanced experience. Configure settings from the extension popup.",
         "sec_why": "Why Red Crow",
         "sec_why_title": "Built for Safari users",
-        "w1_t": "40+ customizable settings",
+        "w1_t": "150+ customizable settings",
         "w1_d": "Every feature is configurable. Enable only what you need, adjust thresholds, pick your preferred behavior. Your YouTube, your rules.",
         "w2_t": "Privacy first",
         "w2_d": "No accounts, no tracking, no data collection. Your settings stay on your device. Red Crow never phones home.",
         "w3_t": "Native Safari extension",
         "w3_d": "Not a Chrome extension ported to Safari. Red Crow is built specifically for Safari with native performance and zero background processes.",
-        "req": "Requires macOS 15.0 (Sequoia) or later, or iOS/iPadOS 18.0 or later. Works with Safari 18+.",
+        "req": "Requires macOS 14.0 (Sonoma) or later, or iOS/iPadOS 17.0 or later.",
         "f_brand": "Indie software studio.<br>Building focused, privacy-first tools for Apple platforms.",
         "f_legal": "Legal",
         "f_privacy": "Privacy Policy",
@@ -1027,7 +1036,7 @@
         "cl_13_3": "Now localized in 36 languages",
         "music_title": "Headphone controls",
         "music_body": "Play, pause, and skip tracks in YouTube Music using compatible headphones in Safari on Mac.",
-        "music_status": "Coming in 1.8, subject to App Store approval. Headphone compatibility varies. iPhone and iPad support is not verified.",
+        "music_status": "Headphone compatibility varies. iPhone and iPad support is not verified.",
         "cl_18_1": "New Essentials and Advanced settings",
         "cl_18_2": "Polished layouts on iPhone, iPad, and Mac",
         "cl_18_3": "Fixed YouTube Music queue navigation",
@@ -1046,7 +1055,7 @@
         "hero_sub": "Skjul Shorts helt, spring sponsorsegmenter over, og få kontrol over afspilningen med mere end 150 indstillinger. En Safari-udvidelse til macOS, iOS og iPadOS.",
         "hero_cta_ios": "Download til iOS",
         "hero_cta_mac": "Download til macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Funktioner",
         "sec_features_title": "Alt hvad du behøver til en bedre YouTube",
         "f1_t": "Hastighedskontrol",
@@ -1077,13 +1086,13 @@
         "s3_d": "Åbn YouTube i Safari og nyd den forbedrede oplevelse. Konfigurér indstillinger fra popup-menuen.",
         "sec_why": "Hvorfor Red Crow",
         "sec_why_title": "Bygget til Safari-brugere",
-        "w1_t": "40+ indstillinger",
+        "w1_t": "150+ indstillinger",
         "w1_d": "Alle funktioner kan tilpasses. Aktivér kun det du har brug for. Dit YouTube, dine regler.",
         "w2_t": "Privatliv først",
         "w2_d": "Ingen konti, ingen sporing, ingen dataindsamling. Dine indstillinger forbliver på din enhed.",
         "w3_t": "Safari-udvidelse",
         "w3_d": "Ikke en Chrome-udvidelse porteret til Safari. Red Crow er bygget specifikt til Safari med native ydelse.",
-        "req": "Kræver macOS 15.0 (Sequoia) eller nyere, eller iOS/iPadOS 18.0 eller nyere.",
+        "req": "Kræver macOS 14.0 (Sonoma) eller nyere, eller iOS/iPadOS 17.0 eller nyere.",
         "f_brand": "Indie-softwarestudie.<br>Fokuserede, privatlivsvenlige værktøjer til Apple-platforme.",
         "f_legal": "Juridisk",
         "f_privacy": "Privatlivspolitik",
@@ -1114,7 +1123,7 @@
         "cl_13_3": "Nu oversat til 36 sprog",
         "music_title": "Betjening med hovedtelefoner",
         "music_body": "Afspil, sæt på pause, og skift nummer i YouTube Music med kompatible hovedtelefoner i Safari på Mac.",
-        "music_status": "Kommer i 1.8 efter App Stores godkendelse. Kompatibilitet afhænger af hovedtelefonerne. Understøttelse på iPhone og iPad er ikke bekræftet.",
+        "music_status": "Kompatibilitet afhænger af hovedtelefonerne. Understøttelse på iPhone og iPad er ikke bekræftet.",
         "cl_18_1": "Nye grundlæggende og avancerede indstillinger",
         "cl_18_2": "Finpudset layout på iPhone, iPad og Mac",
         "cl_18_3": "Rettet navigation i YouTube Music-køen",
@@ -1133,7 +1142,7 @@
         "hero_sub": "Blende Shorts komplett aus, überspringe gesponserte Abschnitte und übernimm die Kontrolle über die Wiedergabe mit mehr als 150 Einstellungen. Eine native Safari-Erweiterung für macOS, iOS und iPadOS.",
         "hero_cta_ios": "Für iOS laden",
         "hero_cta_mac": "Für macOS laden",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Funktionen",
         "sec_features_title": "Alles für ein besseres YouTube",
         "f1_t": "Geschwindigkeitssteuerung",
@@ -1164,13 +1173,13 @@
         "s3_d": "Öffne YouTube in Safari und genieße das verbesserte Erlebnis. Einstellungen über das Popup konfigurieren.",
         "sec_why": "Warum Red Crow",
         "sec_why_title": "Für Safari-Nutzer gebaut",
-        "w1_t": "40+ Einstellungen",
+        "w1_t": "150+ Einstellungen",
         "w1_d": "Jede Funktion ist konfigurierbar. Aktiviere nur, was du brauchst. Dein YouTube, deine Regeln.",
         "w2_t": "Privatsphäre zuerst",
         "w2_d": "Keine Konten, kein Tracking, keine Datenerfassung. Deine Einstellungen bleiben auf deinem Gerät.",
         "w3_t": "Native Safari-Erweiterung",
         "w3_d": "Kein Chrome-Port. Red Crow wurde speziell für Safari mit nativer Performance entwickelt.",
-        "req": "Erfordert macOS 15.0 (Sequoia) oder neuer, oder iOS/iPadOS 18.0 oder neuer.",
+        "req": "Erfordert macOS 14.0 (Sonoma) oder neuer, oder iOS/iPadOS 17.0 oder neuer.",
         "f_brand": "Indie-Softwarestudio.<br>Fokussierte, datenschutzfreundliche Tools für Apple-Plattformen.",
         "f_legal": "Rechtliches",
         "f_privacy": "Datenschutz",
@@ -1201,7 +1210,7 @@
         "cl_13_3": "Jetzt in 36 Sprachen verfügbar",
         "music_title": "Kopfhörersteuerung",
         "music_body": "Musik in YouTube Music mit kompatiblen Kopfhörern in Safari auf dem Mac abspielen, pausieren und Titel wechseln.",
-        "music_status": "Geplant für 1.8, vorbehaltlich der App Store-Freigabe. Die Kopfhörerkompatibilität variiert. iPhone und iPad wurden nicht geprüft.",
+        "music_status": "Die Kopfhörerkompatibilität variiert. iPhone und iPad wurden nicht geprüft.",
         "cl_18_1": "Neue Einstellungen für Grundlagen und Erweitert",
         "cl_18_2": "Optimierte Layouts auf iPhone, iPad und Mac",
         "cl_18_3": "Navigation in der YouTube Music-Warteschlange korrigiert",
@@ -1220,7 +1229,7 @@
         "hero_sub": "Oculta los Shorts por completo, salta los patrocinios y toma el control de la reproducción con más de 150 ajustes. Una extensión nativa de Safari para macOS, iOS e iPadOS.",
         "hero_cta_ios": "Descargar para iOS",
         "hero_cta_mac": "Descargar para macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Funciones",
         "sec_features_title": "Todo lo que necesitas para un YouTube mejor",
         "f1_t": "Control de Velocidad",
@@ -1251,13 +1260,13 @@
         "s3_d": "Abre YouTube en Safari y disfruta de la experiencia mejorada. Configura los ajustes desde el popup.",
         "sec_why": "Por qué Red Crow",
         "sec_why_title": "Hecho para usuarios de Safari",
-        "w1_t": "40+ ajustes",
+        "w1_t": "150+ ajustes",
         "w1_d": "Cada función es configurable. Activa solo lo que necesites. Tu YouTube, tus reglas.",
         "w2_t": "Privacidad primero",
         "w2_d": "Sin cuentas, sin rastreo, sin recolección de datos. Tus ajustes permanecen en tu dispositivo.",
         "w3_t": "Extensión nativa de Safari",
         "w3_d": "No es una extensión de Chrome portada. Red Crow está diseñado específicamente para Safari con rendimiento nativo.",
-        "req": "Requiere macOS 15.0 (Sequoia) o posterior, o iOS/iPadOS 18.0 o posterior.",
+        "req": "Requiere macOS 14.0 (Sonoma) o posterior, o iOS/iPadOS 17.0 o posterior.",
         "f_brand": "Estudio indie de software.<br>Herramientas enfocadas y privadas para plataformas Apple.",
         "f_legal": "Legal",
         "f_privacy": "Política de Privacidad",
@@ -1288,7 +1297,7 @@
         "cl_13_3": "Ahora traducida a 36 idiomas",
         "music_title": "Controles de los auriculares",
         "music_body": "Reproduce, pausa y cambia de pista en YouTube Music con auriculares compatibles en Safari para Mac.",
-        "music_status": "Próximamente en 1.8, sujeto a la aprobación del App Store. La compatibilidad varía según los auriculares. No se ha verificado en iPhone ni iPad.",
+        "music_status": "La compatibilidad varía según los auriculares. No se ha verificado en iPhone ni iPad.",
         "cl_18_1": "Nuevos ajustes Esenciales y Avanzados",
         "cl_18_2": "Diseños mejorados en iPhone, iPad y Mac",
         "cl_18_3": "Corregida la navegación de la cola de YouTube Music",
@@ -1307,7 +1316,7 @@
         "hero_sub": "Oculta los Shorts por completo, salta los patrocinios y toma el control de la reproducción con más de 150 ajustes. Una extensión nativa de Safari para macOS, iOS e iPadOS.",
         "hero_cta_ios": "Descargar para iOS",
         "hero_cta_mac": "Descargar para macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Funciones",
         "sec_features_title": "Todo lo que necesitas para un YouTube mejor",
         "f1_t": "Control de Velocidad",
@@ -1338,13 +1347,13 @@
         "s3_d": "Abre YouTube en Safari y disfruta de la experiencia mejorada. Configura los ajustes desde el popup.",
         "sec_why": "Por qué Red Crow",
         "sec_why_title": "Hecho para usuarios de Safari",
-        "w1_t": "40+ ajustes",
+        "w1_t": "150+ ajustes",
         "w1_d": "Cada función es configurable. Activa solo lo que necesites. Tu YouTube, tus reglas.",
         "w2_t": "Privacidad primero",
         "w2_d": "Sin cuentas, sin rastreo, sin recolección de datos. Tus ajustes permanecen en tu dispositivo.",
         "w3_t": "Extensión nativa de Safari",
         "w3_d": "No es una extensión de Chrome portada. Red Crow está diseñado específicamente para Safari con rendimiento nativo.",
-        "req": "Requiere macOS 15.0 (Sequoia) o posterior, o iOS/iPadOS 18.0 o posterior.",
+        "req": "Requiere macOS 14.0 (Sonoma) o posterior, o iOS/iPadOS 17.0 o posterior.",
         "f_brand": "Estudio indie de software.<br>Herramientas enfocadas y privadas para plataformas Apple.",
         "f_legal": "Legal",
         "f_privacy": "Política de Privacidad",
@@ -1375,7 +1384,7 @@
         "cl_13_3": "Ahora traducida a 36 idiomas",
         "music_title": "Controles de los audífonos",
         "music_body": "Reproduce, pausa y cambia de pista en YouTube Music con audífonos compatibles en Safari para Mac.",
-        "music_status": "Próximamente en 1.8, sujeto a la aprobación del App Store. La compatibilidad varía según los audífonos. No se ha verificado en iPhone ni iPad.",
+        "music_status": "La compatibilidad varía según los audífonos. No se ha verificado en iPhone ni iPad.",
         "cl_18_1": "Nueva configuración Esencial y Avanzada",
         "cl_18_2": "Diseños mejorados en iPhone, iPad y Mac",
         "cl_18_3": "Se corrigió la navegación de la cola de YouTube Music",
@@ -1394,7 +1403,7 @@
         "hero_sub": "Piilota Shorts kokonaan, ohita sponsoriosuudet ja ota toisto haltuun yli 150 asetuksella. Safari-laajennus macOS:lle, iOS:lle ja iPadOS:lle.",
         "hero_cta_ios": "Lataa iOS:lle",
         "hero_cta_mac": "Lataa macOS:lle",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Ominaisuudet",
         "sec_features_title": "Kaikki mitä tarvitset parempaan YouTubeen",
         "f1_t": "Nopeuden säätö",
@@ -1425,13 +1434,13 @@
         "s3_d": "Avaa YouTube Safarissa ja nauti parannetusta kokemuksesta.",
         "sec_why": "Miksi Red Crow",
         "sec_why_title": "Tehty Safari-käyttäjille",
-        "w1_t": "40+ asetusta",
+        "w1_t": "150+ asetusta",
         "w1_d": "Jokainen ominaisuus on säädettävissä. Ota käyttöön vain tarvitsemasi. Sinun YouTubesi, sinun sääntösi.",
         "w2_t": "Yksityisyys ensin",
         "w2_d": "Ei tilinvaatimuksia, ei seurantaa, ei tiedonkeruuta. Asetuksesi pysyvät laitteellasi.",
         "w3_t": "Natiivi Safari-laajennus",
         "w3_d": "Ei Chrome-porttaus. Red Crow on rakennettu nimenomaan Safarille natiivilla suorituskyvyllä.",
-        "req": "Vaatii macOS 15.0 (Sequoia) tai uudemman, tai iOS/iPadOS 18.0 tai uudemman.",
+        "req": "Vaatii macOS 14.0 (Sonoma) tai uudemman, tai iOS/iPadOS 17.0 tai uudemman.",
         "f_brand": "Indie-ohjelmistostudio.<br>Keskittynyitä, yksityisyyttä kunnioittavia työkaluja Apple-alustoille.",
         "f_legal": "Lakiasiat",
         "f_privacy": "Tietosuojakäytäntö",
@@ -1462,7 +1471,7 @@
         "cl_13_3": "Nyt saatavilla 36 kielellä",
         "music_title": "Kuulokeohjaus",
         "music_body": "Toista, keskeytä ja vaihda YouTube Musicin kappaleita yhteensopivilla kuulokkeilla Macin Safarissa.",
-        "music_status": "Tulossa versioon 1.8 App Storen hyväksynnän jälkeen. Kuulokkeiden yhteensopivuus vaihtelee. iPhone- ja iPad-tukea ei ole varmistettu.",
+        "music_status": "Kuulokkeiden yhteensopivuus vaihtelee. iPhone- ja iPad-tukea ei ole varmistettu.",
         "cl_18_1": "Uudet olennaiset ja lisäasetukset",
         "cl_18_2": "Viimeistellyt näkymät iPhonessa, iPadissa ja Macissa",
         "cl_18_3": "YouTube Musicin jononavigointi korjattu",
@@ -1481,7 +1490,7 @@
         "hero_sub": "Masquez complètement les Shorts, passez les segments sponsorisés et gardez la main sur la lecture avec plus de 150 réglages. Une extension Safari native pour macOS, iOS et iPadOS.",
         "hero_cta_ios": "Télécharger pour iOS",
         "hero_cta_mac": "Télécharger pour macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Fonctions",
         "sec_features_title": "Tout pour un meilleur YouTube",
         "f1_t": "Contrôle de Vitesse",
@@ -1512,13 +1521,13 @@
         "s3_d": "Ouvrez YouTube dans Safari et profitez de l’expérience améliorée. Configurez les réglages depuis le popup.",
         "sec_why": "Pourquoi Red Crow",
         "sec_why_title": "Conçu pour les utilisateurs Safari",
-        "w1_t": "40+ réglages",
+        "w1_t": "150+ réglages",
         "w1_d": "Chaque fonction est configurable. Activez uniquement ce dont vous avez besoin. Votre YouTube, vos règles.",
         "w2_t": "Vie privée d’abord",
         "w2_d": "Pas de comptes, pas de suivi, pas de collecte de données. Vos réglages restent sur votre appareil.",
         "w3_t": "Extension Safari native",
         "w3_d": "Pas un port de Chrome. Red Crow est conçu spécifiquement pour Safari avec des performances natives.",
-        "req": "Nécessite macOS 15.0 (Sequoia) ou ultérieur, ou iOS/iPadOS 18.0 ou ultérieur.",
+        "req": "Nécessite macOS 14.0 (Sonoma) ou ultérieur, ou iOS/iPadOS 17.0 ou ultérieur.",
         "f_brand": "Studio indie de logiciels.<br>Outils ciblés et respectueux de la vie privée pour les plateformes Apple.",
         "f_legal": "Légal",
         "f_privacy": "Politique de Confidentialité",
@@ -1549,7 +1558,7 @@
         "cl_13_3": "Désormais traduite en 36 langues",
         "music_title": "Commandes du casque",
         "music_body": "Lancez, mettez en pause et changez de piste dans YouTube Music avec un casque compatible dans Safari sur Mac.",
-        "music_status": "Prévu dans la version 1.8, sous réserve de validation par l’App Store. La compatibilité varie selon le casque. La prise en charge sur iPhone et iPad n’est pas vérifiée.",
+        "music_status": "La compatibilité varie selon le casque. La prise en charge sur iPhone et iPad n’est pas vérifiée.",
         "cl_18_1": "Nouveaux réglages Essentiels et Avancés",
         "cl_18_2": "Mise en page peaufinée sur iPhone, iPad et Mac",
         "cl_18_3": "Navigation dans la file YouTube Music corrigée",
@@ -1568,7 +1577,7 @@
         "hero_sub": "Nascondi del tutto gli Shorts, salta i segmenti sponsorizzati e prendi il controllo della riproduzione con oltre 150 impostazioni. Un’estensione Safari nativa per macOS, iOS e iPadOS.",
         "hero_cta_ios": "Scarica per iOS",
         "hero_cta_mac": "Scarica per macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Funzionalità",
         "sec_features_title": "Tutto ciò che serve per un YouTube migliore",
         "f1_t": "Controllo Velocità",
@@ -1599,13 +1608,13 @@
         "s3_d": "Apri YouTube in Safari e goditi l’esperienza migliorata. Configura le impostazioni dal popup.",
         "sec_why": "Perché Red Crow",
         "sec_why_title": "Progettato per gli utenti Safari",
-        "w1_t": "40+ impostazioni",
+        "w1_t": "150+ impostazioni",
         "w1_d": "Ogni funzione è configurabile. Attiva solo ciò che ti serve. Il tuo YouTube, le tue regole.",
         "w2_t": "Privacy prima di tutto",
         "w2_d": "Nessun account, nessun tracciamento, nessuna raccolta dati. Le tue impostazioni restano sul tuo dispositivo.",
         "w3_t": "Estensione Safari nativa",
         "w3_d": "Non è un’estensione Chrome portata su Safari. Red Crow è progettato specificamente per Safari.",
-        "req": "Richiede macOS 15.0 (Sequoia) o successivo, o iOS/iPadOS 18.0 o successivo.",
+        "req": "Richiede macOS 14.0 (Sonoma) o successivo, o iOS/iPadOS 17.0 o successivo.",
         "f_brand": "Studio software indipendente.<br>Strumenti mirati e rispettosi della privacy per piattaforme Apple.",
         "f_legal": "Legale",
         "f_privacy": "Informativa sulla Privacy",
@@ -1636,7 +1645,7 @@
         "cl_13_3": "Ora tradotta in 36 lingue",
         "music_title": "Comandi delle cuffie",
         "music_body": "Riproduci, metti in pausa e cambia brano su YouTube Music con cuffie compatibili in Safari su Mac.",
-        "music_status": "In arrivo nella versione 1.8, previa approvazione dell’App Store. La compatibilità varia in base alle cuffie. Il supporto per iPhone e iPad non è verificato.",
+        "music_status": "La compatibilità varia in base alle cuffie. Il supporto per iPhone e iPad non è verificato.",
         "cl_18_1": "Nuove impostazioni Essenziali e Avanzate",
         "cl_18_2": "Layout perfezionati su iPhone, iPad e Mac",
         "cl_18_3": "Corretta la navigazione della coda di YouTube Music",
@@ -1655,7 +1664,7 @@
         "hero_sub": "ショート動画を完全に非表示にし、スポンサー区間をスキップし、150以上の設定で再生を思いどおりに。macOS、iOS、iPadOS対応のネイティブSafari拡張機能。",
         "hero_cta_ios": "iOS版をダウンロード",
         "hero_cta_mac": "macOS版をダウンロード",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "機能",
         "sec_features_title": "より良いYouTubeに必要なすべて",
         "f1_t": "速度制御",
@@ -1686,13 +1695,13 @@
         "s3_d": "SafariでYouTubeを開き、強化された体験をお楽しみください。",
         "sec_why": "なぜRed Crow",
         "sec_why_title": "Safariユーザーのために",
-        "w1_t": "40以上の設定",
+        "w1_t": "150以上の設定",
         "w1_d": "すべての機能が設定可能。必要なものだけ有効に。あなたのYouTube、あなたのルール。",
         "w2_t": "プライバシー優先",
         "w2_d": "アカウント不要、トラッキングなし、データ収集なし。設定はデバイス上に保存。",
         "w3_t": "ネイティブSafari拡張機能",
         "w3_d": "Chromeの移植ではありません。Red CrowはSafari専用に設計。",
-        "req": "macOS 15.0 (Sequoia)以降、またはiOS/iPadOS 18.0以降が必要です。",
+        "req": "macOS 14.0 (Sonoma)以降、またはiOS/iPadOS 17.0以降が必要です。",
         "f_brand": "インディーソフトウェアスタジオ。<br>Appleプラットフォーム向けのプライバシー重視ツール。",
         "f_legal": "法的情報",
         "f_privacy": "プライバシーポリシー",
@@ -1723,7 +1732,7 @@
         "cl_13_3": "36の言語に対応しました",
         "music_title": "ヘッドフォンで操作",
         "music_body": "MacのSafariで、対応するヘッドフォンからYouTube Musicの再生、一時停止、曲のスキップを操作できます。",
-        "music_status": "App Storeの承認後、バージョン1.8で提供予定です。ヘッドフォンにより対応状況が異なります。iPhoneとiPadでの動作は未確認です。",
+        "music_status": "ヘッドフォンにより対応状況が異なります。iPhoneとiPadでの動作は未確認です。",
         "cl_18_1": "新しい基本設定と詳細設定",
         "cl_18_2": "iPhone、iPad、Macのレイアウトを改善",
         "cl_18_3": "YouTube Musicのキュー操作を修正",
@@ -1742,7 +1751,7 @@
         "hero_sub": "쇼츠를 완전히 숨기고, 스폰서 구간을 건너뛰고, 150개가 넘는 설정으로 재생을 원하는 대로 제어하세요. macOS, iOS, iPadOS용 네이티브 Safari 확장 프로그램입니다.",
         "hero_cta_ios": "iOS용 다운로드",
         "hero_cta_mac": "macOS용 다운로드",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "기능",
         "sec_features_title": "더 나은 YouTube를 위한 모든 것",
         "f1_t": "속도 조절",
@@ -1773,13 +1782,13 @@
         "s3_d": "Safari에서 YouTube를 열고 향상된 경험을 즐기세요.",
         "sec_why": "왜 Red Crow인가",
         "sec_why_title": "Safari 사용자를 위해",
-        "w1_t": "40개 이상의 설정",
+        "w1_t": "150개 이상의 설정",
         "w1_d": "모든 기능을 설정할 수 있습니다. 필요한 것만 활성화하세요. 당신의 YouTube, 당신의 규칙.",
         "w2_t": "프라이버시 우선",
         "w2_d": "계정 불필요, 추적 없음, 데이터 수집 없음. 설정은 기기에 저장됩니다.",
         "w3_t": "네이티브 Safari 확장",
         "w3_d": "Chrome 이식이 아닙니다. Red Crow는 Safari 전용으로 설계되었습니다.",
-        "req": "macOS 15.0 (Sequoia) 이상 또는 iOS/iPadOS 18.0 이상 필요.",
+        "req": "macOS 14.0 (Sonoma) 이상 또는 iOS/iPadOS 17.0 이상 필요.",
         "f_brand": "인디 소프트웨어 스튜디오.<br>Apple 플랫폼을 위한 프라이버시 중심 도구.",
         "f_legal": "법적 정보",
         "f_privacy": "개인정보 처리방침",
@@ -1810,7 +1819,7 @@
         "cl_13_3": "이제 36개 언어를 지원합니다",
         "music_title": "헤드폰으로 제어",
         "music_body": "Mac용 Safari에서 호환되는 헤드폰으로 YouTube Music을 재생하거나 일시 정지하고 곡을 바꾸세요.",
-        "music_status": "App Store 승인 후 1.8 버전에서 제공될 예정입니다. 헤드폰에 따라 호환성이 다릅니다. iPhone과 iPad 지원은 확인되지 않았습니다.",
+        "music_status": "헤드폰에 따라 호환성이 다릅니다. iPhone과 iPad 지원은 확인되지 않았습니다.",
         "cl_18_1": "새로운 필수 및 고급 설정",
         "cl_18_2": "iPhone, iPad 및 Mac 레이아웃 개선",
         "cl_18_3": "YouTube Music 대기열 탐색 수정",
@@ -1829,7 +1838,7 @@
         "hero_sub": "Skjul Shorts helt, hopp over sponsorsegmenter og ta kontroll over avspillingen med mer enn 150 innstillinger. En Safari-utvidelse for macOS, iOS og iPadOS.",
         "hero_cta_ios": "Last ned for iOS",
         "hero_cta_mac": "Last ned for macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Funksjoner",
         "sec_features_title": "Alt du trenger for en bedre YouTube",
         "f1_t": "Hastighetskontroll",
@@ -1860,13 +1869,13 @@
         "s3_d": "Åpne YouTube i Safari og nyt den forbedrede opplevelsen.",
         "sec_why": "Hvorfor Red Crow",
         "sec_why_title": "Bygget for Safari-brukere",
-        "w1_t": "40+ innstillinger",
+        "w1_t": "150+ innstillinger",
         "w1_d": "Alle funksjoner kan tilpasses. Aktiver bare det du trenger. Din YouTube, dine regler.",
         "w2_t": "Personvern først",
         "w2_d": "Ingen kontoer, ingen sporing, ingen datainnsamling. Innstillingene dine forblir på enheten din.",
         "w3_t": "Safari-utvidelse",
         "w3_d": "Ikke en Chrome-utvidelse portert til Safari. Red Crow er bygget spesifikt for Safari.",
-        "req": "Krever macOS 15.0 (Sequoia) eller nyere, eller iOS/iPadOS 18.0 eller nyere.",
+        "req": "Krever macOS 14.0 (Sonoma) eller nyere, eller iOS/iPadOS 17.0 eller nyere.",
         "f_brand": "Indie-programvarestudio.<br>Fokuserte, personvernvennlige verktøy for Apple-plattformer.",
         "f_legal": "Juridisk",
         "f_privacy": "Personvern",
@@ -1897,7 +1906,7 @@
         "cl_13_3": "Nå oversatt til 36 språk",
         "music_title": "Hodetelefonkontroller",
         "music_body": "Spill av, sett på pause og bytt spor i YouTube Music med kompatible hodetelefoner i Safari på Mac.",
-        "music_status": "Kommer i 1.8 etter godkjenning fra App Store. Kompatibiliteten varierer mellom hodetelefoner. Støtte på iPhone og iPad er ikke bekreftet.",
+        "music_status": "Kompatibiliteten varierer mellom hodetelefoner. Støtte på iPhone og iPad er ikke bekreftet.",
         "cl_18_1": "Nye grunnleggende og avanserte innstillinger",
         "cl_18_2": "Finpusset layout på iPhone, iPad og Mac",
         "cl_18_3": "Fikset navigering i YouTube Music-køen",
@@ -1916,7 +1925,7 @@
         "hero_sub": "Verberg Shorts volledig, sla sponsorsegmenten over en neem de regie over het afspelen met meer dan 150 instellingen. Een Safari-extensie voor macOS, iOS en iPadOS.",
         "hero_cta_ios": "Download voor iOS",
         "hero_cta_mac": "Download voor macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Functies",
         "sec_features_title": "Alles voor een betere YouTube",
         "f1_t": "Snelheidsregeling",
@@ -1947,13 +1956,13 @@
         "s3_d": "Open YouTube in Safari en geniet van de verbeterde ervaring.",
         "sec_why": "Waarom Red Crow",
         "sec_why_title": "Gebouwd voor Safari-gebruikers",
-        "w1_t": "40+ instellingen",
+        "w1_t": "150+ instellingen",
         "w1_d": "Elke functie is configureerbaar. Schakel alleen in wat je nodig hebt. Jouw YouTube, jouw regels.",
         "w2_t": "Privacy eerst",
         "w2_d": "Geen accounts, geen tracking, geen gegevensverzameling. Je instellingen blijven op je apparaat.",
         "w3_t": "Eigen Safari-extensie",
         "w3_d": "Geen geporteerde Chrome-extensie. Red Crow is specifiek voor Safari gebouwd met native prestaties.",
-        "req": "Vereist macOS 15.0 (Sequoia) of nieuwer, of iOS/iPadOS 18.0 of nieuwer.",
+        "req": "Vereist macOS 14.0 (Sonoma) of nieuwer, of iOS/iPadOS 17.0 of nieuwer.",
         "f_brand": "Indie-softwarestudio.<br>Gerichte, privacyvriendelijke tools voor Apple-platforms.",
         "f_legal": "Juridisch",
         "f_privacy": "Privacybeleid",
@@ -1984,7 +1993,7 @@
         "cl_13_3": "Nu vertaald in 36 talen",
         "music_title": "Bediening via hoofdtelefoon",
         "music_body": "Speel af, pauzeer en wissel nummers in YouTube Music met een compatibele hoofdtelefoon in Safari op de Mac.",
-        "music_status": "Gepland voor 1.8, na goedkeuring door de App Store. Compatibiliteit verschilt per hoofdtelefoon. Ondersteuning op iPhone en iPad is niet geverifieerd.",
+        "music_status": "Compatibiliteit verschilt per hoofdtelefoon. Ondersteuning op iPhone en iPad is niet geverifieerd.",
         "cl_18_1": "Nieuwe Essentiële en Geavanceerde instellingen",
         "cl_18_2": "Verfijnde indeling op iPhone, iPad en Mac",
         "cl_18_3": "Navigatie in de YouTube Music-wachtrij hersteld",
@@ -2003,7 +2012,7 @@
         "hero_sub": "Ukryj Shorts całkowicie, pomijaj fragmenty sponsorowane i przejmij kontrolę nad odtwarzaniem dzięki ponad 150 ustawieniom. Natywne rozszerzenie Safari dla macOS, iOS i iPadOS.",
         "hero_cta_ios": "Pobierz na iOS",
         "hero_cta_mac": "Pobierz na macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Funkcje",
         "sec_features_title": "Wszystko dla lepszego YouTube",
         "f1_t": "Kontrola prędkości",
@@ -2034,13 +2043,13 @@
         "s3_d": "Otwórz YouTube w Safari i ciesz się ulepszoną obsługą.",
         "sec_why": "Dlaczego Red Crow",
         "sec_why_title": "Stworzony dla użytkowników Safari",
-        "w1_t": "40+ ustawień",
+        "w1_t": "150+ ustawień",
         "w1_d": "Każda funkcja jest konfigurowalna. Włącz tylko to, czego potrzebujesz. Twój YouTube, twoje zasady.",
         "w2_t": "Prywatność przede wszystkim",
         "w2_d": "Bez kont, bez śledzenia, bez zbierania danych. Twoje ustawienia pozostają na twoim urządzeniu.",
         "w3_t": "Natywne rozszerzenie Safari",
         "w3_d": "To nie jest port z Chrome. Red Crow został stworzony specjalnie dla Safari z natywną wydajnością.",
-        "req": "Wymaga macOS 15.0 (Sequoia) lub nowszego, lub iOS/iPadOS 18.0 lub nowszego.",
+        "req": "Wymaga macOS 14.0 (Sonoma) lub nowszego, lub iOS/iPadOS 17.0 lub nowszego.",
         "f_brand": "Niezależne studio oprogramowania.<br>Narzędzia skupione na prywatności dla platform Apple.",
         "f_legal": "Prawne",
         "f_privacy": "Polityka prywatności",
@@ -2071,7 +2080,7 @@
         "cl_13_3": "Teraz w 36 językach",
         "music_title": "Sterowanie słuchawkami",
         "music_body": "Odtwarzaj, wstrzymuj i zmieniaj utwory w YouTube Music zgodnymi słuchawkami w Safari na Macu.",
-        "music_status": "Planowane w wersji 1.8 po zatwierdzeniu przez App Store. Zgodność zależy od słuchawek. Obsługa na iPhonie i iPadzie nie została potwierdzona.",
+        "music_status": "Zgodność zależy od słuchawek. Obsługa na iPhonie i iPadzie nie została potwierdzona.",
         "cl_18_1": "Nowe ustawienia podstawowe i zaawansowane",
         "cl_18_2": "Dopracowany układ na iPhonie, iPadzie i Macu",
         "cl_18_3": "Naprawiono nawigację kolejki YouTube Music",
@@ -2090,7 +2099,7 @@
         "hero_sub": "Oculte os Shorts por completo, pule os trechos patrocinados e assuma o controle da reprodução com mais de 150 ajustes. Uma extensão nativa do Safari para macOS, iOS e iPadOS.",
         "hero_cta_ios": "Baixar para iOS",
         "hero_cta_mac": "Baixar para macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Recursos",
         "sec_features_title": "Tudo para um YouTube melhor",
         "f1_t": "Controle de Velocidade",
@@ -2121,13 +2130,13 @@
         "s3_d": "Abra o YouTube no Safari e aproveite a experiência aprimorada.",
         "sec_why": "Por que Red Crow",
         "sec_why_title": "Feito para usuários do Safari",
-        "w1_t": "40+ configurações",
+        "w1_t": "150+ configurações",
         "w1_d": "Cada recurso é configurável. Ative apenas o que precisar. Seu YouTube, suas regras.",
         "w2_t": "Privacidade em primeiro lugar",
         "w2_d": "Sem contas, sem rastreamento, sem coleta de dados. Suas configurações ficam no seu dispositivo.",
         "w3_t": "Extensão nativa do Safari",
         "w3_d": "Não é uma extensão do Chrome portada. Red Crow foi feito especificamente para o Safari.",
-        "req": "Requer macOS 15.0 (Sequoia) ou posterior, ou iOS/iPadOS 18.0 ou posterior.",
+        "req": "Requer macOS 14.0 (Sonoma) ou posterior, ou iOS/iPadOS 17.0 ou posterior.",
         "f_brand": "Estúdio indie de software.<br>Ferramentas focadas e privadas para plataformas Apple.",
         "f_legal": "Legal",
         "f_privacy": "Política de Privacidade",
@@ -2158,7 +2167,7 @@
         "cl_13_3": "Agora traduzida para 36 idiomas",
         "music_title": "Controles dos fones de ouvido",
         "music_body": "Reproduza, pause e troque de faixa no YouTube Music com fones de ouvido compatíveis no Safari para Mac.",
-        "music_status": "Em breve na versão 1.8, após aprovação da App Store. A compatibilidade varia conforme os fones. O suporte no iPhone e iPad não foi verificado.",
+        "music_status": "A compatibilidade varia conforme os fones. O suporte no iPhone e iPad não foi verificado.",
         "cl_18_1": "Novos ajustes Essenciais e Avançados",
         "cl_18_2": "Layouts aprimorados no iPhone, iPad e Mac",
         "cl_18_3": "Navegação da fila do YouTube Music corrigida",
@@ -2177,7 +2186,7 @@
         "hero_sub": "Полностью скройте Shorts, пропускайте спонсорские вставки и управляйте воспроизведением с помощью более чем 150 настроек. Нативное расширение Safari для macOS, iOS и iPadOS.",
         "hero_cta_ios": "Скачать для iOS",
         "hero_cta_mac": "Скачать для macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Функции",
         "sec_features_title": "Всё для лучшего YouTube",
         "f1_t": "Управление скоростью",
@@ -2208,13 +2217,13 @@
         "s3_d": "Откройте YouTube в Safari и наслаждайтесь улучшенным опытом.",
         "sec_why": "Почему Red Crow",
         "sec_why_title": "Создан для Safari",
-        "w1_t": "40+ настроек",
+        "w1_t": "150+ настроек",
         "w1_d": "Каждая функция настраивается. Включайте только нужное. Ваш YouTube, ваши правила.",
         "w2_t": "Приватность прежде всего",
         "w2_d": "Без аккаунтов, без отслеживания, без сбора данных. Настройки остаются на вашем устройстве.",
         "w3_t": "Нативное расширение Safari",
         "w3_d": "Не порт Chrome. Red Crow создан специально для Safari с нативной производительностью.",
-        "req": "Требуется macOS 15.0 (Sequoia) или новее, или iOS/iPadOS 18.0 или новее.",
+        "req": "Требуется macOS 14.0 (Sonoma) или новее, или iOS/iPadOS 17.0 или новее.",
         "f_brand": "Инди-студия программного обеспечения.<br>Инструменты для Apple с фокусом на конфиденциальности.",
         "f_legal": "Правовая информация",
         "f_privacy": "Политика конфиденциальности",
@@ -2245,7 +2254,7 @@
         "cl_13_3": "Теперь на 36 языках",
         "music_title": "Управление с наушников",
         "music_body": "Запускайте, приостанавливайте и переключайте треки YouTube Music с совместимых наушников в Safari на Mac.",
-        "music_status": "Ожидается в версии 1.8 после одобрения App Store. Совместимость зависит от наушников. Поддержка iPhone и iPad не проверена.",
+        "music_status": "Совместимость зависит от наушников. Поддержка iPhone и iPad не проверена.",
         "cl_18_1": "Новые основные и расширенные настройки",
         "cl_18_2": "Улучшенная компоновка на iPhone, iPad и Mac",
         "cl_18_3": "Исправлена навигация по очереди YouTube Music",
@@ -2264,7 +2273,7 @@
         "hero_sub": "Göm Shorts helt, hoppa över sponsorsegment och ta kontroll över uppspelningen med mer än 150 inställningar. Ett Safari-tillägg för macOS, iOS och iPadOS.",
         "hero_cta_ios": "Ladda ner för iOS",
         "hero_cta_mac": "Ladda ner för macOS",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Funktioner",
         "sec_features_title": "Allt du behöver för ett bättre YouTube",
         "f1_t": "Hastighetskontroll",
@@ -2295,13 +2304,13 @@
         "s3_d": "Öppna YouTube i Safari och njut av den förbättrade upplevelsen.",
         "sec_why": "Varför Red Crow",
         "sec_why_title": "Byggt för Safari-användare",
-        "w1_t": "Över 40 inställningar",
+        "w1_t": "Över 150 inställningar",
         "w1_d": "Varje funktion är konfigurerbar. Aktivera bara det du behöver. Ditt YouTube, dina regler.",
         "w2_t": "Integritet först",
         "w2_d": "Inga konton, ingen spårning, ingen datainsamling. Dina inställningar stannar på din enhet.",
         "w3_t": "Inbyggt Safari-tillägg",
         "w3_d": "Ingen Chrome-port. Red Crow är byggt specifikt för Safari med inbyggd prestanda.",
-        "req": "Kräver macOS 15.0 (Sequoia) eller nyare, eller iOS/iPadOS 18.0 eller nyare.",
+        "req": "Kräver macOS 14.0 (Sonoma) eller nyare, eller iOS/iPadOS 17.0 eller nyare.",
         "f_brand": "Indie-mjukvarustudio.<br>Fokuserade, integritetsfokuserade verktyg för Apple-plattformar.",
         "f_legal": "Juridiskt",
         "f_privacy": "Integritetspolicy",
@@ -2332,7 +2341,7 @@
         "cl_13_3": "Nu översatt till 36 språk",
         "music_title": "Hörlurskontroller",
         "music_body": "Spela upp, pausa och byt låt i YouTube Music med kompatibla hörlurar i Safari på Mac.",
-        "music_status": "Kommer i 1.8 efter godkännande av App Store. Kompatibiliteten varierar mellan hörlurar. Stöd för iPhone och iPad är inte verifierat.",
+        "music_status": "Kompatibiliteten varierar mellan hörlurar. Stöd för iPhone och iPad är inte verifierat.",
         "cl_18_1": "Nya grundläggande och avancerade inställningar",
         "cl_18_2": "Finjusterad layout på iPhone, iPad och Mac",
         "cl_18_3": "Navigering i YouTube Music-kön har åtgärdats",
@@ -2351,7 +2360,7 @@
         "hero_sub": "Shorts'u tamamen gizleyin, sponsor bölümlerini atlayın ve 150'den fazla ayarla oynatmayı elinize alın. macOS, iOS ve iPadOS için yerel bir Safari eklentisi.",
         "hero_cta_ios": "iOS için indir",
         "hero_cta_mac": "macOS için indir",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "Özellikler",
         "sec_features_title": "Daha iyi bir YouTube için ihtiyacınız olan her şey",
         "f1_t": "Hız Kontrolü",
@@ -2382,13 +2391,13 @@
         "s3_d": "Safari’de YouTube’u açın ve geliştirilmiş deneyimin tadını çıkarın.",
         "sec_why": "Neden Red Crow",
         "sec_why_title": "Safari kullanıcıları için yapıldı",
-        "w1_t": "40+ ayar",
+        "w1_t": "150+ ayar",
         "w1_d": "Her özellik yapılandırılabilir. Sadece ihtiyacınız olanı etkinleştirin. Sizin YouTube’unuz, sizin kurallarınız.",
         "w2_t": "Gizlilik önce",
         "w2_d": "Hesap yok, izleme yok, veri toplama yok. Ayarlarınız cihazınızda kalır.",
         "w3_t": "Safari eklentisi",
         "w3_d": "Chrome portu değil. Red Crow özel olarak Safari için yerel performansla yapıldı.",
-        "req": "macOS 15.0 (Sequoia) veya üstü, veya iOS/iPadOS 18.0 veya üstü gerektirir.",
+        "req": "macOS 14.0 (Sonoma) veya üstü, veya iOS/iPadOS 17.0 veya üstü gerektirir.",
         "f_brand": "Bağımsız yazılım stüdyosu.<br>Apple platformları için gizlilik odaklı araçlar.",
         "f_legal": "Yasal",
         "f_privacy": "Gizlilik Politikası",
@@ -2419,7 +2428,7 @@
         "cl_13_3": "Artık 36 dilde",
         "music_title": "Kulaklık kontrolleri",
         "music_body": "Mac’te Safari üzerinden YouTube Music parçalarını uyumlu kulaklıklarla oynatın, duraklatın ve değiştirin.",
-        "music_status": "App Store onayından sonra 1.8 sürümünde sunulacak. Uyumluluk kulaklığa göre değişir. iPhone ve iPad desteği doğrulanmamıştır.",
+        "music_status": "Uyumluluk kulaklığa göre değişir. iPhone ve iPad desteği doğrulanmamıştır.",
         "cl_18_1": "Yeni Temel ve Gelişmiş ayarlar",
         "cl_18_2": "iPhone, iPad ve Mac düzenleri iyileştirildi",
         "cl_18_3": "YouTube Music sıra gezintisi düzeltildi",
@@ -2438,7 +2447,7 @@
         "hero_sub": "彻底隐藏 Shorts，跳过赞助片段，用 150 多项设置掌控播放。macOS、iOS 和 iPadOS 上的原生 Safari 扩展。",
         "hero_cta_ios": "下载 iOS 版",
         "hero_cta_mac": "下载 macOS 版",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "功能",
         "sec_features_title": "打造更好的 YouTube 所需的一切",
         "f1_t": "速度控制",
@@ -2469,13 +2478,13 @@
         "s3_d": "在 Safari 中打开 YouTube，享受增强体验。",
         "sec_why": "为什么选 Red Crow",
         "sec_why_title": "为 Safari 用户打造",
-        "w1_t": "40+ 设置",
+        "w1_t": "150+ 设置",
         "w1_d": "每个功能都可配置。只启用你需要的。你的 YouTube，你的规则。",
         "w2_t": "隐私优先",
         "w2_d": "无账户、无跟踪、无数据收集。设置保存在你的设备上。",
         "w3_t": "原生 Safari 扩展",
         "w3_d": "不是 Chrome 移植。Red Crow 专为 Safari 设计，原生性能。",
-        "req": "需要 macOS 15.0 (Sequoia) 或更高版本，或 iOS/iPadOS 18.0 或更高版本。",
+        "req": "需要 macOS 14.0 (Sonoma) 或更高版本，或 iOS/iPadOS 17.0 或更高版本。",
         "f_brand": "独立软件工作室。<br>为 Apple 平台打造注重隐私的工具。",
         "f_legal": "法律信息",
         "f_privacy": "隐私政策",
@@ -2506,7 +2515,7 @@
         "cl_13_3": "现已支持 36 种语言",
         "music_title": "耳机控制",
         "music_body": "在 Mac 的 Safari 中，使用兼容耳机控制 YouTube Music 的播放、暂停和切歌。",
-        "music_status": "计划在 App Store 批准后随 1.8 版本推出。兼容性因耳机而异。尚未验证 iPhone 和 iPad 支持。",
+        "music_status": "兼容性因耳机而异。尚未验证 iPhone 和 iPad 支持。",
         "cl_18_1": "全新的基本设置和高级设置",
         "cl_18_2": "优化了 iPhone、iPad 和 Mac 上的布局",
         "cl_18_3": "修复了 YouTube Music 队列导航",
@@ -2525,7 +2534,7 @@
         "hero_sub": "徹底隱藏 Shorts，跳過贊助片段，用 150 多項設定掌控播放。macOS、iOS 與 iPadOS 上的原生 Safari 擴充功能。",
         "hero_cta_ios": "下載 iOS 版",
         "hero_cta_mac": "下載 macOS 版",
-        "hero_req": "iOS 18.0+ · macOS 15.0+",
+        "hero_req": "iOS 17.0+ · macOS 14.0+",
         "sec_features": "功能",
         "sec_features_title": "打造更好的 YouTube 所需的一切",
         "f1_t": "速度控制",
@@ -2556,13 +2565,13 @@
         "s3_d": "在 Safari 中開啟 YouTube，享受增強體驗。",
         "sec_why": "為什麼選 Red Crow",
         "sec_why_title": "為 Safari 用戶打造",
-        "w1_t": "40+ 設定",
+        "w1_t": "150+ 設定",
         "w1_d": "每個功能都可設定。只啟用你需要的。你的 YouTube，你的規則。",
         "w2_t": "隱私優先",
         "w2_d": "無帳號、無追蹤、無資料收集。設定保存在你的裝置上。",
         "w3_t": "原生 Safari 擴充功能",
         "w3_d": "不是 Chrome 移植。Red Crow 專為 Safari 設計，原生效能。",
-        "req": "需要 macOS 15.0 (Sequoia) 或更高版本，或 iOS/iPadOS 18.0 或更高版本。",
+        "req": "需要 macOS 14.0 (Sonoma) 或更高版本，或 iOS/iPadOS 17.0 或更高版本。",
         "f_brand": "獨立軟體工作室。<br>為 Apple 平台打造注重隱私的工具。",
         "f_legal": "法律資訊",
         "f_privacy": "隱私政策",
@@ -2593,7 +2602,7 @@
         "cl_13_3": "現已支援 36 種語言",
         "music_title": "耳機控制",
         "music_body": "在 Mac 的 Safari 中，使用相容耳機控制 YouTube Music 的播放、暫停和切換曲目。",
-        "music_status": "預計於 App Store 核准後隨 1.8 版本推出。相容性因耳機而異。尚未驗證 iPhone 和 iPad 支援。",
+        "music_status": "相容性因耳機而異。尚未驗證 iPhone 和 iPad 支援。",
         "cl_18_1": "全新的基本設定和進階設定",
         "cl_18_2": "改善 iPhone、iPad 和 Mac 上的版面",
         "cl_18_3": "修正 YouTube Music 佇列導覽",

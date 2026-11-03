@@ -1,0 +1,25 @@
+{
+  "slug": "Red-Crow-For-Safari",
+  "name": "Red Crow for Safari",
+  "appStoreId": 6766324724,
+  "version": "1.8",
+  "releaseDate": "2026-09-07T21:32:26Z",
+  "originalReleaseDate": "2026-05-04T07:00:00Z",
+  "platforms": [
+    "macOS",
+    "iPhone",
+    "iPad"
+  ],
+  "requirements": {
+    "macOS": "14.0",
+    "iOS": "17.0",
+    "iPadOS": "17.0"
+  },
+  "store": {
+    "kind": "app-store",
+    "label": "App Store",
+    "url": "https://apps.apple.com/app/id6766324724"
+  },
+  "metadataSource": "https://itunes.apple.com/lookup?id=6766324724&country=us",
+  "sourceCatalog": "https://corvusdevs.github.io/apps.json"
+}
