@@ -52,7 +52,7 @@ Red Crow transforms your YouTube experience in Safari. Hide Shorts completely, s
 
 ## Privacy
 
-No analytics, tracking, or account required. Optional community features send video/channel identifiers to their providers, which also receive IP addresses and network request information. Settings stay on your device. See the [privacy policy](https://corvusdevs.github.io/Red-Crow-For-Safari/privacy.html) for provider details.
+The Red Crow developer does not operate analytics or tracking or require an account. Optional community features send video/channel identifiers to their providers, which also receive IP addresses and network request information. Settings stay on your device. See the [privacy policy](https://corvusdevs.github.io/Red-Crow-For-Safari/privacy.html) for provider details.
 
 ## More from CorvusDevs
 

@@ -50,10 +50,10 @@
         <h2>Data Collection</h2>
         <p>Red Crow has no developer-operated analytics or tracking service and requires no Red Crow account. Specifically:</p>
         <ul>
-            <li>No analytics or tracking of any kind</li>
-            <li>No user accounts or sign-in required</li>
+            <li>No developer-operated analytics or tracking</li>
+            <li>No Red Crow account or sign-in required</li>
             <li>Features such as watched-video indicators and position memory store video-related state locally</li>
-            <li>No cookies are set by the extension</li>
+            <li>Red Crow does not set its own tracking cookies; website and provider practices remain subject to their policies</li>
             <li>Optional provider requests disclose the identifiers and network information described below</li>
         </ul>
 
@@ -61,14 +61,17 @@
         <p>Settings, preferences, and feature state are stored locally using browser storage. This includes saved playback positions and watched-video state when those features are enabled. Settings can also be exported by you.</p>
 
         <h2>Third-Party Services</h2>
-        <p>When you enable specific features, the extension may connect to the following public APIs:</p>
+        <p>When you enable specific features, the extension may connect to the following services:</p>
         <ul>
             <li><strong>SponsorBlock</strong> (sponsor.ajay.app) retrieves community-reported segments using a short prefix of a hash of the video ID and requested categories. On browsers without the required cryptographic API, the fallback sends the video ID directly.</li>
             <li><strong><a href="https://returnyoutubedislike.com/">Return YouTube Dislike</a></strong> (returnyoutubedislikeapi.com) receives the video ID to return estimated dislike counts and ratios. These figures use archived data and community-based estimates; they are not official current YouTube counts. Red Crow does not submit your votes to this service.</li>
             <li><strong>DeArrow</strong> (sponsor.ajay.app and dearrow-thumb.ajay.app) receives video IDs to retrieve community-submitted titles and thumbnails.</li>
             <li><strong>7TV, BetterTTV, FrankerFaceZ</strong> receive requests for global or channel-specific emotes and image assets; channel lookups include the channel identifier.</li>
+            <li><strong>YouTube</strong> receives optional title/category metadata requests containing the video ID, language, and generic protocol client name/version. These requests omit credentials and referrer and do not copy visitor or account context. YouTube still receives ordinary connection metadata and processes requests under <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</li>
         </ul>
-        <p>These connections occur when the related feature is enabled. Like other internet requests, they expose your IP address and ordinary network request information to the provider. Providers process requests under their own policies. Disabling the related feature stops subsequent feature lookups; it does not undo requests already sent.</p>
+        <p>These connections occur when the related feature is enabled. Like other internet requests, they expose your IP address and ordinary network request information to the provider. Providers may retain request metadata for security and analytics under their own policies. Disabling the related feature stops subsequent feature lookups; it does not undo requests already sent.</p>
+        <p>According to <a href="https://github.com/Anarios/return-youtube-dislike/blob/main/Docs/SECURITY-FAQ.md">Return YouTube Dislike's security FAQ</a>, raw IP addresses remain in memory and hashes are stored for abuse prevention and aggregate analytics, not sold or used for advertising. This is the provider's stated practice, not a guarantee that requests leave no record.</p>
+        <p>See the providers' policies for their processing practices: <a href="https://gist.github.com/ajayyy/aa9f8ded2b573d4f73a3ffa0ef74f796">SponsorBlock</a>, <a href="https://gist.github.com/ajayyy/9bfec83d57ea34f5182658ec8445aa9d">DeArrow</a>, <a href="https://7tv.app/privacy">7TV</a>, <a href="https://betterttv.com/privacy">BetterTTV</a>, and <a href="https://www.frankerfacez.com/privacy">FrankerFaceZ</a>. These policies may cover provider accounts and features that Red Crow does not use; Red Crow's integrations do not submit votes or send your YouTube account identifier.</p>
 
         <h2>Permissions</h2>
         <ul>
