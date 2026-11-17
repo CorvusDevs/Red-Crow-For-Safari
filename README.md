@@ -30,7 +30,7 @@ Red Crow transforms your YouTube experience in Safari. Hide Shorts completely, s
 - **Player Toolbar**, 19 in-player buttons: screenshot, loop, A-B loop, Picture-in-Picture, cinema mode, pop-out, rotate, flip, and more.
 - **SponsorBlock**, Automatically skip sponsors, intros, outros, self-promotion, and filler segments.
 - **Hide Distractions**, Remove comments, related videos, mixes, end cards, upcoming videos, premieres, notifications, ads, and visual clutter.
-- **Return of Dislikes**, Restore dislike counts and the like/dislike ratio bar on every video.
+- **Return of Dislikes**, Show estimated dislike counts and ratios from [Return YouTube Dislike](https://returnyoutubedislike.com/).
 - **DeArrow**, Replace clickbait titles and thumbnails with community-submitted alternatives.
 - **Video Filters**, Adjust brightness, contrast, saturation, blur, warmth, sepia, and hue in real time.
 - **Custom Themes**, Nord, Solarized Dark, Catppuccin Mocha, plus forced light/dark theme overrides.
@@ -52,7 +52,7 @@ Red Crow transforms your YouTube experience in Safari. Hide Shorts completely, s
 
 ## Privacy
 
-No account required. No sign-ups, no cloud sync, no tracking. Your settings live entirely on your device. Red Crow collects zero data.
+No analytics, tracking, or account required. Optional community features send video/channel identifiers to their providers, which also receive IP addresses and network request information. Settings stay on your device. See the [privacy policy](https://corvusdevs.github.io/Red-Crow-For-Safari/privacy.html) for provider details.
 
 ## More from CorvusDevs
 

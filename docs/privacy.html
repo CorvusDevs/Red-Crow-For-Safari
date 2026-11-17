@@ -42,33 +42,33 @@
     <div class="container">
         <a href="./" class="back">&larr; Back to Red Crow</a>
         <h1>Privacy Policy</h1>
-        <p class="date">Last updated: May 1, 2026</p>
+        <p class="date">Last updated: November 17, 2026</p>
 
         <h2>Overview</h2>
-        <p>Red Crow For Safari is a browser extension that enhances your video watching experience. Your privacy is important to us. This policy explains what data we collect (none) and how the extension works.</p>
+        <p>Red Crow For Safari enhances your video watching experience. Settings are stored on your device. Optional community features make requests to third-party providers as described below.</p>
 
         <h2>Data Collection</h2>
-        <p>Red Crow does <strong>not</strong> collect, store, or transmit any personal data. Specifically:</p>
+        <p>Red Crow has no developer-operated analytics or tracking service and requires no Red Crow account. Specifically:</p>
         <ul>
             <li>No analytics or tracking of any kind</li>
             <li>No user accounts or sign-in required</li>
-            <li>No browsing history is recorded or sent anywhere</li>
+            <li>Features such as watched-video indicators and position memory store video-related state locally</li>
             <li>No cookies are set by the extension</li>
-            <li>No data is shared with third parties</li>
+            <li>Optional provider requests disclose the identifiers and network information described below</li>
         </ul>
 
         <h2>Local Storage</h2>
-        <p>Your settings and preferences are stored locally on your device using the browser's built-in storage API. This data never leaves your device and is only used to remember your preferences between sessions.</p>
+        <p>Settings, preferences, and feature state are stored locally using browser storage. This includes saved playback positions and watched-video state when those features are enabled. Settings can also be exported by you.</p>
 
         <h2>Third-Party Services</h2>
         <p>When you enable specific features, the extension may connect to the following public APIs:</p>
         <ul>
-            <li><strong>SponsorBlock</strong> (sponsor.ajay.app), retrieves community-reported sponsor segment data for videos. No personal information is sent.</li>
-            <li><strong>Return YouTube Dislike</strong> (returnyoutubedislikeapi.com), retrieves dislike counts. Only the video ID is sent.</li>
-            <li><strong>DeArrow</strong> (dearrow-thumb.ajay.app), retrieves community-submitted titles and thumbnails. Only the video ID is sent.</li>
-            <li><strong>7TV, BetterTTV, FrankerFaceZ</strong>, retrieves chat emote data for live streams. No personal information is sent.</li>
+            <li><strong>SponsorBlock</strong> (sponsor.ajay.app) retrieves community-reported segments using a short prefix of a hash of the video ID and requested categories. On browsers without the required cryptographic API, the fallback sends the video ID directly.</li>
+            <li><strong><a href="https://returnyoutubedislike.com/">Return YouTube Dislike</a></strong> (returnyoutubedislikeapi.com) receives the video ID to return estimated dislike counts and ratios. These figures use archived data and community-based estimates; they are not official current YouTube counts. Red Crow does not submit your votes to this service.</li>
+            <li><strong>DeArrow</strong> (sponsor.ajay.app and dearrow-thumb.ajay.app) receives video IDs to retrieve community-submitted titles and thumbnails.</li>
+            <li><strong>7TV, BetterTTV, FrankerFaceZ</strong> receive requests for global or channel-specific emotes and image assets; channel lookups include the channel identifier.</li>
         </ul>
-        <p>These connections are only made when you explicitly enable the corresponding feature in settings. They are disabled by default.</p>
+        <p>These connections occur when the related feature is enabled. Like other internet requests, they expose your IP address and ordinary network request information to the provider. Providers process requests under their own policies. Disabling the related feature stops subsequent feature lookups; it does not undo requests already sent.</p>
 
         <h2>Permissions</h2>
         <ul>
@@ -78,7 +78,7 @@
         </ul>
 
         <h2>Children's Privacy</h2>
-        <p>Red Crow does not knowingly collect any information from anyone, including children under 13.</p>
+        <p>Red Crow does not operate an account or analytics service for children. Optional third-party requests follow the same behavior described above.</p>
 
         <h2>Changes</h2>
         <p>If this policy is updated, the changes will be posted on this page with an updated date.</p>
